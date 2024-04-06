@@ -1,16 +1,19 @@
-import './App.css'
-import {Route, Routes} from "react-router-dom";
-import Home from './pages/Home.jsx';
-import Category from './pages/Category.jsx';
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+import {Home}  from "./pages/Home.jsx";
+import {Category} from "./pages/Category.jsx";
+import "./index.css";
+
+const App = () => {
   return (
-<Routes>
-  <Route index element={<Home />}/>
-  <Route path="/category/itemgroup" element={<Category/>}/>
-</Routes>
-
- )
+    <BrowserRouter>
+      <Routes>
+        <Route path ='/' element={<Home />} />
+        <Route element={<Category />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
