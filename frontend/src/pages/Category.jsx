@@ -1,12 +1,25 @@
 
 function Category() {
   return (
-    // make full page sections using tailwind
-    <section className="h-screen bg-gray-100 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">Category Page</h1>
-        <p className="text-gray-600">This is the category page.</p>
+    <section className="flex h-screen bg-gray-100 ">
+      {/* left filter card */}
+      <div className="shadow-md left-0 ">
+      Filter by
+      <form>
+        <input
+        type="range" 
+        min="0" 
+        max="100" 
+        // value={}
+        // onChange={}
+        />
+        {/* add other filters */}
+         {/*quicklinks  */}
+        {/* rating */}
+      </form>
       </div>
+
+      {/* add blog type list for items make an component import */}
     </section>
   )
 }
