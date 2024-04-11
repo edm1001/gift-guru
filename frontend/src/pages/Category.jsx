@@ -13,9 +13,8 @@ function Category() {
       stars.push(
         <FaStar
           key={i}
-          className={`text-${
-            i <= rating ? "yellow" : "gray"
-          }-500 cursor-pointer`}
+          style={{color: i <=rating ? "#FFD700" : "#4B5563"}}
+          className="cursor-pointer"
           onClick={() => handleStarClick(i)}
         />
       );
@@ -24,8 +23,10 @@ function Category() {
   };
 
   return (
-    <div className="absolute left-0 m-12 p-4 w-72 ">
-      <div className="shadow-md bg-gray-100 p-6">
+    <section className="bg-slate-200 mt-12">
+      {/* filter card */}
+    <div className="left-0 p-3 w-72 mt-12">
+      <div className="shadow-md bg-gray-100 p-3">
         <h3 className="font-bold text-xl">Filter by</h3>
         <form>
           <div className="mb-2">
@@ -47,16 +48,18 @@ function Category() {
               <label htmlFor="priceRange1">$100+</label>
             </div>
           </div>
-
-          {/* Add more filter options here */}
-          <div className="mb-4">
-            <label className="block mb-1">Rating:</label>
-            <div className="flex">{renderStars()}</div>
+          <div className="mb-3 flex">
+            <label className="">Rating:</label>
+            <div className="flex mt-1 mx-3">{renderStars()}</div>
           </div>
+          {/* this button submits filters */}
+          <button className="border-2 border-green-400 text-green-500 p-2 rounded-md hover:bg-green-400 hover:text-white ">Filter!</button>
         </form>
       </div>
     </div>
-  );
+    {/* create posts cards that lead to a single page*/}
+   </section>
+);
 }
 
 export default Category;
