@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
+
 function Category() {
   const [rating, setRating] = useState(0);
 
