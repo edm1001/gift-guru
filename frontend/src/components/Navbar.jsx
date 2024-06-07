@@ -9,7 +9,7 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-olive to-gray-700 p-4 z-50 shadow-lg">
+    <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-olive to-gray-800 p-4 z-50 shadow-lg">
       <div className="flex justify-between items-center">
         <div className="text-white font-bold text-2xl">Gift Guide</div>
         <div className="sm:hidden">
@@ -26,15 +26,15 @@ function Navbar() {
           />
         </div>
         <div className="hidden sm:flex space-x-4">
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50" to="/">Home</Link>
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50" to="/categorylist">Gift List</Link>
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50" to="/trending">Trending</Link>
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50" to="/quicklinks">Quicklinks</Link>
+          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/">Home</Link>
+          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/categorylist">Gift List</Link>
+          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/trending">Trending</Link>
+          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/quicklinks">Quicklinks</Link>
         </div>
       </div>
       {isOpen && (
         <div className="sm:hidden mt-4 bg-brown-900  shadow-sm p-4 text-center">
-          <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/" onClick={toggleMenu}>Home</Link>
+          <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50 " to="/" onClick={toggleMenu}>Home</Link>
           <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/categorylist" onClick={toggleMenu}>Gift List</Link>
           <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/trending" onClick={toggleMenu}>Trending</Link>
           <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/quicklinks" onClick={toggleMenu}>Quicklinks</Link>
