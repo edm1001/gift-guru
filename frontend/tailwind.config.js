@@ -5,7 +5,13 @@ const tailwindConfig = {
     "./src/components/**/*.{html,js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gold: "#e8b71a",
+        olive: "#354f2d",
+        peach: "#ffb347",
+      },
+    },
   },
   plugins: [],
 };

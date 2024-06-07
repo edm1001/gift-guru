@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 function Home() {
   return (
 
-    <section className="bg-green-100 min-h-screen pt-24">
+    <section className="bg-gray-700 min-h-screen pt-24">
 
       <div className="w-full grid grid-cols-1 sm:grid-cols-4 text-center">
         <div className="col-span-1 bg-gray-200 p-12">Ad Section</div>
