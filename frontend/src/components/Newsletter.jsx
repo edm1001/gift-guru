@@ -6,7 +6,7 @@ function Newsletter() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
-  // TODO: set up form validation and backend
+  // TODO: set up form validation and backend for sending emails to user
   const response = await fetch('/api/newsletter', {
     method: 'POST',
     headers: {
@@ -23,7 +23,7 @@ function Newsletter() {
 }
   return (
     <div className="text-center p-4">
-      <h4 className="font-semibold text-white text-lg">Want Updates?</h4>
+      <h3 className="font-semibold text-gold text-xl">Want Updates?</h3>
       <p className="p-2 text-white">Sign up for our Newsletter to get updates and special discounts!</p>
       <form onSubmit={handleSubmit}>
         <input

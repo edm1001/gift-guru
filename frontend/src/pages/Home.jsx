@@ -9,7 +9,7 @@ function Home() {
       <div className="w-full grid grid-cols-1 sm:grid-cols-4 text-center">
         <div className="col-span-1 bg-gray-200 p-12">Ad Section</div>
 
-        {/* FIXME: Posts */}
+        {/* FIXME: Posts will be pulled from the trending page, only a few newest posts */}
         <div className="col-span-2 bg-blue-500">
           {/* Grab state and render the newest posts created in website */}
           <div className="grid grid-row-1 sm:grid-col-4 lg:grid-row-4 ">
