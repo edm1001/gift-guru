@@ -9,7 +9,7 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-olive to-gray-800 p-4 z-50 shadow-lg">
+    <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue to-white p-4 z-50 shadow-lg">
       <div className="flex justify-between items-center">
         <div className="text-white font-bold text-2xl">Gift Guide</div>
         <div className="sm:hidden">
@@ -20,16 +20,16 @@ function Navbar() {
             height={15}
             strokeWidth={2}
             rotate={0}
-            color="white"
+            color="black"
             borderRadius={0}
             animationDuration={0.5}
           />
         </div>
         <div className="hidden sm:flex space-x-4">
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/">Home</Link>
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/categorylist">Gift List</Link>
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/trending">Trending</Link>
-          <Link className="text-gold font-bold py-2 px-4 hover:opacity-50 focus:text-gray-200" to="/quicklinks">Quicklinks</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/">Home</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/categorylist">Gift List</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/trending">Trending</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/quicklinks">Quicklinks</Link>
         </div>
       </div>
       {isOpen && (

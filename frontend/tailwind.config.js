@@ -7,9 +7,10 @@ const tailwindConfig = {
   theme: {
     extend: {
       colors: {
-        gold: "#e8b71a",
-        olive: "#354f2d",
-        peach: "#ffb347",
+        blue: "#007bff",
+        lightblue: "#e0f7fa",
+        darkblue: "#0056b3",
+        grey: "#7c9299",
       },
     },
   },
