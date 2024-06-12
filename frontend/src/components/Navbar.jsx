@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue to-white p-4 z-50 shadow-lg">
       <div className="flex justify-between items-center">
-        <div className="text-white font-bold text-2xl">Gift Guide</div>
+        <div className="text-white font-bold text-2xl"><Link to="/">Gift Guide</Link></div>
         <div className="sm:hidden">
           <Hamburger
             isOpen={isOpen}
@@ -25,20 +25,20 @@ function Navbar() {
             animationDuration={0.5}
           />
         </div>
-        <div className="hidden sm:flex space-x-4">
-          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/">Home</Link>
-          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/categorylist">Gift List</Link>
-          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/trending">Trending</Link>
-          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border-2 focus:border-grey" to="/quicklinks">Quicklinks</Link>
-        </div>
+        <nav className="hidden sm:flex space-x-4 text-sm">
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border focus:border-grey" to="/shoppage">Gifts</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border focus:border-grey" to="/blogpage">Trending</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border focus:border-grey" to="/quicklinks">Quicklinks</Link>
+          <Link className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:border focus:border-grey" to="/quizpage">Discover</Link>
+        </nav>
       </div>
       {isOpen && (
-        <div className="sm:hidden mt-4 bg-brown-900  shadow-sm p-4 text-center">
-          <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50 " to="/" onClick={toggleMenu}>Home</Link>
-          <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/categorylist" onClick={toggleMenu}>Gift List</Link>
-          <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/trending" onClick={toggleMenu}>Trending</Link>
-          <Link className="block text-gold font-bold py-2 px-4 hover:opacity-50" to="/quicklinks" onClick={toggleMenu}>Quicklinks</Link>
-        </div>
+        <nav className="sm:hidden mt-4 bg-brown-900  shadow-sm p-4 text-center">
+          <Link className="block font-bold py-2 px-4 hover:opacity-50" to="/shoppage" onClick={toggleMenu}>Gifts</Link>
+          <Link className="block font-bold py-2 px-4 hover:opacity-50" to="/blogpage" onClick={toggleMenu}>Trending</Link>
+          <Link className="block font-bold py-2 px-4 hover:opacity-50" to="/quicklinks" onClick={toggleMenu}>Quicklinks</Link>
+          <Link className="block font-bold py-2 px-4 hover:opacity-50" to="/quizpage" onClick={toggleMenu}>Discover</Link>
+        </nav>
       )}
     </div>
   );

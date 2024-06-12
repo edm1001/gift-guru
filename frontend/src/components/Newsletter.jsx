@@ -22,7 +22,7 @@ function Newsletter() {
   }
 }
   return (
-    <div className=" bg-darkblue text-center p-4">
+    <div className=" bg-blue text-center p-4">
       <h3 className="font-semibold text-lightblue text-3xl">Want Updates?</h3>
       <p className="p-2 text-gray-300">Sign up for our Newsletter to get updates and special discounts!</p>
       <form onSubmit={handleSubmit} className="flex items-center space-x-4">
