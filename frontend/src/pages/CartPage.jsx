@@ -1,6 +1,9 @@
 // TODO: build cart page that automates a cart or wishlist to amazon
-export const CartPage = () => {
+const CartPage = () => {
   return (
-    <div>CartPage</div>
+    <div>
+      <h2>Cart Page</h2>
+    </div>
   )
 }
+export default CartPage;
