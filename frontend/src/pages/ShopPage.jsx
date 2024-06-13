@@ -22,14 +22,18 @@ function Category() {
   //   return stars;
   // };
 
-  // TODO: have a welcome component
   return (
     <section className="bg-white mt-24">
-      {/* filter card */}
-    {/* create item cards here; they will leads to a single page for the product */}
-    <div className="bg-red-200 ">
-      <p>hello</p>
+    <div className="relative w-full h-48 bg-cover bg-center" style={{ backgroundImage: 'url("https://example.com/your-image.jpg")' }}>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <h2 className="text-white text-xl md:text-7xl font-bold text-center">
+          Find a Gift for Every Occasion!
+        </h2>
+      </div>
     </div>
+    {/* filter card */}
+    {/* create item cards here; they will leads to a single page for the product */}
    </section>
 );
 }
