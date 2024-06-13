@@ -22,12 +22,14 @@ function Category() {
   //   return stars;
   // };
 
+  // TODO: add categories for shop
+
   return (
     <section className="bg-white mt-24">
-    <div className="relative w-full h-48 bg-cover bg-center" style={{ backgroundImage: 'url("https://example.com/your-image.jpg")' }}>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <h2 className="text-white text-xl md:text-7xl font-bold text-center">
+    <div className="relative w-full h-96 bg-cover bg-center shadow-lg" style={{ backgroundImage: 'url("https://plus.unsplash.com/premium_vector-1689096905639-a1d0a2e1bed5?bg=FFFFFF&w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xzZU5jQ296Z3lyTXx8ZW58MHx8fHx8")' }}>
+    <div className="absolute inset-0 bg-black opacity-30"></div>
+      <div className="relative z-10 flex items-center justify-center h-full ">
+        <h2 className="text-lightblue text-2xl md:text-4xl font-bold text-center">
           Find a Gift for Every Occasion!
         </h2>
       </div>
