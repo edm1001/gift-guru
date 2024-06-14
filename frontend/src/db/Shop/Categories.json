@@ -1,0 +1,75 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Hobby",
+            "description": "For Leisure enjoyment",
+            "subcategories": [
+                "Arts & Crafts",
+                "Cooking & Food",
+                "Fashion & Beauty",
+                "Fitness & Nutrition",
+                "Gaming & Entertainment",
+                "Music & Instruments",
+                "Outdoor Activities",
+                "Pet Owners",
+                "Reading & Writing",
+                "Sports Fans",
+                "Technology & Devices",
+                "Travel & Adventure"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Adults",
+            "description": "For all Adults",
+            "subcategories": [
+                "Beauty &  Skincare",
+                "Clothing & Accessories",
+                "Grooming"
+            ] 
+        },
+        {
+            "id": 3,
+            "name": "Events",
+            "description": "For every Event",
+            "subcategories": [
+                "Birthdays",
+                "Corporate",
+                "Families",
+                "Festivals",
+                "Holidays",
+                "Weddings"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Kids",
+            "description": " ",
+            "subcategories": [
+                "Arts & Crafts",
+                "Educational Games",
+                "Outdoor Activities",
+                "Reading & Writing",
+                "STEM Projects",
+                "Toys & Games"
+          
+            ]
+        }, 
+        {
+            "id": 6,
+            "name": "Elderly",
+            "description": "For every Pet",
+            "subcategories": [
+                "Books & Reading",
+                "Exercise & Rehab",
+                "Cooking & Food",
+                "Health & Nutrition",
+                "Music & Instruments",
+                "Plants & Gardening",
+                "Travel & Adventure"
+                
+            ]
+        }
+    ]
+}

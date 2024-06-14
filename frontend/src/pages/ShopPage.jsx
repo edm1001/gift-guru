@@ -1,9 +1,24 @@
-// import { useState } from "react";
+import { useEffect, useState } from "react";
+import categoriesData from "../db/Shop/Categories.json";
 // import { FaStar } from "react-icons/fa";
 
 
 function Category() {
-  // const [rating, setRating] = useState(0);
+const [categories, setCategories] = useState([]);
+const [openCategory, setOpenCategory] = useState(null);
+
+const toggleDropdown = (id) => {
+  if (openCategory === id) {
+    setOpenCategory(null);
+  } else {
+    setOpenCategory(id);
+  }
+}
+
+useEffect(() => {
+  setCategories(categoriesData.categories);
+},[])
+  
   // const handleStarClick = (value) => {
   //   setRating(value === rating ? 0 : value);
   // };
@@ -25,7 +40,7 @@ function Category() {
   // TODO: add categories for shop
 
   return (
-    <section className="bg-white mt-24">
+    <section className="min-h-screen mt-24">
     <div className="relative w-full h-96 bg-cover bg-center shadow-lg" style={{ backgroundImage: 'url("https://plus.unsplash.com/premium_vector-1689096905639-a1d0a2e1bed5?bg=FFFFFF&w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xzZU5jQ296Z3lyTXx8ZW58MHx8fHx8")' }}>
     <div className="absolute inset-0 bg-black opacity-30"></div>
       <div className="relative z-10 flex items-center justify-center h-full ">
@@ -34,6 +49,35 @@ function Category() {
         </h2>
       </div>
     </div>
+    
+    {/* Category menu  */}
+    <div className="category-menu">
+    {categories.map((category) => (
+      <div key={category.id} className="category">
+        <button
+          onClick={() => toggleDropdown(category.id)}
+          className="flex justify-between items-center w-full px-4 py-2 text-lg font-bold bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            <span>{category.name}</span>
+            <span>{openCategory === category.id ? '-' : '+'}</span>
+          </button>
+          {openCategory === category.id && (
+            <div className="mt-2 rounded shadow-inner"> 
+            <ul className="space-y-1">
+              {category.subcategories.map((subcategory) => (
+                <li 
+                key={subcategory.id}
+                className="px-4 py-2 text-black hover:bg-gray-100"
+                >
+                  {subcategory.name}
+                </li>
+              ))}
+            </ul>
+            </div>
+          )}
+        </div>
+    ))}
+    </div>
     {/* filter card */}
     {/* create item cards here; they will leads to a single page for the product */}
    </section>
@@ -41,7 +85,7 @@ function Category() {
 }
 export default Category;
 
-
+// const [rating, setRating] = useState(0);
 {/* <div className="left-0 p-1 w-72 mt-12">
   <div className="shadow-md bg-gray-100 p-3">
     <h3 className="font-bold text-xl">Filter by</h3>
