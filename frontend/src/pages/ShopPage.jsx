@@ -51,34 +51,36 @@ useEffect(() => {
     </div>
     
     {/* Category menu  */}
-    <div className="category-menu">
+    <div className="category-menu space-y-4">
+      <div className="flex flex-wrap space-x-4">
     {categories.map((category) => (
       <div key={category.id} className="category">
         <button
           onClick={() => toggleDropdown(category.id)}
-          className="flex justify-between items-center w-full px-4 py-2 text-lg font-bold bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="flex justify-between items-center w-full px-4 py-2 text-lg font-bold bg-blue-500 rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
           >
             <span>{category.name}</span>
             <span>{openCategory === category.id ? '-' : '+'}</span>
           </button>
           {openCategory === category.id && (
-            <div className="mt-2 rounded shadow-inner"> 
-            <ul className="space-y-1">
+            <div className="mt-2 rounded shadow-inner p-4"> 
+            <div className="space-y-1">
               {category.subcategories.map((subcategory) => (
-                <li 
+                <button
                 key={subcategory.id}
                 className="px-4 py-2 text-black hover:bg-gray-100"
                 >
                   {subcategory.name}
-                </li>
+                </button>
               ))}
-            </ul>
+            </div>
             </div>
           )}
         </div>
-    ))}
-    </div>
-    {/* filter card */}
+           ))}
+           </div>
+        </div>
+    {/* TODO: create filter component for the products*/}
     {/* create item cards here; they will leads to a single page for the product */}
    </section>
 );
