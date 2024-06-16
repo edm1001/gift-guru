@@ -5,6 +5,8 @@ import categoriesData from "../db/Shop/Categories.json";
 function ShopPage() {
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [allProducts, setAllProducts] = useState([]);
 
   const toggleDropdown = (id) => {
     if (openCategory === id) {
@@ -17,6 +19,23 @@ function ShopPage() {
   useEffect(() => {
     setCategories(categoriesData.categories);
   }, []);
+
+useEffect(() => {
+  const products = [];
+  categories.forEach((category) => {
+    category.subcategories?.forEach((subcategory) => {
+      subcategory.products?.forEach((product) => {
+        products.push({
+          ...product,
+          categoryId: category.id,
+          subcategoryId: subcategory.id,
+        });
+      });
+    });
+  });
+  products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  setAllProducts(products);
+}, [categories]);
 
   // const handleStarClick = (value) => {
   //   setRating(value === rating ? 0 : value);
@@ -54,13 +73,17 @@ function ShopPage() {
           </h2>
         </div>
       </div>
-        <div className="text-center p-8 mb-2 bg-gray-200">Ad Section</div>
+      <div className="text-center p-8 mb-2 bg-gray-200">Ad Section</div>
       {/* Category menu  */}
+
       {/* FIXME: fix dropdown */}
       <div className="category-menu space-y-4 flex justify-center bg-gray-100">
         <div className="flex flex-wrap justify-center space-x-4 ">
           {categories.map((category) => (
-            <div key={category.id} className=" category w-auto text-blue text-center mt-2">
+            <div
+              key={category.id}
+              className=" category w-auto text-blue text-center mt-2"
+            >
               <button
                 onClick={() => toggleDropdown(category.id)}
                 className="flex justify-between items-center w-auto p-1 text-sm font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
@@ -70,14 +93,17 @@ function ShopPage() {
               {openCategory === category.id && (
                 <div className="mt-2 p-4 rounded shadow-inner ">
                   <div className="flex flex-col space-y-1 text-black">
-                    {category.subcategories.map((subcategory, index) => (
+                    {category.subcategories.map((subcategory) => (
                       <div
-                        key={index}
+                        key={subcategory.id}
                         className="w-full px-4 py-2 rounded item-categories hover:bg-blue hover:text-white focus:bg-blue focus:text-white cursor-pointer"
                       >
-                        <p className="hover:text-lightblue text-xs">
-                        {subcategory.name}
-                        </p>
+                        <button
+                          onClick={() => setSelectedSubcategory(subcategory.id)}
+                          className="hover:text-lightblue text-xs"
+                        >
+                          {subcategory.name}
+                        </button>
                       </div>
                     ))}
                   </div>
@@ -92,6 +118,25 @@ function ShopPage() {
       -leads to a single page for the product 
       - desktops:5 tablet:4 mobile:4
       */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {(selectedSubcategory
+          ? allProducts.filter(
+              (product) => product.subcategoryId === selectedSubcategory
+            )
+          : allProducts
+        ).map((product) => (
+          <div key={product.id} className="bg-white p-4 rounded shadow">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-48 object-cover mb-4 rounded"
+            />
+            <h4 className="text-lg font-bold mb-2">{product.name}</h4>
+            <p className="text-gray-700 mb-2">{product.description}</p>
+            <p className="text-blue-500 font-semibold">${product.price}</p>
+          </div>
+        ))}
+      </div>
 
     </section>
   );
