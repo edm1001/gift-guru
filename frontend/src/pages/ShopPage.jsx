@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import categoriesData from "../db/Shop/Categories.json";
+import { Link } from "react-router-dom";
 // import { FaStar } from "react-icons/fa";
 
-function ShopPage() {
+const ShopPage = () => {
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
@@ -123,8 +124,8 @@ function ShopPage() {
             )
           : allProducts
         ).map((product) => (
-          
           <div key={product.id} className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
+            <Link to={`/shop/${product.id}`}>
             <img
               src={product.image}
               alt={product.name}
@@ -145,6 +146,7 @@ function ShopPage() {
                 </p>
               </div>
             </div>
+          </Link>
           </div>
         ))}
       </div>
