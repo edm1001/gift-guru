@@ -1,72 +1,318 @@
 {
     "categories": [
-        {
-            "id": 1,
-            "name": "Hobby",
-            "description": "For Leisure enjoyment",
-            "subcategories": [
-                {
-                    "name": "Arts & Crafts",
-                    "products": [
-                        {
-                            "id": 101,
-                            "name": "Watercolor Paint Set",
-                            "description": "A high-quality watercolor paint set for artists.",
-                            "price": 29.99,
-                            "image": "url_to_image",
-                            "website": "Amazon",
-                            "createdAt" : "MM/DD/YYYY"
-                        },
-                        {
-                            "id": 102,
-                            "name": "Crafting Kit",
-                            "description": "A complete crafting kit with various materials.",
-                            "price": 19.99,
-                            "image": "url_to_image"
-                        }
-                    ]
-                },
-                {
-                    "name": "Cooking & Food",
-                    "products": [
-                        {
-                            "id": 103,
-                            "name": "Gourmet Spice Set",
-                            "description": "A set of gourmet spices for cooking enthusiasts.",
-                            "price": 24.99,
-                            "image": "url_to_image"
-                        },
-                        {
-                            "id": 104,
-                            "name": "Baking Tools",
-                            "description": "Essential tools for baking.",
-                            "price": 14.99,
-                            "image": "url_to_image"
-                        }
-                    ]
-                },
-                {
-                    "name": "Fashion & Beauty",
-                    "products": [
-                        {
-                            "id": 105,
-                            "name": "Designer Handbag",
-                            "description": "A stylish designer handbag.",
-                            "price": 99.99,
-                            "image": "url_to_image"
-                        }
+             {
+                "id": 1,
+                "name": "Hobby",
+                "description": "For Leisure enjoyment",
+                "subcategories": [
+                    {
+                        "id": 1,
+                        "name": "Arts & Crafts",
+                        "products": [
+                            {
+                                "id": 101,
+                                "name": "Watercolor Paint Set",
+                                "description": "A high-quality watercolor paint set for artists.",
+                                "price": 29.99,
+                                "image": [
+                                    {
 
-                    ]
-                },
-                "Fitness & Nutrition",
-                "Gaming & Entertainment",
-                "Music & Instruments",
-                "Outdoor Activities",
-                "Pet Owners",
-                "Reading & Writing",
-                "Sports Fans",
-                "Technology & Devices",
-                "Travel & Adventure"
+                                        "url" : "url_to_image",
+                                        "alt": "Water Paint Set"
+                                    }
+                                ],
+                                "website": "Amazon",
+                                "createdAt": "01/01/2023",
+                                "company": "Lorem Company"
+                            },
+                            {
+                                "id": 102,
+                                "name": "Crafting Kit",
+                                "description": "A complete crafting kit with various materials.",
+                                "price": 19.99,
+                                "image": "url_to_image",
+                                "website": "Etsy",
+                                "createdAt": "02/01/2023",
+                                "company": "Craft Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Cooking & Food",
+                        "products": [
+                            {
+                                "id": 103,
+                                "name": "Gourmet Spice Set",
+                                "description": "A set of gourmet spices for cooking enthusiasts.",
+                                "price": 24.99,
+                                "image": "url_to_image",
+                                "website": "Spice World",
+                                "createdAt": "03/01/2023",
+                                "company": "Spice Co"
+                            },
+                            {
+                                "id": 104,
+                                "name": "Baking Tools",
+                                "description": "Essential tools for baking.",
+                                "price": 14.99,
+                                "image": "url_to_image",
+                                "website": "Bake Shop",
+                                "createdAt": "04/01/2023",
+                                "company": "Bake Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "Fashion & Beauty",
+                        "products": [
+                            {
+                                "id": 105,
+                                "name": "Designer Handbag",
+                                "description": "A stylish designer handbag.",
+                                "price": 99.99,
+                                "image": "url_to_image",
+                                "website": "Fashionista",
+                                "createdAt": "05/01/2023",
+                                "company": "Fashion Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "name": "Fitness & Nutrition",
+                        "products": [
+                            {
+                                "id": 106,
+                                "name": "Yoga Mat",
+                                "description": "A comfortable yoga mat for all your exercises.",
+                                "price": 39.99,
+                                "image": "url_to_image",
+                                "website": "Fitness World",
+                                "createdAt": "06/01/2023",
+                                "company": "Fitness Co"
+                            },
+                            {
+                                "id": 107,
+                                "name": "Protein Powder",
+                                "description": "High-quality protein powder for muscle building.",
+                                "price": 29.99,
+                                "image": "url_to_image",
+                                "website": "Health Shop",
+                                "createdAt": "07/01/2023",
+                                "company": "Health Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "name": "Gaming & Entertainment",
+                        "products": [
+                            {
+                                "id": 108,
+                                "name": "Gaming Console",
+                                "description": "The latest gaming console for ultimate entertainment.",
+                                "price": 499.99,
+                                "image": "url_to_image",
+                                "website": "Game Store",
+                                "createdAt": "08/01/2023",
+                                "company": "Game Co"
+                            },
+                            {
+                                "id": 109,
+                                "name": "Board Game",
+                                "description": "A fun board game for family and friends.",
+                                "price": 24.99,
+                                "image": "url_to_image",
+                                "website": "Board Game Shop",
+                                "createdAt": "09/01/2023",
+                                "company": "Board Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "name": "Music & Instruments",
+                        "products": [
+                            {
+                                "id": 110,
+                                "name": "Acoustic Guitar",
+                                "description": "A high-quality acoustic guitar for music lovers.",
+                                "price": 199.99,
+                                "image": "url_to_image",
+                                "website": "Music World",
+                                "createdAt": "10/01/2023",
+                                "company": "Music Co"
+                            },
+                            {
+                                "id": 111,
+                                "name": "Drum Set",
+                                "description": "A complete drum set for budding musicians.",
+                                "price": 299.99,
+                                "image": "url_to_image",
+                                "website": "Drum Shop",
+                                "createdAt": "11/01/2023",
+                                "company": "Drum Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "name": "Outdoor Activities",
+                        "products": [
+                            {
+                                "id": 112,
+                                "name": "Camping Tent",
+                                "description": "A durable camping tent for outdoor adventures.",
+                                "price": 149.99,
+                                "image": "url_to_image",
+                                "website": "Outdoor World",
+                                "createdAt": "12/01/2023",
+                                "company": "Outdoor Co"
+                            },
+                            {
+                                "id": 113,
+                                "name": "Hiking Backpack",
+                                "description": "A spacious hiking backpack for all your gear.",
+                                "price": 79.99,
+                                "image": "url_to_image",
+                                "website": "Hike Shop",
+                                "createdAt": "01/02/2023",
+                                "company": "Hike Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "name": "Pet Owners",
+                        "products": [
+                            {
+                                "id": 114,
+                                "name": "Dog Leash",
+                                "description": "A strong and durable dog leash for your pet.",
+                                "price": 19.99,
+                                "image": "url_to_image",
+                                "website": "Pet World",
+                                "createdAt": "02/02/2023",
+                                "company": "Pet Co"
+                            },
+                            {
+                                "id": 115,
+                                "name": "Cat Toy",
+                                "description": "A fun toy for your cat.",
+                                "price": 9.99,
+                                "image": "url_to_image",
+                                "website": "Cat Shop",
+                                "createdAt": "03/02/2023",
+                                "company": "Cat Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "name": "Reading & Writing",
+                        "products": [
+                            {
+                                "id": 116,
+                                "name": "Notebook Set",
+                                "description": "A set of high-quality notebooks for writing.",
+                                "price": 14.99,
+                                "image": "url_to_image",
+                                "website": "Stationery Store",
+                                "createdAt": "04/02/2023",
+                                "company": "Stationery Co"
+                            },
+                            {
+                                "id": 117,
+                                "name": "Reading Lamp",
+                                "description": "A stylish reading lamp for book lovers.",
+                                "price": 29.99,
+                                "image": "url_to_image",
+                                "website": "Lamp Shop",
+                                "createdAt": "05/02/2023",
+                                "company": "Lamp Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "name": "Sports Fans",
+                        "products": [
+                            {
+                                "id": 118,
+                                "name": "Football Jersey",
+                                "description": "A jersey of your favorite football team.",
+                                "price": 59.99,
+                                "image": "url_to_image",
+                                "website": "Sports World",
+                                "createdAt": "06/02/2023",
+                                "company": "Sports Co"
+                            },
+                            {
+                                "id": 119,
+                                "name": "Basketball",
+                                "description": "A high-quality basketball for sports enthusiasts.",
+                                "price": 29.99,
+                                "image": "url_to_image",
+                                "website": "Ball Shop",
+                                "createdAt": "07/02/2023",
+                                "company": "Ball Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 11,
+                        "name": "Technology & Devices",
+                        "products": [
+                            {
+                                "id": 120,
+                                "name": "Smartphone",
+                                "description": "The latest model smartphone with advanced features.",
+                                "price": 699.99,
+                                "image": "url_to_image",
+                                "website": "Tech World",
+                                "createdAt": "08/02/2023",
+                                "company": "Tech Co"
+                            },
+                            {
+                                "id": 121,
+                                "name": "Laptop",
+                                "description": "A high-performance laptop for work and play.",
+                                "price": 999.99,
+                                "image": "url_to_image",
+                                "website": "Laptop Store",
+                                "createdAt": "09/02/2023",
+                                "company": "Laptop Co"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 12,
+                        "name": "Travel & Adventure",
+                        "products": [
+                            {
+                                "id": 122,
+                                "name": "Travel Backpack",
+                                "description": "A versatile travel backpack for your adventures.",
+                                "price": 89.99,
+                                "image": "url_to_image",
+                                "website": "Travel Gear",
+                                "createdAt": "10/02/2023",
+                                "company": "Travel Co"
+                            },
+                            {
+                                "id": 123,
+                                "name": "Travel Guidebook",
+                                "description": "A comprehensive guidebook for your next trip.",
+                                "price": 19.99,
+                                "image": "url_to_image",
+                                "website": "Guidebook Shop",
+                                "createdAt": "11/02/2023",
+                                "company": "Guidebook Co"
+                            }
+                        ]
+                    }
     ]
 },
         {

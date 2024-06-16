@@ -12,9 +12,15 @@ const tailwindConfig = {
         darkblue: "#0056b3",
         grey: "#7c9299",
       },
+      fontSize: {
+        'xxs' : '0.625rem',
+      },
+      fontFamily: {
+        sans : ['Montserrat', 'sans-serif'],
+      },
     },
-  },
   plugins: [],
+},
 };
 
 export default tailwindConfig;

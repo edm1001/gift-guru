@@ -20,22 +20,22 @@ function ShopPage() {
     setCategories(categoriesData.categories);
   }, []);
 
-useEffect(() => {
-  const products = [];
-  categories.forEach((category) => {
-    category.subcategories?.forEach((subcategory) => {
-      subcategory.products?.forEach((product) => {
-        products.push({
-          ...product,
-          categoryId: category.id,
-          subcategoryId: subcategory.id,
+  useEffect(() => {
+    const products = [];
+    categories.forEach((category) => {
+      category.subcategories?.forEach((subcategory) => {
+        subcategory.products?.forEach((product) => {
+          products.push({
+            ...product,
+            categoryId: category.id,
+            subcategoryId: subcategory.id,
+          });
         });
       });
     });
-  });
-  products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  setAllProducts(products);
-}, [categories]);
+    products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    setAllProducts(products);
+  }, [categories]);
 
   // const handleStarClick = (value) => {
   //   setRating(value === rating ? 0 : value);
@@ -58,7 +58,7 @@ useEffect(() => {
   // TODO: add categories for shop
 
   return (
-    <section className="min-h-screen mt-24 bg-slate-100">
+    <section className="min-h-screen mt-24 bg-slate-100 bg-gradient-to-r from-lightblue to-blue">
       <div
         className="relative w-full h-96 bg-cover bg-center shadow-lg"
         style={{
@@ -77,12 +77,12 @@ useEffect(() => {
       {/* Category menu  */}
 
       {/* FIXME: fix dropdown */}
-      <div className="category-menu space-y-4 flex justify-center bg-gray-100">
+      <div className="category-menu space-y-4 flex justify-center ">
         <div className="flex flex-wrap justify-center space-x-4 ">
           {categories.map((category) => (
             <div
               key={category.id}
-              className=" category w-auto text-blue text-center mt-2"
+              className=" category w-auto text-darkblue text-center mt-2"
             >
               <button
                 onClick={() => toggleDropdown(category.id)}
@@ -114,30 +114,40 @@ useEffect(() => {
         </div>
       </div>
       {/* TODO: create filter component for the products*/}
-      {/* TODO: create products cards here: p.name, p.company p.price
-      -leads to a single page for the product 
-      - desktops:5 tablet:4 mobile:4
-      */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+      {/* Item Card */}
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 hover:cursor-pointer p-8">
         {(selectedSubcategory
           ? allProducts.filter(
               (product) => product.subcategoryId === selectedSubcategory
             )
           : allProducts
         ).map((product) => (
-          <div key={product.id} className="bg-white p-4 rounded shadow">
+          
+          <div key={product.id} className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-48 object-cover mb-4 rounded"
+              className="w-full h-36 object-cover rounded bg-gray-300"
             />
-            <h4 className="text-lg font-bold mb-2">{product.name}</h4>
-            <p className="text-gray-700 mb-2">{product.description}</p>
-            <p className="text-blue-500 font-semibold">${product.price}</p>
+            <div className="grid grid-cols-1 md:grid-cols-4 rounded-b-lg">
+              <div className="md:col-span-3 col-span-full text-center md:text-start text-center z-0">
+                <h4 className="text-xs md:text-sm font-bold mb-1">
+                  {product.name}
+                </h4>
+                <p className="text-xxs md:text-xs font-bold mb-1 text-lightblue">
+                  By: {product.company}
+                </p>
+              </div>
+              <div className="md:col-span-1 col-span-full flex items-center justify-end p-2">
+                <p className="text-blue-500 text-xs md:text-sm font-bold bg-darkblue text-lightblue rounded p-1 active:bg-blue ">
+                  ${product.price}
+                </p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-
     </section>
   );
 }
