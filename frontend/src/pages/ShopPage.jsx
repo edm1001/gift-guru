@@ -54,23 +54,22 @@ function ShopPage() {
           </h2>
         </div>
       </div>
-
+{/* TODO: HAVE AD SPACE */}
       {/* Category menu  */}
       {/* FIXME: fix dropdown */}
-      <div className="category-menu space-y-4">
-        <div className="flex flex-wrap space-x-4 ">
+      <div className="category-menu space-y-4 flex justify-center">
+        <div className="flex flex-wrap justify-center space-x-4 ">
           {categories.map((category) => (
-            <div key={category.id} className=" category w-full sm:w-auto text-blue">
+            <div key={category.id} className=" category w-auto text-blue text-center">
               <button
                 onClick={() => toggleDropdown(category.id)}
-                className="flex justify-between items-center w-full px-4 py-2 text-lg font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
+                className="flex justify-between items-center w-full px-2 mt-18 text-lg font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
               >
-                <span>{category.name}</span>
-                <span>{openCategory === category.id ? "-" : "+"}</span>
+                <span className="focus:text-indigo-200">{category.name}</span>
               </button>
               {openCategory === category.id && (
                 <div className="mt-2 p-4 rounded shadow-inner ">
-                  <div className="flex flex-col space-y-1 bg-white text-black">
+                  <div className="flex flex-col space-y-1 text-black">
                     {category.subcategories.map((subcategory, index) => (
                       <div
                         key={index}

@@ -5,9 +5,55 @@
             "name": "Hobby",
             "description": "For Leisure enjoyment",
             "subcategories": [
-                "Arts & Crafts",
-                "Cooking & Food",
-                "Fashion & Beauty",
+                {
+                    "name": "Arts & Crafts",
+                    "products": [
+                        {
+                            "id": 101,
+                            "name": "Watercolor Paint Set",
+                            "description": "A high-quality watercolor paint set for artists.",
+                            "price": 29.99,
+                            "image": "url_to_image"
+                        },
+                        {
+                            "id": 102,
+                            "name": "Crafting Kit",
+                            "description": "A complete crafting kit with various materials.",
+                            "price": 19.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cooking & Food",
+                    "products": [
+                        {
+                            "id": 103,
+                            "name": "Gourmet Spice Set",
+                            "description": "A set of gourmet spices for cooking enthusiasts.",
+                            "price": 24.99,
+                            "image": "url_to_image"
+                        },
+                        {
+                            "id": 104,
+                            "name": "Baking Tools",
+                            "description": "Essential tools for baking.",
+                            "price": 14.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
+                {
+                    "name": "Fashion & Beauty",
+                    "products": [
+                        {
+                            "id": 105,
+                            "name": "Designer Handbag",
+                            "description": "A stylish designer handbag.",
+                            "price": 99.99,
+                            "image": "url_to_image"
+                        },
+
                 "Fitness & Nutrition",
                 "Gaming & Entertainment",
                 "Music & Instruments",
@@ -18,15 +64,50 @@
                 "Technology & Devices",
                 "Travel & Adventure"
             ]
-        },
+        }
+    ]
+},
         {
             "id": 2,
             "name": "Adults",
             "description": "For all Adults",
-            "subcategories": [
-                "Beauty &  Skincare",
-                "Clothing & Accessories",
-                "Grooming"
+                "subcategories": [
+                    {
+                        "name": "Beauty & Skincare",
+                        "products": [
+                            {
+                                "id": 201,
+                                "name": "Anti-aging Cream",
+                                "description": "A premium anti-aging cream for skincare.",
+                                "price": 39.99,
+                                "image": "url_to_image"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Clothing & Accessories",
+                        "products": [
+                            {
+                                "id": 202,
+                                "name": "Leather Wallet",
+                                "description": "A high-quality leather wallet.",
+                                "price": 49.99,
+                                "image": "url_to_image"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Grooming",
+                        "products": [
+                            {
+                                "id": 203,
+                                "name": "Beard Grooming Kit",
+                                "description": "A complete kit for beard grooming.",
+                                "price": 29.99,
+                                "image": "url_to_image"
+                            }
+                        ]
+                    }
             ] 
         },
         {
@@ -34,8 +115,31 @@
             "name": "Events",
             "description": "For every Event",
             "subcategories": [
-                "Birthdays",
-                "Corporate",
+                {
+                    "name": "Birthdays",
+                    "products": [
+                        {
+                            "id": 301,
+                            "name": "Birthday Gift Hamper",
+                            "description": "A hamper filled with birthday goodies.",
+                            "price": 59.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
+                {
+                    "name": "Corporate",
+                    "products": [
+                        {
+                            "id": 302,
+                            "name": "Corporate Gift Set",
+                            "description": "A sophisticated gift set for corporate events.",
+                            "price": 79.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
+
                 "Families",
                 "Festivals",
                 "Holidays",
@@ -47,8 +151,30 @@
             "name": "Kids",
             "description": " ",
             "subcategories": [
-                "Arts & Crafts",
-                "Educational Games",
+                {
+                    "name": "Arts & Crafts",
+                    "products": [
+                        {
+                            "id": 501,
+                            "name": "Kids Painting Set",
+                            "description": "A fun painting set for kids.",
+                            "price": 19.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
+                {
+                    "name": "Educational Games",
+                    "products": [
+                        {
+                            "id": 502,
+                            "name": "Math Puzzle",
+                            "description": "An educational puzzle game for learning math.",
+                            "price": 14.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
                 "Outdoor Activities",
                 "Reading & Writing",
                 "STEM Projects",
@@ -61,8 +187,30 @@
             "name": "Elderly",
             "description": "For every Pet",
             "subcategories": [
-                "Books & Reading",
-                "Exercise & Rehab",
+                {
+                    "name": "Books & Reading",
+                    "products": [
+                        {
+                            "id": 601,
+                            "name": "Large Print Book",
+                            "description": "A book with large print for easy reading.",
+                            "price": 12.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
+                {
+                    "name": "Exercise & Rehab",
+                    "products": [
+                        {
+                            "id": 602,
+                            "name": "Resistance Bands",
+                            "description": "Bands for resistance training and rehab.",
+                            "price": 9.99,
+                            "image": "url_to_image"
+                        }
+                    ]
+                },
                 "Cooking & Food",
                 "Health & Nutrition",
                 "Music & Instruments",
