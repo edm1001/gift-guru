@@ -13,7 +13,9 @@
                             "name": "Watercolor Paint Set",
                             "description": "A high-quality watercolor paint set for artists.",
                             "price": 29.99,
-                            "image": "url_to_image"
+                            "image": "url_to_image",
+                            "website": "Amazon",
+                            "createdAt" : "MM/DD/YYYY"
                         },
                         {
                             "id": 102,
@@ -52,8 +54,10 @@
                             "description": "A stylish designer handbag.",
                             "price": 99.99,
                             "image": "url_to_image"
-                        },
+                        }
 
+                    ]
+                },
                 "Fitness & Nutrition",
                 "Gaming & Entertainment",
                 "Music & Instruments",
@@ -63,8 +67,6 @@
                 "Sports Fans",
                 "Technology & Devices",
                 "Travel & Adventure"
-            ]
-        }
     ]
 },
         {
@@ -195,7 +197,8 @@
                             "name": "Large Print Book",
                             "description": "A book with large print for easy reading.",
                             "price": 12.99,
-                            "image": "url_to_image"
+                            "image": "url_to_image",
+                            "website": "Amazon"
                         }
                     ]
                 },

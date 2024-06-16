@@ -39,7 +39,7 @@ function ShopPage() {
   // TODO: add categories for shop
 
   return (
-    <section className="min-h-screen mt-24">
+    <section className="min-h-screen mt-24 bg-slate-100">
       <div
         className="relative w-full h-96 bg-cover bg-center shadow-lg"
         style={{
@@ -54,16 +54,16 @@ function ShopPage() {
           </h2>
         </div>
       </div>
-{/* TODO: HAVE AD SPACE */}
+        <div className="text-center p-8 mb-2 bg-gray-200">Ad Section</div>
       {/* Category menu  */}
       {/* FIXME: fix dropdown */}
-      <div className="category-menu space-y-4 flex justify-center">
+      <div className="category-menu space-y-4 flex justify-center bg-gray-100">
         <div className="flex flex-wrap justify-center space-x-4 ">
           {categories.map((category) => (
-            <div key={category.id} className=" category w-auto text-blue text-center">
+            <div key={category.id} className=" category w-auto text-blue text-center mt-2">
               <button
                 onClick={() => toggleDropdown(category.id)}
-                className="flex justify-between items-center w-full px-2 mt-18 text-lg font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
+                className="flex justify-between items-center w-auto p-1 text-sm font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
               >
                 <span className="focus:text-indigo-200">{category.name}</span>
               </button>
@@ -73,9 +73,11 @@ function ShopPage() {
                     {category.subcategories.map((subcategory, index) => (
                       <div
                         key={index}
-                        className="w-full px-4 py-2 rounded item-categories hover:bg-gray-300 text-md"
+                        className="w-full px-4 py-2 rounded item-categories hover:bg-blue hover:text-white focus:bg-blue focus:text-white cursor-pointer"
                       >
+                        <p className="hover:text-lightblue text-xs">
                         {subcategory.name}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -86,7 +88,11 @@ function ShopPage() {
         </div>
       </div>
       {/* TODO: create filter component for the products*/}
-      {/* create item cards here; they will leads to a single page for the product */}
+      {/* TODO: create products cards here: p.name, p.company p.price
+      -leads to a single page for the product 
+      - desktops:5 tablet:4 mobile:4
+      */}
+
     </section>
   );
 }
