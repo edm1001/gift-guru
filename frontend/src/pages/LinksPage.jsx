@@ -1,7 +1,9 @@
 
 function LinksPage() {
   return (
-    <div className="bg-blue"><h3>Quicklinknks</h3></div>
+    <div className="bg-blue">
+      <h3>Quick links</h3>
+      </div>
   )
 }
 

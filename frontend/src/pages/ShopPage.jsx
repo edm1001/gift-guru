@@ -124,35 +124,36 @@ const ShopPage = () => {
             )
           : allProducts
         ).map((product) => (
-          <div key={product.id} className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
-            <Link to={`/shop/${product.id}`}>
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-36 object-cover rounded bg-gray-300"
-            />
-            <div className="grid grid-cols-1 md:grid-cols-4 rounded-b-lg">
-              <div className="md:col-span-3 col-span-full text-center md:text-start text-center z-0">
-                <h4 className="text-xs md:text-sm font-bold mb-1">
-                  {product.name}
-                </h4>
-                <p className="text-xxs md:text-xs font-bold mb-1 text-lightblue">
-                  By: {product.company}
-                </p>
-              </div>
-              <div className="md:col-span-1 col-span-full flex items-center justify-end p-2">
-                <p className="text-blue-500 text-xs md:text-sm font-bold bg-darkblue text-lightblue rounded p-1 active:bg-blue ">
-                  ${product.price}
-                </p>
+          // FIXME: this links product data to product details page
+          <Link key={product.id} to={`/shop/${product.id}`}>
+            <div className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-36 object-cover rounded bg-gray-300"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-4 rounded-b-lg">
+                <div className="md:col-span-3 col-span-full text-center md:text-start text-center z-0">
+                  <h4 className="text-xs md:text-sm font-bold mb-1">
+                    {product.name}
+                  </h4>
+                  <p className="text-xxs md:text-xs font-bold mb-1 text-lightblue">
+                    By: {product.company}
+                  </p>
+                </div>
+                <div className="md:col-span-1 col-span-full flex items-center justify-end p-2">
+                  <p className="text-blue-500 text-xs md:text-sm font-bold bg-darkblue text-lightblue rounded p-1 active:bg-blue ">
+                    ${product.price}
+                  </p>
+                </div>
               </div>
             </div>
           </Link>
-          </div>
         ))}
       </div>
     </section>
   );
-}
+};
 export default ShopPage;
 
 // const [rating, setRating] = useState(0);
