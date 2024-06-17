@@ -59,7 +59,7 @@ const ShopPage = () => {
   // TODO: add categories for shop
 
   return (
-    <section className="min-h-screen mt-24 bg-slate-100 bg-gradient-to-r from-lightblue to-blue">
+    <section className="min-h-screen mt-16 bg-slate-100 bg-gradient-to-r from-lightblue to-blue">
       <div
         className="relative w-full h-96 bg-cover bg-center shadow-lg"
         style={{
@@ -125,8 +125,8 @@ const ShopPage = () => {
           : allProducts
         ).map((product) => (
           // FIXME: this links product data to product details page
-          <Link key={product.id} to={`/shop/${product.id}`}>
-            <div className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
+          <div key={product.id}  className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
+          <Link to={`/shop/${product.id}`}>
               <img
                 src={product.image}
                 alt={product.name}
@@ -147,8 +147,8 @@ const ShopPage = () => {
                   </p>
                 </div>
               </div>
-            </div>
           </Link>
+            </div>
         ))}
       </div>
     </section>

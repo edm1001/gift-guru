@@ -2,9 +2,8 @@ import { FaArrowRight } from "react-icons/fa";
 const BlogPage = () => {
   return (
     // Create blog page for posts
-    <section className="bg-gray-200 min-h-screen pt-24 pb-8">
+    <section className="bg-gray-200 min-h-screen pt-16 pb-8">
       {/* Create nav for filters: by category(fitness, tech, tools, skincare, accessories,  etc) + by newest or oldest */}
-      <h2 className="text-black">Blog Page</h2>
     <div className="w-full grid grid-cols-1 sm:grid-cols-4 text-center ">
       <div className="col-span-1 bg-gray-200 p-12">Ad Section</div>
 
