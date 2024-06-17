@@ -9,7 +9,7 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="fixed bg-blue top-0 left-0 right-0  p-4 z-50 shadow-lg opacity-25">
+    <div className="fixed bg-blue top-0 left-0 right-0  p-4 z-50 shadow-lg opacity-90">
       <div className="flex justify-between items-center">
         <div className="text-white font-bold text-2xl"><Link to="/">Gift Guide</Link></div>
         <div className="sm:hidden">
