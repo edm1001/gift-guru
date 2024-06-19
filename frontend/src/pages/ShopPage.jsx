@@ -38,6 +38,15 @@ const ShopPage = () => {
     setAllProducts(products);
   }, [categories]);
 
+  const totalProducts = categories.flatMap(category => 
+    category.subcategories.flatMap(subcategory => 
+      subcategory.products.map(product => ({
+      ...product,
+      subcategoryId: subcategory.id
+    }))
+  ));
+
+  const filteredProducts = selectedSubcategory ? totalProducts.filter(product => product.subcategoryId === selectedSubcategory) : totalProducts;
   // const handleStarClick = (value) => {
   //   setRating(value === rating ? 0 : value);
   // };
