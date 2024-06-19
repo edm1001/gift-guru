@@ -205,15 +205,16 @@
             ]
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "Events",
             "description": "For every Event",
             "subcategories": [
                 {
+                    "id": 1,
                     "name": "Birthdays",
                     "products": [
                         {
-                            "id": 301,
+                            "id": 201,
                             "name": "Birthday Gift Hamper",
                             "description": "A hamper filled with birthday goodies.",
                             "price": 59.99,
@@ -225,10 +226,11 @@
                     ]
                 },
                 {
+                    "id": 2,
                     "name": "Corporate",
                     "products": [
                         {
-                            "id": 302,
+                            "id": 202,
                             "name": "Corporate Gift Set",
                             "description": "A sophisticated gift set for corporate events.",
                             "price": 79.99,
@@ -240,10 +242,11 @@
                     ]
                 },
                 {
+                    "id": 3,
                     "name": "Families",
                     "products": [
                         {
-                            "id": 303,
+                            "id": 203,
                             "name": "Family Picnic Set",
                             "description": "A complete set for a family picnic.",
                             "price": 89.99,
@@ -255,10 +258,11 @@
                     ]
                 },
                 {
+                    "id": 4,
                     "name": "Festivals",
                     "products": [
                         {
-                            "id": 304,
+                            "id": 204,
                             "name": "Festival Decoration Kit",
                             "description": "A kit for decorating during festivals.",
                             "price": 49.99,
@@ -270,10 +274,11 @@
                     ]
                 },
                 {
+                    "id": 5,
                     "name": "Holidays",
                     "products": [
                         {
-                            "id": 305,
+                            "id": 205,
                             "name": "Holiday Travel Package",
                             "description": "A travel package for holiday getaways.",
                             "price": 299.99,
@@ -285,10 +290,11 @@
                     ]
                 },
                 {
+                    "id": 6,
                     "name": "Weddings",
                     "products": [
                         {
-                            "id": 306,
+                            "id": 206,
                             "name": "Wedding Gift Basket",
                             "description": "A beautiful gift basket for weddings.",
                             "price": 129.99,
@@ -302,16 +308,16 @@
             ]
         },
         {
-            "id": 2,
+            "id": 3,
             "name": "Adults",
             "description": "For all Adults",
             "subcategories": [
                 {
-                    "id": 13,
+                    "id": 1,
                     "name": "Women's Beauty & Skincare",
                     "products": [
                         {
-                            "id": 201,
+                            "id": 301,
                             "name": "Anti-aging Cream",
                             "description": "A premium anti-aging cream for skincare.",
                             "price": 39.99,
@@ -323,11 +329,11 @@
                     ]
                 },
                 {
-                    "id": 14,
+                    "id": 2,
                     "name": "Men's Fashion",
                     "products": [
                         {
-                            "id": 202,
+                            "id": 302,
                             "name": "Leather Wallet",
                             "description": "A high-quality leather wallet.",
                             "price": 49.99,
@@ -339,11 +345,11 @@
                     ]
                 },
                 {
-                    "id": 15,
+                    "id": 3,
                     "name": "Women's Fashion",
                     "products": [
                         {
-                            "id": 203,
+                            "id": 303,
                             "name": "Women's Dress",
                             "description": "An elegant dress for women.",
                             "price": 79.99,
@@ -355,11 +361,11 @@
                     ]
                 },
                 {
-                    "id": 16,
+                    "id": 4,
                     "name": "Men's Grooming",
                     "products": [
                         {
-                            "id": 204,
+                            "id": 304,
                             "name": "Beard Grooming Kit",
                             "description": "A complete kit for beard grooming.",
                             "price": 29.99,
@@ -378,7 +384,7 @@
             "description": "For all Kids",
             "subcategories": [
                 {
-                    "id": 18,
+                    "id": 1,
                     "name": "Education",
                     "products": [
                         {
@@ -394,7 +400,7 @@
                     ]
                 },
                 {
-                    "id": 19,
+                    "id": 2,
                     "name": "Toys & Games",
                     "products": [
                         {
@@ -410,7 +416,7 @@
                     ]
                 },
                 {
-                    "id": 20,
+                    "id": 3,
                     "name": "Outdoor Activities",
                     "products": [
                         {
@@ -426,7 +432,7 @@
                     ]
                 },
                 {
-                    "id": 21,
+                    "id": 4,
                     "name": "Reading & Writing",
                     "products": [
                         {
@@ -442,7 +448,7 @@
                     ]
                 },
                 {
-                    "id": 22,
+                    "id": 5,
                     "name": "STEM Projects",
                     "products": [
                         {
@@ -458,7 +464,7 @@
                     ]
                 },
                 {
-                    "id": 23,
+                    "id": 6,
                     "name": "Kids Fashion",
                     "products": [
                         {
@@ -474,7 +480,7 @@
                     ]
                 },
                 {
-                    "id": 24,
+                    "id": 7,
                     "name": "Gadgets",
                     "products": [
                         {
@@ -492,15 +498,16 @@
             ]
         },
         {
-            "id": 6,
+            "id": 5,
             "name": "Elderly",
             "description": "For every Pet",
             "subcategories": [
                 {
+                    "id": 1,
                     "name": "Books & Reading",
                     "products": [
                         {
-                            "id": 601,
+                            "id": 501,
                             "name": "Large Print Book",
                             "description": "A book with large print for easy reading.",
                             "price": 12.99,
@@ -512,10 +519,11 @@
                     ]
                 },
                 {
+                    "id": 2,
                     "name": "Exercise & Rehab",
                     "products": [
                         {
-                            "id": 602,
+                            "id": 502,
                             "name": "Resistance Bands",
                             "description": "Bands for resistance training and rehab.",
                             "price": 9.99,
@@ -527,10 +535,11 @@
                     ]
                 },
                 {
+                    "id": 3,
                     "name": "Health & Nutrition",
                     "products": [
                         {
-                            "id": 603,
+                            "id": 503,
                             "name": "Multivitamin Supplement",
                             "description": "A daily multivitamin supplement for health maintenance.",
                             "price": 19.99,
@@ -542,10 +551,11 @@
                     ]
                 },
                 {
+                    "id": 4,
                     "name": "Plants & Gardening",
                     "products": [
                         {
-                            "id": 604,
+                            "id": 504,
                             "name": "Indoor Plant",
                             "description": "A low-maintenance indoor plant to brighten up any room.",
                             "price": 29.99,

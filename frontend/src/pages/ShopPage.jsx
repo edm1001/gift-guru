@@ -142,7 +142,7 @@ const ShopPage = () => {
                   </p>
                 </div>
                 <div className="md:col-span-1 col-span-full flex items-center justify-end p-2">
-                  <p className="text-blue-500 text-xs md:text-sm font-bold bg-darkblue text-lightblue rounded p-1 active:bg-blue ">
+                  <p className="text-blue-500 text-xs md:text-sm font-bold bg-blue text-lightblue rounded p-1 active:bg-blue ">
                     ${product.price}
                   </p>
                 </div>
