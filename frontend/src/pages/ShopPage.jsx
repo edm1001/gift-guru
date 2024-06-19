@@ -10,11 +10,7 @@ const ShopPage = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   const toggleDropdown = (id) => {
-    if (openCategory === id) {
-      setOpenCategory(null);
-    } else {
-      setOpenCategory(id);
-    }
+    setOpenCategory(openCategory === id ? null : id);
   };
 
   useEffect(() => {
@@ -38,15 +34,9 @@ const ShopPage = () => {
     setAllProducts(products);
   }, [categories]);
 
-  const totalProducts = categories.flatMap(category => 
-    category.subcategories.flatMap(subcategory => 
-      subcategory.products.map(product => ({
-      ...product,
-      subcategoryId: subcategory.id
-    }))
-  ));
 
-  const filteredProducts = selectedSubcategory ? totalProducts.filter(product => product.subcategoryId === selectedSubcategory) : totalProducts;
+  const filteredProducts = selectedSubcategory ? allProducts.filter(product => product.subcategoryId === selectedSubcategory) : allProducts;
+
   // const handleStarClick = (value) => {
   //   setRating(value === rating ? 0 : value);
   // };
@@ -64,8 +54,11 @@ const ShopPage = () => {
   //   }
   //   return stars;
   // };
+  useEffect(() => {
+    console.log("Selected Subcategory:", selectedSubcategory); // Debug: Log selected subcategory
+    console.log("Filtered Products:", filteredProducts); // Debug: Log filtered products
+  }, [selectedSubcategory, filteredProducts]);
 
-  // TODO: add categories for shop
 
   return (
     <section className="min-h-screen mt-16 bg-slate-100 bg-gradient-to-r from-lightblue to-blue">
@@ -85,8 +78,6 @@ const ShopPage = () => {
       </div>
       <div className="text-center p-8 mb-2 bg-gray-200">Ad Section</div>
       {/* Category menu  */}
-
-      {/* FIXME: fix dropdown */}
       <div className="category-menu space-y-4 flex justify-center ">
         <div className="flex flex-wrap justify-center space-x-4 ">
           {categories.map((category) => (
@@ -109,7 +100,10 @@ const ShopPage = () => {
                         className="w-full px-4 py-2 rounded item-categories hover:bg-blue hover:text-white focus:bg-blue focus:text-white cursor-pointer"
                       >
                         <button
-                          onClick={() => setSelectedSubcategory(subcategory.id)}
+                          onClick={() => {
+                            setSelectedSubcategory(subcategory.id)
+                            toggleDropdown(null)
+                          }}
                           className="hover:text-lightblue text-xs"
                         >
                           {subcategory.name}
@@ -127,12 +121,7 @@ const ShopPage = () => {
 
       {/* Item Card */}
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 hover:cursor-pointer p-8">
-        {(selectedSubcategory
-          ? allProducts.filter(
-              (product) => product.subcategoryId === selectedSubcategory
-            )
-          : allProducts
-        ).map((product) => (
+        {filteredProducts.map((product) => (
           // FIXME: this links product data to product details page
           <div key={product.id}  className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
           <Link to={`/shop/${product.id}`}>
