@@ -456,7 +456,8 @@
                             ],
                             "website": "Beauty Shop",
                             "createdAt": "2023-01-01",
-                            "company": "Beauty Co"
+                            "company": "Beauty Co",
+                            "affiliateLink": "https://example.com/adulttoys"
                         }
                     ]
                 },
@@ -477,7 +478,8 @@
                             ],
                             "website": "Fashion Hub",
                             "createdAt": "2023-02-01",
-                            "company": "Fashion Co"
+                            "company": "Fashion Co",
+                            "affiliateLink": "https://example.com/books"
                         }
                     ]
                 },
@@ -498,7 +500,8 @@
                             ],
                             "website": "Home Shop",
                             "createdAt": "2023-03-01",
-                            "company": "Home Co"
+                            "company": "Home Co",
+                            "affiliateLink": "https://example.com/homedecor"
                         }
                     ]
                 },
@@ -519,7 +522,8 @@
                             ],
                             "website": "Luxury Hub",
                             "createdAt": "2023-04-01",
-                            "company": "Luxury Co"
+                            "company": "Luxury Co",
+                            "affiliateLink": "https://example.com/luxuryitems"
                         }
                     ]
                 },
@@ -540,7 +544,8 @@
                             ],
                             "website": "Grooming World",
                             "createdAt": "2023-04-01",
-                            "company": "Grooming Co"
+                            "company": "Grooming Co",
+                            "affiliateLink": "https://example.com/personalcare"
                         }
                     ]
                 },
@@ -561,7 +566,8 @@
                             ],
                             "website": "Tech Store",
                             "createdAt": "2023-05-01",
-                            "company": "Tech Co"
+                            "company": "Tech Co",
+                            "affiliateLink": "https://example.com/techgadgets"
                         }
                     ]
                 },
@@ -582,7 +588,8 @@
                             ],
                             "website": "Travel Shop",
                             "createdAt": "2023-06-01",
-                            "company": "Travel Co"
+                            "company": "Travel Co",
+                            "affiliateLink": "https://example.com/travelaccessories"
                         }
                     ]
                 },
@@ -603,7 +610,8 @@
                             ],
                             "website": "Experience Hub",
                             "createdAt": "2023-07-01",
-                            "company": "Experience Co"
+                            "company": "Experience Co",
+                            "affiliateLink": "https://example.com/uniqueexperiences"
                         }
                     ]
                 },
@@ -624,7 +632,8 @@
                             ],
                             "website": "Wine Store",
                             "createdAt": "2023-08-01",
-                            "company": "Wine Co"
+                            "company": "Wine Co",
+                            "affiliateLink": "https://example.com/wineandspirits"
                         }
                     ]
                 },
@@ -645,7 +654,8 @@
                             ],
                             "website": "Dress Shop",
                             "createdAt": "2023-03-01",
-                            "company": "Dress Co"
+                            "company": "Dress Co",
+                            "affiliateLink": "https://example.com/fashionandaccessories"
                         }
                     ]
                 }
@@ -673,7 +683,8 @@
                             ],
                             "website": "Toy World",
                             "createdAt": "2023-01-01",
-                            "company": "Toy Co"
+                            "company": "Toy Co",
+                            "affiliateLink": "https://example.com/educationaltoys"
                         }
                     ]
                 },
@@ -694,7 +705,8 @@
                             ],
                             "website": "Outdoor Adventures",
                             "createdAt": "2023-02-01",
-                            "company": "Outdoor Co"
+                            "company": "Outdoor Co",
+                            "affiliateLink": "https://example.com/outdoorplay"
                         }
                     ]
                 },
@@ -715,7 +727,8 @@
                             ],
                             "website": "Sports World",
                             "createdAt": "2023-03-01",
-                            "company": "Sports Co"
+                            "company": "Sports Co",
+                            "affiliateLink": "https://example.com/sportsequipment"
                         }
                     ]
                 },
@@ -736,7 +749,8 @@
                             ],
                             "website": "Craft Store",
                             "createdAt": "2023-04-01",
-                            "company": "Craft Co"
+                            "company": "Craft Co",
+                            "affiliateLink": "https://example.com/artsandcrafts"
                         }
                     ]
                 },
@@ -757,7 +771,8 @@
                             ],
                             "website": "Build World",
                             "createdAt": "2023-05-01",
-                            "company": "Build Co"
+                            "company": "Build Co",
+                            "affiliateLink": "https://example.com/buildingsets"
                         }
                     ]
                 },
@@ -778,7 +793,8 @@
                             ],
                             "website": "Doll Shop",
                             "createdAt": "2023-06-01",
-                            "company": "Doll Co"
+                            "company": "Doll Co",
+                            "affiliateLink": "https://example.com/dollsandtoys"
                         }
                     ]
                 },
@@ -799,7 +815,8 @@
                             ],
                             "website": "Gadget World",
                             "createdAt": "2023-07-01",
-                            "company": "Gadget Co"
+                            "company": "Gadget Co",
+                            "affiliateLink": "https://example.com/electronicsandgadgets"
                         }
                     ]
                 },
@@ -820,7 +837,8 @@
                             ],
                             "website": "Music Shop",
                             "createdAt": "2023-08-01",
-                            "company": "Music Co"
+                            "company": "Music Co",
+                            "affiliateLink": "https://example.com/musicalinstruments"
                         }
                     ]
                 },
@@ -841,7 +859,8 @@
                             ],
                             "website": "Game World",
                             "createdAt": "2023-09-01",
-                            "company": "Game Co"
+                            "company": "Game Co",
+                            "affiliateLink": "https://example.com/puzzlesandgames"
                         }
                     ]
                 },
@@ -862,7 +881,8 @@
                             ],
                             "website": "Toy Vehicles",
                             "createdAt": "2023-10-01",
-                            "company": "Toy Co"
+                            "company": "Toy Co",
+                            "affiliateLink": "https://example.com/vehiclesandremotecontrol"
                         }
                     ]
                 }
@@ -890,7 +910,8 @@
                             ],
                             "website": "Assistive Tools",
                             "createdAt": "2023-01-01",
-                            "company": "Assist Co"
+                            "company": "Assist Co",
+                            "affiliateLink": "https://example.com/assistivedevices"
                         }
                     ]
                 },
@@ -911,7 +932,8 @@
                             ],
                             "website": "Comfort World",
                             "createdAt": "2023-02-01",
-                            "company": "Comfort Co"
+                            "company": "Comfort Co",
+                            "affiliateLink": "https://example.com/comfortandrelaxation"
                         }
                     ]
                 },
@@ -932,7 +954,8 @@
                             ],
                             "website": "Health Devices",
                             "createdAt": "2023-03-01",
-                            "company": "Health Co"
+                            "company": "Health Co",
+                            "affiliateLink": "https://example.com/healthandwellness"
                         }
                     ]
                 },
@@ -953,7 +976,8 @@
                             ],
                             "website": "Puzzle World",
                             "createdAt": "2023-04-01",
-                            "company": "Puzzle Co"
+                            "company": "Puzzle Co",
+                            "affiliateLink": "https://example.com/hobbiesandactivities"
                         }
                     ]
                 },
@@ -974,7 +998,8 @@
                             ],
                             "website": "Dental Care",
                             "createdAt": "2023-05-01",
-                            "company": "Dental Co"
+                            "company": "Dental Co",
+                            "affiliateLink": "https://example.com/personalcare"
                         }
                     ]
                 },
@@ -995,7 +1020,8 @@
                             ],
                             "website": "Vision Aids",
                             "createdAt": "2023-06-01",
-                            "company": "Vision Co"
+                            "company": "Vision Co",
+                            "affiliateLink": "https://example.com/readingandvisionaids"
                         }
                     ]
                 },
@@ -1016,7 +1042,8 @@
                             ],
                             "website": "Gadget World",
                             "createdAt": "2023-07-01",
-                            "company": "Gadget Co"
+                            "company": "Gadget Co",
+                            "affiliateLink": "https://example.com/seniorgadgets"
                         }
                     ]
                 },
@@ -1037,7 +1064,8 @@
                             ],
                             "website": "Games World",
                             "createdAt": "2023-08-01",
-                            "company": "Games Co"
+                            "company": "Games Co",
+                            "affiliateLink": "https://example.com/socialengagement"
                         }
                     ]
                 },
@@ -1058,7 +1086,8 @@
                             ],
                             "website": "Mobility Aids",
                             "createdAt": "2023-09-01",
-                            "company": "Mobility Co"
+                            "company": "Mobility Co",
+                            "affiliateLink": "https://example.com/travelandmobilityaids"
                         }
                     ]
                 },
@@ -1079,7 +1108,8 @@
                             ],
                             "website": "Comfort Zone",
                             "createdAt": "2023-10-01",
-                            "company": "Comfort Co"
+                            "company": "Comfort Co",
+                            "affiliateLink": "https://example.com/warmthandcoziness"
                         }
                     ]
                 }
