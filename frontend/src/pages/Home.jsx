@@ -5,7 +5,7 @@ import { About } from "../components/About";
 function Home() {
   return (
     <>
-      <section className="bg-gray-200 min-h-screen pb-8">
+      <section className="bg-gray-200 min-h-screen pb-8 mt-16">
         <div className="w-full grid grid-cols-1 sm:grid-cols-4 text-center ">
           <div className="col-span-1 bg-gray-200 p-12">Ad Section</div>
 

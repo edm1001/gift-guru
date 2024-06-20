@@ -77,6 +77,7 @@ const ShopPage = () => {
         </div>
       </div>
       <div className="text-center p-8 mb-2 bg-gray-200">Ad Section</div>
+
       {/* Category menu  */}
       <div className="category-menu space-y-4 flex justify-center ">
         <div className="flex flex-wrap justify-center space-x-4 ">
@@ -115,32 +116,35 @@ const ShopPage = () => {
               )}
             </div>
           ))}
+            <div className="w-full">
+              <h4 className=" p-4 text-center text-white">Showing {filteredProducts.length} Gifts !</h4>
+            </div>
         </div>
       </div>
       {/* TODO: create filter component for the products*/}
 
       {/* Item Card */}
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 hover:cursor-pointer p-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 hover:cursor-pointer p-2">
         {filteredProducts.map((product) => (
           // FIXME: this links product data to product details page
-          <div key={product.id}  className="hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
+          <div key={product.id}  className=" hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
           <Link to={`/shop/${product.id}`}>
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-36 object-cover rounded bg-gray-300"
+                className="w-auto h-auto object-cover rounded bg-gray-300"
               />
               <div className="grid grid-cols-1 md:grid-cols-4 rounded-b-lg">
                 <div className="md:col-span-3 col-span-full text-center md:text-start text-center z-0">
-                  <h4 className="text-xs md:text-sm font-bold mb-1">
+                  <h4 className="text-xs md:text-sm font-bold">
                     {product.name}
                   </h4>
-                  <p className="text-xxs md:text-xs font-bold mb-1 text-lightblue">
+                  <p className="text-xxs md:text-xs font-bold text-lightblue">
                     By: {product.company}
                   </p>
                 </div>
-                <div className="md:col-span-1 col-span-full flex items-center justify-end p-2">
-                  <p className="text-blue-500 text-xs md:text-sm font-bold bg-blue text-lightblue rounded p-1 active:bg-blue ">
+                <div className="md:col-span-1 col-span-full flex items-center justify-end">
+                  <p className="text-xs md:text-sm font-bold bg-blue text-lightblue rounded p-1 active:bg-blue ">
                     ${product.price}
                   </p>
                 </div>
