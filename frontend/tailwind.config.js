@@ -13,7 +13,8 @@ const tailwindConfig = {
         grey: "#7c9299",
       },
       fontSize: {
-        'xxs' : '0.625rem',
+        '2xxs' : '0.625rem',
+        'xxs' : '0.4rem',
       },
       fontFamily: {
         sans : ['Montserrat', 'sans-serif'],

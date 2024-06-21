@@ -54,9 +54,10 @@ const ShopPage = () => {
   //   }
   //   return stars;
   // };
+
   useEffect(() => {
-    console.log("Selected Subcategory:", selectedSubcategory); // Debug: Log selected subcategory
-    console.log("Filtered Products:", filteredProducts); // Debug: Log filtered products
+    console.log("Selected Subcategory:", selectedSubcategory);
+    console.log("Filtered Products:", filteredProducts); 
   }, [selectedSubcategory, filteredProducts]);
 
 
@@ -84,28 +85,30 @@ const ShopPage = () => {
           {categories.map((category) => (
             <div
               key={category.id}
-              className=" category w-auto text-darkblue text-center mt-2"
+              className=" category text-darkblue text-center mt-2 relative"
             >
+              {/* category menu */}
               <button
                 onClick={() => toggleDropdown(category.id)}
-                className="flex justify-between items-center w-auto p-1 text-sm font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
+                className="flex justify-between items-center font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
               >
-                <span className="focus:text-indigo-200">{category.name}</span>
+                <span className="focus:text-indigo-200 p-1 text-xs">{category.name}</span>
               </button>
               {openCategory === category.id && (
-                <div className="mt-2 p-4 rounded shadow-inner ">
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-inner bg-darkblue w-56 z-10 sm:w-auto sm:max-w-xs sm:left-auto sm:right-0 sm:transform-none sm:mt-0 sm:translate-x-0 sm:static sm:ml-auto sm:mr-auto">
                   <div className="flex flex-col space-y-1 text-black">
                     {category.subcategories.map((subcategory) => (
+                      // subcategory result
                       <div
                         key={subcategory.id}
-                        className="w-full px-4 py-2 rounded item-categories hover:bg-blue hover:text-white focus:bg-blue focus:text-white cursor-pointer"
+                        className=" rounded item-categories hover:underline hover:text-white focus:bg-blue focus:text-white cursor-pointer"
                       >
                         <button
                           onClick={() => {
                             setSelectedSubcategory(subcategory.id)
                             toggleDropdown(null)
                           }}
-                          className="hover:text-lightblue text-xs"
+                          className="hover:text-lightblue text-2xxs text-white"
                         >
                           {subcategory.name}
                         </button>
@@ -121,12 +124,10 @@ const ShopPage = () => {
             </div>
         </div>
       </div>
-      {/* TODO: create filter component for the products*/}
 
       {/* Item Card */}
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 hover:cursor-pointer p-2">
+      <div className="h-vh grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 hover:cursor-pointer p-2">
         {filteredProducts.map((product) => (
-          // FIXME: this links product data to product details page
           <div key={product.id}  className=" hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
           <Link to={`/shop/${product.id}`}>
               <img
@@ -136,7 +137,7 @@ const ShopPage = () => {
               />
               <div className="grid grid-cols-1 md:grid-cols-4 rounded-b-lg">
                 <div className="md:col-span-3 col-span-full text-center md:text-start text-center z-0">
-                  <h4 className="text-xs md:text-sm font-bold">
+                  <h4 className="text-2xxs md:text-sm font-bold">
                     {product.name}
                   </h4>
                   <p className="text-xxs md:text-xs font-bold text-lightblue">
