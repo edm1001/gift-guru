@@ -27,6 +27,7 @@ function Navbar() {
             animationDuration={0.5}
           />
         </div>
+        {/* desktop nav */}
         <nav className="hidden sm:flex space-x-4 text-sm text-lightblue">
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-lightblue focus:border focus:ring-lightblue"
@@ -34,12 +35,13 @@ function Navbar() {
           >
             Gifts
           </Link>
-          <Link
+          {/* TODO: Set Up When Blog is ready with content */}
+          {/* <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-lightblue focus:border focus:ring-lightblue"
             to="/blog"
           >
             Trending
-          </Link>
+          </Link> */}
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-lightblue focus:border focus:ring-lightblue"
             to="/links"
@@ -52,10 +54,15 @@ function Navbar() {
           >
             Discover
           </Link>
+          <Link
+          className="font-bold py-2 px-4 hover:opacity-50 focus:text-lightblue focus:border focus:ring-lightblue"
+          to="/contact"
+         >Contact Us</Link>
         </nav>
       </div>
       {isOpen && (
-        <nav className="sm:hidden pb-2 shadow-sm text-center text-lightblue bg-darkblue opacity-80 rounded-b-md">
+        // mobile nav
+        <nav className="sm:hidden pb-4 shadow-sm text-center text-lightblue bg-darkblue opacity-90 rounded-b-md text-sm">
           <Link
             className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
             to="/shop"
@@ -63,13 +70,13 @@ function Navbar() {
           >
             Gifts
           </Link>
-          <Link
+          {/* <Link
             className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
             to="/blog"
             onClick={toggleMenu}
           >
             Trending
-          </Link>
+          </Link> */}
           <Link
             className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
             to="/links"
@@ -83,6 +90,13 @@ function Navbar() {
             onClick={toggleMenu}
           >
             Discover
+          </Link>
+          <Link
+            className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
+            to="/contact"
+            onClick={toggleMenu}
+          >
+            Contact Us
           </Link>
         </nav>
       )}

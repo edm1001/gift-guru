@@ -6,6 +6,7 @@ import QuizPage from './pages/QuizPage.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import LinksPage from './pages/LinksPage.jsx';
 import ProductPage from './pages/ProductPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/blog" element={<BlogPage />}/>
         <Route path="/links" element={<LinksPage />}/>
-        
+        <Route path="/contact" element={<ContactPage />}/>
       </Routes>
     </>
   );
