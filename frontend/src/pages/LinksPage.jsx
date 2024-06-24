@@ -21,18 +21,18 @@ const quickLinksData = [
 // QuickLinks Component
 const QuickLinks = ({ onLinkClick }) => {
   return (
-    <div className="quick-links-container p-4">
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
+    <div className="quick-links-container p-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
           <div
           key={link.id}
-          className="bg-darkblue text-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-lightblue">
+          className="bg-darkblue p-2 text-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-lightblue flex justify-center">
           <button
             
             onClick={() => onLinkClick(link.id)}
             className="quick-link-card p-4 rounded-lg hover:opacity-70 transition-shadow"
             >
-            <h3 className="text-2xl text-center  mb-2">{link.name}</h3>
+            <h3 className="text-xs md:text-xl">{link.name}</h3>
           </button>
             </div>
         ))}
@@ -44,8 +44,8 @@ const QuickLinks = ({ onLinkClick }) => {
 // ProductList Component
 const ProductList = ({ products }) => {
   return (
-    <div className="product-list p-4">
-      <h2 className="text-2xl font-bold mb-4">Products</h2>
+    <div className="product-list p-4 bg-blue">
+      <h2 className="text-2xl font-bold mb-4 text-center">Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map(product => (
           <div key={product.id} className="product-card p-4 rounded-lg shadow-md">
@@ -53,7 +53,7 @@ const ProductList = ({ products }) => {
             <h3 className="text-xl font-bold">{product.name}</h3>
             <p className="text-gray-600">{product.description}</p>
             <p className="text-gray-800 font-semibold">${product.price.toFixed(2)}</p>
-            <a href={product.affiliateLink} className="text-blue-500 hover:underline">Buy Now</a>
+            <a href={product.affiliateLink} className="text-white hover:underline">Buy Now</a>
           </div>
         ))}
       </div>
@@ -73,7 +73,11 @@ const LinksPage = () => {
   useEffect(() => {
     // Fetch product data
     const fetchProducts = async () => {
-      const response = await fetch('../db/Shop/Categories.json');
+      try {
+        const response = await fetch('../db/Shop/Categories.json');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch products: ${response.status}`);
+      }
       const data = await response.json();
 
       // Filter products based on selectedLinkId
@@ -89,6 +93,9 @@ const LinksPage = () => {
           category.subcategories.flatMap(subcategory => subcategory.products)
         ));
       }
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
     };
 
     fetchProducts();
