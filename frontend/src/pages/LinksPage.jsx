@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
+
 
 const quickLinksData = [
   { id: 'tech', name: 'For Tech Geeks'},
@@ -14,20 +15,26 @@ const quickLinksData = [
   {id:'fashion', name: 'For the Fashionistas'},
   {id:'travel', name: 'For Travel Addicts'},
 ]
+// TODO: Fix cards because its not grabbing data correctly
+// make sure it is 4x4 in cards but possibly add 4 more
+
 // QuickLinks Component
 const QuickLinks = ({ onLinkClick }) => {
   return (
     <div className="quick-links-container p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
         {quickLinksData.map((link) => (
+          <div
+          key={link.id}
+          className="bg-darkblue text-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-lightblue">
           <button
-            key={link.id}
+            
             onClick={() => onLinkClick(link.id)}
-            className="quick-link-card p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-          >
-            <h3 className="text-xl font-bold mb-2">{link.name}</h3>
-            {/* Add more styling or images if needed */}
+            className="quick-link-card p-4 rounded-lg hover:opacity-70 transition-shadow"
+            >
+            <h3 className="text-2xl text-center  mb-2">{link.name}</h3>
           </button>
+            </div>
         ))}
       </div>
     </div>
@@ -88,7 +95,7 @@ const LinksPage = () => {
   }, [selectedLinkId]);
 
   return (
-    <div className="links-page-container">
+    <div className="mt-16 bg-grey">
       <QuickLinks onLinkClick={handleLinkClick} />
       <ProductList products={filteredProducts} />
     </div>
