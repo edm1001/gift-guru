@@ -74,7 +74,7 @@ const LinksPage = () => {
     // Fetch product data
     const fetchProducts = async () => {
       try {
-        const response = await fetch('../db/Shop/Categories.json');
+        const response = await fetch('/api/links');
         if (!response.ok) {
           throw new Error(`Failed to fetch products: ${response.status}`);
       }
