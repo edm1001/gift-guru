@@ -1,0 +1,32 @@
+{
+    "questions" : [
+    {
+      "question": "What is your preferred product category?",
+      "options": ["Hobby", "Electronics", "Books", "Clothing", "Toys"]
+    },
+    {
+      "question": "What is your budget range?",
+      "options": ["$0 - $50", "$51 - $100", "$101 - $200", "$201+"]
+    },
+    {
+      "question": "Who is the gift for?",
+      "options": ["Friend", "Family", "Coworker", "Self"]
+    },
+    {
+      "question": "What is the occasion?",
+      "options": ["Birthday", "Anniversary", "Holiday", "Just because"]
+    },
+    {
+      "question": "What is their age group?",
+      "options": ["Child", "Teen", "Adult", "Senior"]
+    },
+    {
+      "question": "What is their style?",
+      "options": ["Casual", "Formal", "Sporty", "Trendy"]
+    },
+    {
+      "question": "Do they prefer practical or luxury items?",
+      "options": ["Practical", "Luxury"]
+    }
+  ]
+}
