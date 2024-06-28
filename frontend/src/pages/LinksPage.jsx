@@ -102,7 +102,7 @@ const LinksPage = () => {
   }, [selectedLinkId]);
 
   return (
-    <div className="mt-16 bg-grey">
+    <div className="mt-16 bg-black p-8">
       <QuickLinks onLinkClick={handleLinkClick} />
       <ProductList products={filteredProducts} />
     </div>

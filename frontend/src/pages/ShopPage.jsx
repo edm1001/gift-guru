@@ -55,6 +55,7 @@ const ShopPage = () => {
   //   return stars;
   // };
 
+  // TODO: add a filter result component: by Price Range, or newest
   useEffect(() => {
     console.log("Selected Subcategory:", selectedSubcategory);
     console.log("Filtered Products:", filteredProducts); 
