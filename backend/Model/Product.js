@@ -25,7 +25,9 @@ const productSchema = new mongoose.Schema({
               website: String,
               createdAt: Date,
               company: String,
-              linkIds: [String]
+              linkIds: [String],
+              affiliateLink: String,
+              clicks: Number
             }
           ]
         }
