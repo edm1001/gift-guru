@@ -23,7 +23,11 @@ mongoose.connect(uri)
 
 app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 app.use(express.json());
-app.use('/api/products', categoriesRoute);
+app.use('/api/categories', categoriesRoute);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
