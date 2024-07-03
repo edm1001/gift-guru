@@ -5,10 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 dotenv.config();
 const app = express();
-
 const uri = process.env.MONGO_URI;
-
-console.log("Connecting to MongoDB with URI:", uri);
 
 mongoose.connect(uri)
   .then(() => {
@@ -19,7 +16,6 @@ mongoose.connect(uri)
     console.error('ErrorName:' , err.name );
     console.error('ErrorMessage:' , err.message );
   });
-
 
 app.use(cors({credentials: true, origin: 'http://localhost:5173'}));
 app.use(express.json());
