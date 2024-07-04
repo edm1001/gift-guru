@@ -15,12 +15,9 @@ const ProductSchema = new Schema({
   website: String,
   createdAt: Date,
   company: String,
-  linkIds: [
-    {
-      affiliateLink: String,
-      clicks: Number,
-    },
-  ],
+  linkIds: [ String ],
+  affiliateLink: String,
+  clicks: Number
 });
 
-module.exports = mongoose.model('Product', ProductSchema, 'Products');
+module.exports = mongoose.model('Product', ProductSchema, 'products');
