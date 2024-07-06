@@ -2,9 +2,14 @@ const express = require('express');
 const router = express.Router();
 const Category = require('../Model/Category');
 const Product = require('../Model/Product');
+const mongoose = require('mongoose');
 
 router.get('/', async (req, res) => {
   try {
+    if (mongoose.connection.readyState !== 1) {
+      throw new Error('Mongoose is not connected');
+    }
+
     console.log("Fetching categories...");
     const categories = await Category.find().lean();
 
@@ -17,7 +22,7 @@ router.get('/', async (req, res) => {
       for (let subcategory of category.subcategories) {
         console.log(`Fetching products for subcategory: ${subcategory.name} with IDs ${subcategory.productIds}`);
         const products = await mongoose.connection.db.collection('products').find({ id: { $in: subcategory.productIds } }).toArray();
-        subcategory.products = products;
+        subcategory.productIds = products;
       }
     }
 

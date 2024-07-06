@@ -18,6 +18,8 @@ const ProductSchema = new Schema({
   linkIds: [ String ],
   affiliateLink: String,
   clicks: Number
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Product', ProductSchema, 'products');
