@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const SubcategorySchema = new Schema({
-  id: Number,
-  name: String,
-  productIds: [Number],
-});
-
 const CategorySchema = new Schema({
-  id: Number,
+  _id: Number,
   name: String,
   description: String,
-  subcategories: [SubcategorySchema],
+  subcategories: [
+    {
+      id: Number,
+      name: String,
+      productIds: [ Number ]
+    }
+  ],
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('Category', CategorySchema, 'categories');
+const Category = mongoose.model('Category', CategorySchema);
+module.exports = Category;
