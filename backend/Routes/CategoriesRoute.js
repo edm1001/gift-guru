@@ -4,6 +4,7 @@ const Category = require('../Model/Category');
 const Product = require('../Model/Product');
 const mongoose = require('mongoose');
 
+// Get all categories
 router.get('/', async (req, res) => {
   try {
     if (mongoose.connection.readyState !== 1) {
