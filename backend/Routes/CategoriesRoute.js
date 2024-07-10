@@ -10,8 +10,10 @@ router.get('/', async (req, res) => {
     if (mongoose.connection.readyState !== 1) {
       throw new Error('Mongoose is not connected');
     }
-
+    console.log("Fetching categories...");
     const categories = await Category.find().lean();
+
+    console.log("Categories:", categories);
 
     if (!categories.length) {
       return res.status(404).send('No categories found');
@@ -32,5 +34,6 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+const appple = 
 
 module.exports = router;

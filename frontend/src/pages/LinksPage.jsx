@@ -16,23 +16,21 @@ const quickLinksData = [
   {id:'travel', name: 'For Travel Addicts'},
 ]
 // TODO: Fix cards because its not grabbing data correctly
-// make sure it is 4x4 in cards but possibly add 4 more
 
 // QuickLinks Component
 const QuickLinks = ({ onLinkClick }) => {
   return (
-    <div className="quick-links-container p-8">
+    <div className="quick-links-container p-2">
       <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
           <div
           key={link.id}
-          className="bg-darkblue p-2 text-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-lightblue flex justify-center">
+          className="bg-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-blue flex justify-center">
           <button
-            
             onClick={() => onLinkClick(link.id)}
-            className="quick-link-card p-4 rounded-lg hover:opacity-70 transition-shadow"
+            className="quick-link-card px-4 py-4 sm:py-12 rounded-lg hover:opacity-70 transition-shadow"
             >
-            <h3 className="text-xs md:text-xl">{link.name}</h3>
+            <h3 className="text-2xxs md:text-lg">{link.name}</h3>
           </button>
             </div>
         ))}
@@ -44,8 +42,8 @@ const QuickLinks = ({ onLinkClick }) => {
 // ProductList Component
 const ProductList = ({ products }) => {
   return (
-    <div className="product-list p-4 bg-blue">
-      <h2 className="text-2xl font-bold mb-4 text-center">Products</h2>
+    <div className="product-list p-4">
+      <h1 className="mb-4 text-center font-bold text-white">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map(product => (
           <div key={product.id} className="product-card p-4 rounded-lg shadow-md">
@@ -102,7 +100,7 @@ const LinksPage = () => {
   }, [selectedLinkId]);
 
   return (
-    <div className="mt-16 bg-black p-8">
+    <div className="mt-16 bg-blbue p-8">
       <QuickLinks onLinkClick={handleLinkClick} />
       <ProductList products={filteredProducts} />
     </div>

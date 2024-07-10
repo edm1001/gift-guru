@@ -16,6 +16,7 @@ const ContactPage = () => {
           <FaTiktok size={24}  className='hover:scale-125'/>
           </div>
         </div>
+        {/* Contact FORM */}
         <div className='flex items-center justify-end md:col-span-2'>
           <form className='w-full max-w-lg bg-grey opacity-80 p-8 rounded-lg shadow-md'>
           <div className='mb-4 flex flex-col md:flex-row md:space-x-4'>
