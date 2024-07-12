@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import categoriesData from "../db/Shop/Categories.json";
 // import { FaStar } from "react-icons/fa";
 
 const ShopPage = () => {
@@ -14,16 +15,20 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
-    // setCategories(categoriesData.categories);
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get('/api/categories');
-        setCategories(response.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchCategories();
+    // const fetchCategories = async () => {
+    //   try {
+    //     const response = await axios.get('http://localhost:5173/api/categories');
+    //     if (Array.isArray(response.data)) {
+    //       setCategories(response.data);
+    //     } else {
+    //       console.error('API response is not an array:', response.data);
+    //     }
+    //   } catch (err) {
+    //     console.error('Error fetching categories:', err);
+    //   }
+    // };
+    // fetchCategories();
+    setCategories(categoriesData.categories);
   }, []);
 
   useEffect(() => {
@@ -76,7 +81,7 @@ const ShopPage = () => {
       {/* Category menu  */}
       <div className="category-menu space-y-4 flex justify-center ">
         <div className="flex flex-wrap justify-center space-x-4 ">
-          {categories.map((category) => (
+          {Array.isArray(categories) && categories.map((category) => (
             <div
               key={category.id}
               className=" category text-darkblue text-center mt-2 relative"
@@ -122,7 +127,7 @@ const ShopPage = () => {
       {/* Item Card */}
       <div className="h-vh grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 hover:cursor-pointer p-2">
         {filteredProducts.map((product) => (
-          <div key={product.id}  className=" hover:scale-105 hover:bg-darkblue hover:text-white active:bg-blue">
+          <div key={product.id}  className=" hover:scale-125 hover:bg-darkblue hover:text-white active:bg-blue">
           <Link to={`/shop/${product.id}`}>
               <img
                 src={product.image}

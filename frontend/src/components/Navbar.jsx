@@ -31,7 +31,7 @@ function Navbar() {
         <nav className="hidden sm:flex space-x-4 text-sm text-lightblue">
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-lightblue focus:border focus:ring-lightblue"
-            to="/categories"
+            to="/shop"
           >
             Gifts
           </Link>
