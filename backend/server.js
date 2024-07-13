@@ -27,11 +27,6 @@ app.use(express.json());
 app.use("/api/categories", categoriesRoute);
 app.use("/api/products", productsRoute);
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
-
-// const PORT = process.env.PORT || 4001;
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`)
-// });
+app.get('/', (req, res) => {
+  res.send('Server is up and running');
+});

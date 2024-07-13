@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import categoriesData from "../db/Shop/Categories.json";
 import axios from "axios";
-import categoriesData from "../db/Shop/Categories.json";
 // import { FaStar } from "react-icons/fa";
 
 const ShopPage = () => {
@@ -15,20 +15,20 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
-    // const fetchCategories = async () => {
-    //   try {
-    //     const response = await axios.get('http://localhost:5173/api/categories');
-    //     if (Array.isArray(response.data)) {
-    //       setCategories(response.data);
-    //     } else {
-    //       console.error('API response is not an array:', response.data);
-    //     }
-    //   } catch (err) {
-    //     console.error('Error fetching categories:', err);
-    //   }
-    // };
-    // fetchCategories();
-    setCategories(categoriesData.categories);
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('/api/categories');
+        if (Array.isArray(response.data)) {
+          setCategories(response.data);
+        } else {
+          console.error('API response is not an array:', response.data);
+        }
+      } catch (err) {
+        console.error('Error fetching categories:', err);
+      }
+    };
+    fetchCategories();
+    // setCategories(categoriesData.categories);
   }, []);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const ShopPage = () => {
 
 
   return (
-    <section className="min-h-screen mt-16 bg-slate-100 bg-gradient-to-r from-lightblue to-blue">
+    <section className="min-h-screen mt-16 bg-slate-100 bg-gray-100">
       <div
         className="relative w-full h-96 bg-cover bg-center shadow-lg"
         style={{
@@ -119,7 +119,7 @@ const ShopPage = () => {
             </div>
           ))}
             <div className="w-full">
-              <h4 className=" p-4 text-center text-white">Showing {filteredProducts.length} Gifts !</h4>
+              <h4 className=" p-4 text-center text-grey">Showing {filteredProducts.length} Gifts !</h4>
             </div>
         </div>
       </div>
@@ -144,7 +144,7 @@ const ShopPage = () => {
                   </p>
                 </div>
                 <div className="md:col-span-1 col-span-full flex items-center justify-end">
-                  <p className="text-xs md:text-sm font-bold bg-blue text-lightblue rounded p-1 active:bg-blue ">
+                  <p className="mr-1 p-1 text-xs md:text-sm font-bold bg-blue text-lightblue rounded active:bg-blue ">
                     ${product.price}
                   </p>
                 </div>

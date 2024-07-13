@@ -7,9 +7,9 @@ const CategorySchema = new Schema({
   description: String,
   subcategories: [
     {
-      id: Number,
+      id: {type:Number, unique: true},
       name: String,
-      productIds: [ Number ]
+      productIds: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }]
     }
   ],
 }, {

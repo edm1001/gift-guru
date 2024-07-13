@@ -9,11 +9,10 @@ export const About = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, ipsum fugit! Omnis sit debitis ullam exercitationem maxime corrupti iure impedit?
       </p>
     </div>
-    <div className="md:col-span-1">
-      <img src="https://via.placeholder.com/500" alt="About us" className="w-full h-auto rounded-lg shadow-lg" />
+    <div className="md:col-span-1 max-w-full md:max-w-lg flex justify-center md:justify-start">
+      <img src="https://via.placeholder.com/500" alt="About us" className="w-full h-auto rounded-lg shadow-lg sm:max-w-xs md:max-w-full" />
     </div>
   </div>
 </section>
-
   )
 }
