@@ -25,7 +25,7 @@ const QuickLinks = ({ onLinkClick }) => {
         {quickLinksData.map((link) => (
           <div
           key={link.id}
-          className="bg-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-blue flex justify-center">
+          className="bg-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-blue hover:scale-125 flex justify-center">
           <button
             onClick={() => onLinkClick(link.id)}
             className="quick-link-card px-4 py-4 sm:py-12 rounded-lg hover:opacity-70 transition-shadow"
