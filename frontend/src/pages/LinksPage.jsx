@@ -21,11 +21,12 @@ const quickLinksData = [
 const QuickLinks = ({ onLinkClick }) => {
   return (
     <div className="quick-links-container p-2">
+        <h1 className="mb-8 text-center text-grey text-2xl">Quick Links</h1>
       <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
           <div
           key={link.id}
-          className="bg-white rounded-lg hover:scale-105 hover:ring-4 hover:ring-blue hover:scale-125 flex justify-center">
+          className="bg-gray-200 rounded-lg hover:scale-105 hover:ring-4 hover:ring-grey hover:scale-125 flex justify-center">
           <button
             onClick={() => onLinkClick(link.id)}
             className="quick-link-card px-4 py-4 sm:py-12 rounded-lg hover:opacity-70 transition-shadow"
@@ -43,7 +44,7 @@ const QuickLinks = ({ onLinkClick }) => {
 const ProductList = ({ products }) => {
   return (
     <div className="product-list p-4">
-      <h1 className="mb-4 text-center font-bold text-white">Products</h1>
+      <h1 className="mb-4 text-center text-xl text-grey h-96">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map(product => (
           <div key={product.id} className="product-card p-4 rounded-lg shadow-md">
@@ -100,7 +101,7 @@ const LinksPage = () => {
   }, [selectedLinkId]);
 
   return (
-    <div className="mt-16 bg-blbue p-8">
+    <div className="mt-16 bg-white p-8">
       <QuickLinks onLinkClick={handleLinkClick} />
       <ProductList products={filteredProducts} />
     </div>
