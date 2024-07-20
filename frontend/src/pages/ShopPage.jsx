@@ -71,7 +71,7 @@ const ShopPage = () => {
       >
         <div className="absolute inset-0 bg-black opacity-30"></div>
         <div className="relative z-10 flex items-center justify-center h-full ">
-          <h2 className="text-lightblue text-2xl md:text-4xl font-bold text-center">
+          <h2 className="text-white text-2xl md:text-4xl font-bold text-center">
             Find a Gift for Every Occasion!
           </h2>
         </div>

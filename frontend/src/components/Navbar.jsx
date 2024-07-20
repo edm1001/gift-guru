@@ -30,7 +30,7 @@ function Navbar() {
         {/* desktop nav */}
         <nav className="hidden sm:flex space-x-4 text-sm text-darkblue">
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-blue focus:border focus:ring-lightblue"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
             to="/shop"
           >
             Gifts
@@ -43,23 +43,24 @@ function Navbar() {
             Trending
           </Link> */}
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-blue focus:border focus:ring-lightblue"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
             to="/links"
           >
             Quicklinks
           </Link>
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-blue focus:border focus:ring-lightblue"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
             to="/quiz"
           >
             Discover
           </Link>
           <Link
-          className="font-bold py-2 px-4 hover:opacity-50 focus:text-blue focus:border focus:ring-lightblue"
+          className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
           to="/contact"
          >Contact Us</Link>
         </nav>
       </div>
+
       {isOpen && (
         // mobile nav
         <nav className="sm:hidden pb-4 shadow-sm text-center text-darkblue bg-gray-100 opacity-90 rounded-b-md text-sm">

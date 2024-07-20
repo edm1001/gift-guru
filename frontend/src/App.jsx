@@ -7,6 +7,7 @@ import BlogPage from './pages/BlogPage.jsx';
 import LinksPage from './pages/LinksPage.jsx';
 import ProductPage from './pages/ProductPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import Footer from './components/Footer.jsx';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/links" element={<LinksPage />}/>
         <Route path="/contact" element={<ContactPage />}/>
       </Routes>
+      <Footer/>
     </>
   );
 };

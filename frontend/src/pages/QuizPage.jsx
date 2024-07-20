@@ -40,8 +40,9 @@ const QuizPage = () => {
 
   return (
     <section className="bg-gray-200 min-h-screen pt-16 pb-8 text-center">
-      <div className="bg-gradient-to-r from-blue to-lightblue h-screen flex flex-col justify-center items-center">
+      <div className="bg-gradient-to-r from-gray-100 to-lightblue h-screen flex flex-col justify-center items-center">
         <h2 className="text-center text-black text-4xl font-semibold">Quiz Page</h2>
+        <p className='mt-1 text-xs'>Answer the following questions and find personalized products!</p>
         {quizStarted ? (
           currentQuestion < questions.length ? (
             <div>
@@ -72,7 +73,7 @@ const QuizPage = () => {
             </div>
           )
         ) : (
-          <button onClick={() => setQuizStarted(true)} className="bg-darkblue text-white p-2 rounded">Take Quiz!</button>
+          <button onClick={() => setQuizStarted(true)} className="bg-blue text-white p-2 rounded mt-4 hover:opacity-70">Start Quiz</button>
         )}
       </div>
     </section>
