@@ -65,7 +65,7 @@ function Navbar() {
         // mobile nav
         <nav className="sm:hidden pb-4 shadow-sm text-center text-darkblue bg-gray-100 opacity-90 rounded-b-md text-sm">
           <Link
-            className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
+            className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/shop"
             onClick={toggleMenu}
           >
@@ -79,21 +79,21 @@ function Navbar() {
             Trending
           </Link> */}
           <Link
-            className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
+            className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/links"
             onClick={toggleMenu}
           >
             Quicklinks
           </Link>
           <Link
-            className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
+            className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/quiz"
             onClick={toggleMenu}
           >
             Discover
           </Link>
           <Link
-            className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
+            className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/contact"
             onClick={toggleMenu}
           >
