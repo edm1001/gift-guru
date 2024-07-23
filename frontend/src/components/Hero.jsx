@@ -13,7 +13,7 @@ const Hero = () => {
           header: "Subheader 2"
         },
         {
-          image: "https://plus.unsplash.com/premium_vector-1689096905639-a1d0a2e1bed5?bg=FFFFFF&w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xzZU5jQ296Z3lyTXx8ZW58MHx8fHx8",
+          image: "https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
           header: "Subheader 3"
         }
       ];
@@ -43,7 +43,6 @@ const Hero = () => {
             <div className="absolute bottom-10 left-10 text-white text-2xl bg-gray-500 bg-opacity-20 px-4 py-2 rounded">
               {slide.header}
             </div>
-
           </div>
         ))}
       </Slider>
