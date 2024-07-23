@@ -6,7 +6,7 @@ import Hero from "../components/Hero";
 function Home() {
   return (
     <>
-      <section className="bg-gray-200 min-h-screen pb-8 mt-16">
+      <section className="bg-gray-200 min-h-screen pb-8 mt-16 overflow-x-hidden">
         <Hero />
         <div className="w-full grid grid-cols-1 text-center">
           <div className="col-span-1 bg-gray-200 p-12">Ad Section</div>
@@ -19,7 +19,7 @@ function Home() {
                 <Link
                   to={`/product/${i + 1}`}
                   key={i}
-                  className="col-span-1 hover:scale-105 hover:ring-4 hover:ring-grey transform transition-all duration-200"
+                  className="col-span-1 hover:scale-105 hover:ring-4 hover:ring-gray-300 transform transition-all duration-200"
                 >
                   <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col">
                     {/* Image */}
@@ -33,13 +33,10 @@ function Home() {
                     {/* Title and content */}
                     <div className="flex-grow">
                       <h3 className="text-lg text-start text-darkblue font-semibold">
-                        {`Post ${
-                        i + 1
-                      }`}
+                        {`Post ${i + 1}`}
                       </h3>
                       <div className="grid grid-cols-2 mt-2">
-                        {/* Link icon to item */}
-                        <p className="text-start text-gray-500 underline col-span-1 text-sm sm:text-xxs md:text-sm">
+                        <p className="text-start text-gray-500 underline col-span-1 text-sm sm:text-xs md:text-sm">
                           company name
                         </p>
                         <p className="text-end text-gray-500 col-span-1 text-xs sm:text-xxs md:text-xs">
