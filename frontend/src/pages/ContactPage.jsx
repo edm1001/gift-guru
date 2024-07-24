@@ -6,10 +6,10 @@ import { FaYoutube, FaTiktok } from "react-icons/fa";
 const ContactPage = () => {
   return (
     <section className="mt-16">
-      <div className="flex justify-center bg-lightblue p-8">
+      <div className="flex justify-center bg-gray-200 p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col justify-center md:col-span-1">
-            <h3 className="text-2xl font-bold mb-4">Have a Gift Idea?</h3>
+            <h3 className="text-2xl text-darkblue font-bold mb-4">Have a Gift Idea?</h3>
             <hr className="border border-grey" />
             <p className="text-lg mb-4">
               We would love to hear from you! Fill out the form below to send us
@@ -17,7 +17,7 @@ const ContactPage = () => {
             </p>
             <a
               href="mailto:gift-guide@gmail.com"
-              className="text-underline mb-4"
+              className="text-grey underline mb-4"
             >
               gift-guide@gmail.com
             </a>
@@ -28,7 +28,7 @@ const ContactPage = () => {
           </div>
           {/* Contact FORM */}
           <div className="flex items-center justify-center md:col-span-2">
-            <form className="w-full max-w-lg bg-grey opacity-80 p-8 rounded-lg shadow-md">
+            <form className="w-full max-w-lg bg-gray-400 opacity-70 p-8 rounded-lg shadow-md">
               <div className="mb-4 flex flex-col md:flex-row md:space-x-4">
                 <div className="flex-1 mb-4 md:mb-0">
                   <label
@@ -87,9 +87,9 @@ const ContactPage = () => {
               <div className="flex justify-end">
                 <button type="submit">
                   <IoIosSend
-                    color="blue"
+                    color="darkblue"
                     size={30}
-                    className="hover:scale-110 hover:opacity-70"
+                    className="hover:scale-125 hover:opacity-70"
                   />
                 </button>
               </div>

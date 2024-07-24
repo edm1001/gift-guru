@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
 const Category = require('../Model/Category');
 const Product = require('../Model/Product');
 const mongoose = require('mongoose');
 
+const router = express.Router();
 // Get all categories
 router.get('/', async (req, res) => {
   try {
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
       for (let subcategory of category.subcategories) {
         console.log(`Fetching products for subcategory: ${subcategory.name} with IDs ${subcategory.productIds}`);
         const products = await Product.find({ _id: { $in: subcategory.productIds } }).lean();
-        subcategory.productIds = products;
+        subcategory.products = products;
       }
     }
     console.log("Categories fetched successfully");
