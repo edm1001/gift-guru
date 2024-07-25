@@ -21,28 +21,29 @@ function Newsletter() {
     alert('Failed to subscribe. Please try again')
   }
 }
-  return (
-    <div className="bg-white text-center p-4 pb-8">
-      <h3 className="font-semibold text-darkblue text-3xl">Want Updates?</h3>
-      <p className="p-2 text-gray-300">Sign up for our Newsletter to get updates and special discounts!</p>
-      <form onSubmit={handleSubmit} className="flex items-center space-x-4">
-        <input
-          type="email"
-          className="flex-grow-[2] p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <button
-          type="submit"
-         className="flex-grow px-6 py-3 text-blue font-bold hover:opacity-50 focus:bg-gray-300 focus:text-blue cursor-pointer"
-        >
-          Subscribe
-        </button>
-      </form>
-    </div>
-  )
+return (
+  <div className="bg-white text-center p-4 pb-8">
+    <h3 className="font-semibold text-darkblue text-3xl">Want Updates?</h3>
+    <p className="p-2 text-gray-300">Sign up for our Newsletter to get updates and special discounts!</p>
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <input
+        type="email"
+        className="flex-grow p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <button
+        type="submit"
+        className="px-6 py-3 text-blue font-bold hover:opacity-50 focus:bg-gray-300 focus:text-blue cursor-pointer"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
+);
+
 }
 
 export default Newsletter
