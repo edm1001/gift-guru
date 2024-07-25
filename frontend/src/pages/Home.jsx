@@ -13,13 +13,14 @@ function Home() {
 
           {/* Newest Posts Section */}
           <div className="bg-blue-500 p-8">
-            {/* Grab state and render the newest posts created in website */}
+            1{" "}
+            {/* Grab state and render the newest posts created on the website */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg">
               {Array.from({ length: 9 }).map((_, i) => (
                 <Link
                   to={`/product/${i + 1}`}
                   key={i}
-                  className="col-span-1 hover:scale-105 hover:ring-4 hover:ring-gray-300 transform transition-all duration-200"
+                  className="hover:scale-105 hover:ring-4 hover:ring-gray-300 transform transition-all duration-200"
                 >
                   <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col">
                     {/* Image */}
@@ -35,11 +36,11 @@ function Home() {
                       <h3 className="text-lg text-start text-darkblue font-semibold">
                         {`Post ${i + 1}`}
                       </h3>
-                      <div className="grid grid-cols-2 mt-2">
-                        <p className="text-start text-gray-500 underline col-span-1 text-sm sm:text-xs md:text-sm">
+                      <div className="grid grid-cols-2">
+                        <p className="pr-1 text-start text-gray-500 underline col-span-1 text-xs sm:text-sm md:text-base">
                           company name
                         </p>
-                        <p className="text-end text-gray-500 col-span-1 text-xs sm:text-xxs md:text-xs">
+                        <p className="ml-1 text-end text-gray-500 col-span-1 text-2xxs sm:text-xs md:text-sm">
                           {`${new Date().toLocaleDateString()}`}
                         </p>
                       </div>
