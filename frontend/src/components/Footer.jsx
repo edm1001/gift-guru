@@ -4,21 +4,21 @@ const Footer = () => {
   return (
     <div className="bg-gray-200 p-4 text-center">
       {/* Create a row for all footer items */}
-      <div className="flex flex-wrap justify-around items-center text-sm space-x-2 sm:space-x-4">
-        <div className="flex-grow p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
+      <div className="flex flex-wrap justify-around items-center text-xs sm:text-sm">
+        <div className="p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
           <Link to="/">Home</Link>
         </div>
-        <div className="flex-grow p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
+        <div className="p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
           <Link to="/shop">Products</Link>
         </div>
-        <div className="flex-grow p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
+        <div className="p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
           <Link to="/links">Personalized Gifts</Link>
         </div>
-        <div className="flex-grow p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
+        <div className="p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
           <Link to="/contact">Contact Us</Link>
         </div>
       </div>
-      <div className="flex-grow p-2 sm:p-4 flex items-center space-x-2 justify-center">
+      <div className="flex-grow p-4 flex items-center space-x-2 justify-center">
         <p className="text-gray-700">Follow us:</p>
         <FaYoutube
           size={20}
