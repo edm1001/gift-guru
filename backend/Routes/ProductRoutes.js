@@ -1,4 +1,3 @@
-// routes/products.js
 const express = require('express');
 const router = express.Router();
 const Product = require('../Model/Product');
@@ -13,6 +12,7 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
 // Get a single product
 router.get('/:id', async (req, res) => {
   try {
@@ -28,4 +28,3 @@ router.get('/:id', async (req, res) => {
 });
 
 module.exports = router;
-

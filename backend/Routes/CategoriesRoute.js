@@ -4,6 +4,7 @@ const Product = require('../Model/Product');
 const mongoose = require('mongoose');
 
 const router = express.Router();
+
 // Get all categories
 router.get('/', async (req, res) => {
   try {
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
     console.log("Categories fetched:", categories);
 
     if (!categories.length) {
+      console.log('No categories found');
       return res.status(404).send('No categories found');
     }
 
