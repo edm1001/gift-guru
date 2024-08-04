@@ -74,26 +74,27 @@ const ProductList = ({ products }) => {
     </div>
   );
 };
+
 const QuizBanner = () => {
   return (
     <div className="flex flex-col md:flex-row items-center bg-white p-4 rounded-lg">
-    <div className="md:w-2/3 p-4">
-      <h1 className="text-xl font-semibold mb-2 text-darkblue">
-        Discover Your Perfect Gift!
-      </h1>
-      <p className="text-gray-700">
-        Take our quiz to get personalized gift recommendations.
-      </p>
+      <div className="w-full md:w-2/3 p-2 md:p-4">
+        <h1 className="text-lg md:text-xl font-semibold mb-2 text-darkblue">
+          Discover Your Perfect Gift!
+        </h1>
+        <p className="text-sm md:text-base text-gray-700">
+          Take our quiz to get personalized gift recommendations.
+        </p>
+      </div>
+      <div className="w-full md:w-1/3 bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0">
+        <Link
+          to="/quiz"
+          className="text-base md:text-lg font-semibold text-white hover:text-blue-900"
+        >
+          Take Our Quiz!
+        </Link>
+      </div>
     </div>
-    <div className="md:w-1/3 bg-darkblue p-4 text-center rounded-lg hover:bg-lightblue transition duration-200">
-      <Link
-        to="/quiz"
-        className="text-lg font-semibold text-white hover:text-blue-900"
-      >
-        Take Our Quiz!
-      </Link>
-    </div>
-  </div>
   );
 };
 

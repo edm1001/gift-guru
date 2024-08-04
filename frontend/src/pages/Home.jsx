@@ -13,7 +13,7 @@ function Home() {
 
           {/* Newest Posts Section */}
           <div className="bg-blue-500 p-8">
-            1{" "}
+            {" "}
             {/* Grab state and render the newest posts created on the website */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg">
               {Array.from({ length: 9 }).map((_, i) => (
