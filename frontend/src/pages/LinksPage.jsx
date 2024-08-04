@@ -26,7 +26,7 @@ const QuickLinks = ({ onLinkClick }) => {
         {quickLinksData.map((link) => (
           <div
             key={link.id}
-            className="bg-gray-200 rounded-lg hover:scale-105 hover:ring-4 hover:ring-grey hover:scale-125 flex justify-center"
+            className="bg-gray-200 rounded-lg hover:scale-105 hover:ring-4 hover:ring-grey flex justify-center"
           >
             <button
               onClick={() => onLinkClick(link.id)}
@@ -45,7 +45,7 @@ const QuickLinks = ({ onLinkClick }) => {
 const ProductList = ({ products }) => {
   return (
     <div className="product-list p-4">
-      <h1 className="mb-4 text-center text-xl text-grey h-96">Products</h1>
+      <h1 className="mb-4 text-center text-xl text-grey">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
           <div
@@ -64,7 +64,7 @@ const ProductList = ({ products }) => {
             </p>
             <a
               href={product.affiliateLink}
-              className="text-white hover:underline"
+              className="text-blue-500 hover:underline"
             >
               Buy Now
             </a>
@@ -147,7 +147,7 @@ const LinksPage = () => {
   return (
     <div className="mt-16 bg-white p-8">
       <QuickLinks onLinkClick={handleLinkClick} />
-      <ProductList products={filteredProducts} />
+      {selectedLinkId && <ProductList products={filteredProducts} />}
       <QuizBanner />
     </div>
   );
