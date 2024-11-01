@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import categoriesData from "../db/Shop/Categories.json";
 import axios from "axios";
+// import categoriesData from "../db/Shop/Categories.json";
 // import { FaStar } from "react-icons/fa";
 
 const ShopPage = () => {

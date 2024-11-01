@@ -11,7 +11,7 @@ export const About = () => {
       </p>
     </div>
     <div className="md:col-span-1 max-w-full md:max-w-lg flex justify-center md:justify-start">
-      <img src="https://via.placeholder.com/500" alt="About us" className="w-full h-auto rounded-lg shadow-lg sm:max-w-xs md:max-w-full" />
+      <img src="https://via.placeholder.com/600" alt="About us" className="w-full h-auto rounded-lg shadow-lg sm:max-w-xs md:max-w-full" />
     </div>
   </div>
 </section>

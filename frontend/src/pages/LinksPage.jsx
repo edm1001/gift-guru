@@ -20,7 +20,7 @@ const quickLinksData = [
 // QuickLinks Component
 const QuickLinks = ({ onLinkClick }) => {
   return (
-    <div className="quick-links-container p-2">
+    <div className="quick-links-container p-2 mb-12">
       <h1 className="mb-8 text-center text-grey text-2xl">Quick Links</h1>
       <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
@@ -44,7 +44,7 @@ const QuickLinks = ({ onLinkClick }) => {
 // ProductList Component
 const ProductList = ({ products }) => {
   return (
-    <div className="product-list p-4">
+    <div className="product-list p-4 mb-8">
       <h1 className="mb-4 text-center text-xl text-grey">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
@@ -140,12 +140,11 @@ const LinksPage = () => {
         console.error("Error fetching products:", error);
       }
     };
-
     fetchProducts();
   }, [selectedLinkId]);
 
   return (
-    <div className="mt-16 bg-white p-8">
+    <div className="mt-16 bg-white p-8 h-screen">
       <QuickLinks onLinkClick={handleLinkClick} />
       {selectedLinkId && <ProductList products={filteredProducts} />}
       <QuizBanner />
