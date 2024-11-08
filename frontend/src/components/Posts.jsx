@@ -1,5 +1,5 @@
-// import { Link } from "react-router-dom";
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState, useEffect, useRef } from "react";
 
 const postsData = [
   {
@@ -90,7 +90,7 @@ export default function Posts() {
   }; //close modal
 
   return (
-    <div className="bg-blue-500 p-8">
+    <div className="p-12">
       {" "}
       {/* Grab state and render the newest posts created on the website */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg">
@@ -134,9 +134,26 @@ export default function Posts() {
 
 // Modal
 function Modal({ item, closeModal }) {
+  const modalRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [closeModal]);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-85">
-      <div className="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 shadow-lg">
+      <div
+        ref={modalRef}
+        className="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 shadow-lg"
+      >
         <button
           onClick={closeModal}
           className="absolute top-2 right-2 text-lg p-1 text-white hover:text-gray-500"

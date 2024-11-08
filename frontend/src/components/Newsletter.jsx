@@ -24,23 +24,27 @@ function Newsletter() {
 return (
   <div className="bg-white text-center p-4 pb-8">
     <h3 className="font-semibold text-darkblue text-3xl">Want Updates?</h3>
-    <p className="p-2 text-gray-300">Sign up for our Newsletter to get updates and special discounts!</p>
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-      <input
-        type="email"
-        className="flex-grow p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <button
-        type="submit"
-        className="px-6 py-3 text-blue font-bold hover:opacity-50 focus:bg-gray-300 focus:text-blue cursor-pointer"
-      >
-        Subscribe
-      </button>
-    </form>
+    <p className="p-2 text-gray-400">Sign up for our Newsletter to get updates and special discounts!</p>
+    <form
+  onSubmit={handleSubmit}
+  className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 space-x-0 sm:space-x-4"
+>
+  <input
+    type="email"
+    className="flex-grow p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold"
+    placeholder="Enter your email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+  />
+  <button
+    type="submit"
+    className="px-6 py-3 text-blue font-bold bg-gray-100 hover:bg-gray-200 rounded focus:ring-2 focus:ring-gray-300 focus:outline-none cursor-pointer"
+  >
+    Subscribe
+  </button>
+</form>
+
   </div>
 );
 
