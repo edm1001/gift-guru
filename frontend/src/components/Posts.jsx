@@ -91,14 +91,16 @@ export default function Posts() {
 
   return (
     <div className="p-12">
-      {" "}
+      <h1 className="mb-4 text-center text-2xl text-grey font-bold text-start">
+        Product Reviews
+      </h1>{" "}
       {/* Grab state and render the newest posts created on the website */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg">
+      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg cursor-pointer">
         {postsData.map((item) => (
           <div
             onClick={() => handleOpen(item)}
             key={item.id}
-            className="hover:scale-105 hover:ring-4 hover:ring-gray-300 transform transition-all duration-200"
+            className="hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
           >
             <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col">
               {/* Image */}

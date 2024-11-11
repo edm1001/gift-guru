@@ -86,14 +86,14 @@ const QuizBanner = () => {
           Take our quiz to get personalized gift recommendations.
         </p>
       </div>
-      <div className="w-full md:w-1/3 bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0">
         <Link
           to="/quiz"
           className="text-base md:text-lg font-semibold text-white hover:text-blue-900"
         >
+      <div className="w-full md:w-1/3 bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0 cursor-pointer">
           Take Our Quiz!
-        </Link>
       </div>
+        </Link>
     </div>
   );
 };
