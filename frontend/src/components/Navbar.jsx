@@ -37,7 +37,7 @@ function Navbar() {
           </Link>
           {/* TODO: Set Up When Blog is ready with content */}
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-blue focus:border focus:ring-lightblue"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
             to="/posts"
           >
             Trending
@@ -74,7 +74,7 @@ function Navbar() {
             Gifts
           </Link>
           <Link
-            className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
+            className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/posts"
             onClick={toggleMenu}
           >

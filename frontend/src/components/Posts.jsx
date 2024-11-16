@@ -90,10 +90,8 @@ export default function Posts() {
   }; //close modal
 
   return (
-    <div className="p-12">
-      <h1 className="mb-4 text-center text-2xl text-grey font-bold text-start">
-        Product Reviews
-      </h1>{" "}
+    <div className="m-8">
+      {" "}
       {/* Grab state and render the newest posts created on the website */}
       <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg cursor-pointer">
         {postsData.map((item) => (
@@ -102,13 +100,14 @@ export default function Posts() {
             key={item.id}
             className="hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
           >
-            <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col">
+            {/* Card */}
+            <div className="bg-white w-35 p-2 shadow-md border-b border-gray-300 flex flex-col rounded-md">
               {/* Image */}
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-1">
                 <img
                   src={item.image}
                   alt={`post image ${item.id}`}
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto rounded-md"
                 />
               </div>
               {/* Title and content */}
@@ -117,7 +116,7 @@ export default function Posts() {
                   {item.title}
                 </h3>
                 <div className="grid grid-cols-2">
-                  <p className="pr-1 text-start text-gray-500 underline col-span-1 text-xs md:text-base">
+                  <p className="mr-1 text-start text-gray-500 underline col-span-1 text-xs md:text-base">
                     {item.company}
                   </p>
                   <p className="ml-1 text-end text-gray-500 col-span-1 text-2xxs md:text-sm">
