@@ -117,10 +117,10 @@ export default function Posts() {
                   {item.title}
                 </h3>
                 <div className="grid grid-cols-2">
-                  <p className="pr-1 text-start text-gray-500 underline col-span-1 text-xs sm:text-sm md:text-base">
+                  <p className="pr-1 text-start text-gray-500 underline col-span-1 text-xs md:text-base">
                     {item.company}
                   </p>
-                  <p className="ml-1 text-end text-gray-500 col-span-1 text-2xxs sm:text-xs md:text-sm">
+                  <p className="ml-1 text-end text-gray-500 col-span-1 text-2xxs md:text-sm">
                     {item.date}
                   </p>
                 </div>

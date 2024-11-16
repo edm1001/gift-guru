@@ -9,6 +9,7 @@ import QuizPage from './pages/QuizPage';
 import BlogPage from './pages/BlogPage';
 import LinksPage from './pages/LinksPage';
 import ContactPage from './pages/ContactPage';
+import PostPage from './pages/PostsPage';
 import LoadingSpinner from './components/LoadingSpinner';
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/links" element={<LinksPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/posts" element={<PostPage />} />
       </Routes>
       <Footer />
     </>

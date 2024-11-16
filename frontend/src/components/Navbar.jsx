@@ -36,12 +36,12 @@ function Navbar() {
             Gifts
           </Link>
           {/* TODO: Set Up When Blog is ready with content */}
-          {/* <Link
+          <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-blue focus:border focus:ring-lightblue"
-            to="/blog"
+            to="/posts"
           >
             Trending
-          </Link> */}
+          </Link>
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
             to="/links"
@@ -55,9 +55,11 @@ function Navbar() {
             Discover
           </Link>
           <Link
-          className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
-          to="/contact"
-         >Contact Us</Link>
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            to="/contact"
+          >
+            Contact Us
+          </Link>
         </nav>
       </div>
 
@@ -71,13 +73,13 @@ function Navbar() {
           >
             Gifts
           </Link>
-          {/* <Link
+          <Link
             className="block font-bold py-2 px-4 hover:opacity-50 hover:text-lightblue"
-            to="/blog"
+            to="/posts"
             onClick={toggleMenu}
           >
             Trending
-          </Link> */}
+          </Link>
           <Link
             className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/links"
