@@ -1,20 +1,24 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
     const slides = [
         {
           image: "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=600",
-          header: "SubHeader 1"
+          header: "Featured Products!",
+          link: "/shop"
         },
         {
           image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          header: "Subheader 2"
+          header: "Take our quiz for curated items!",
+          link: '/links'
         },
         {
           image: "https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-          header: "Subheader 3"
+          header: "Check out",
+          link: '/posts'
         }
       ];
 
@@ -40,9 +44,11 @@ const Hero = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute bottom-10 left-10 text-white text-2xl bg-gray-500 bg-opacity-20 px-4 py-2 rounded">
+            <Link to={slide.link}>
+            <div className="absolute bottom-10 left-10 text-white text-2xl bg-gray-500 bg-opacity-20 px-4 py-2 rounded cursor-pointer">
               {slide.header}
             </div>
+            </Link>
           </div>
         ))}
       </Slider>

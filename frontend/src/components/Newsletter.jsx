@@ -44,7 +44,6 @@ return (
     Subscribe
   </button>
 </form>
-
   </div>
 );
 
