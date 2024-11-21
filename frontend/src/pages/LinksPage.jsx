@@ -144,7 +144,8 @@ const LinksPage = () => {
   }, [selectedLinkId]);
 
   return (
-    <div className="mt-16 bg-white p-8 h-screen">
+    <div className="mt-16 bg-white p-8 min-h-screen flex flex-col gap-y-8">
+      {/* Quick Links Section */}
       <QuickLinks onLinkClick={handleLinkClick} />
       {selectedLinkId && <ProductList products={filteredProducts} />}
       <QuizBanner />

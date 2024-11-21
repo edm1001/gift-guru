@@ -17,7 +17,7 @@ const Hero = () => {
         },
         {
           image: "https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-          header: "Check out",
+          header: "Check out reviewed items!",
           link: '/posts'
         }
       ];
@@ -30,6 +30,7 @@ const Hero = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    arrows: true,
   };
 
   return (

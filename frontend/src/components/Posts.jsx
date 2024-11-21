@@ -90,7 +90,7 @@ export default function Posts() {
   }; //close modal
 
   return (
-    <div className="m-8">
+    <div className="m-4">
       {" "}
       {/* Grab state and render the newest posts created on the website */}
       <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg cursor-pointer">
@@ -98,28 +98,28 @@ export default function Posts() {
           <div
             onClick={() => handleOpen(item)}
             key={item.id}
-            className="hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
+            className="w-24 hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
           >
             {/* Card */}
-            <div className="bg-white w-35 p-2 shadow-md border-b border-gray-300 flex flex-col rounded-md">
+            <div className="bg-white p-1 shadow-md border-b border-gray-300 flex flex-col rounded-md">
               {/* Image */}
               <div className="flex justify-center mb-1">
                 <img
                   src={item.image}
                   alt={`post image ${item.id}`}
-                  className="w-full h-auto rounded-md"
+                  className="w-20 h-20 object-cover rounded-md"
                 />
               </div>
               {/* Title and content */}
               <div className="flex-grow">
-                <h3 className="text-lg text-start text-darkblue font-semibold">
+                <h3 className="text-md text-start text-darkblue font-semibold">
                   {item.title}
                 </h3>
                 <div className="grid grid-cols-2">
                   <p className="mr-1 text-start text-gray-500 underline col-span-1 text-xs md:text-base">
                     {item.company}
                   </p>
-                  <p className="ml-1 text-end text-gray-500 col-span-1 text-2xxs md:text-sm">
+                  <p className="ml-1 text-end text-gray-500 col-span-1 text-xxs md:text-sm">
                     {item.date}
                   </p>
                 </div>
