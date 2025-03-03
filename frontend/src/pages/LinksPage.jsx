@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const quickLinksData = [
@@ -18,7 +19,7 @@ const quickLinksData = [
 // TODO: Fix cards because its not grabbing data correctly
 
 // QuickLinks Component
-const QuickLinks = ({ onLinkClick }) => {
+const QuickLinks = () => {
   return (
     <div className="quick-links-container p-2 mb-12">
       <h1 className="mb-8 text-center text-grey text-2xl">Quick Links</h1>
@@ -77,8 +78,8 @@ const ProductList = ({ products }) => {
 
 const QuizBanner = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center bg-white p-4 rounded-lg">
-      <div className="w-full md:w-2/3 p-2 md:p-4">
+    <div className="flex flex-col md:flex-row items-center justify-center bg-white p-4 rounded-lg">
+      <div className="w-full  text-center md:w-2/3 p-2 md:p-4">
         <h1 className="text-lg md:text-xl font-semibold mb-2 text-darkblue">
           Discover Your Perfect Gift!
         </h1>
@@ -90,8 +91,8 @@ const QuizBanner = () => {
           to="/quiz"
           className="text-base md:text-lg font-semibold text-white hover:text-blue-900"
         >
-      <div className="w-full md:w-1/3 bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0 cursor-pointer">
-          Take Our Quiz!
+      <div className="w-full bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0 cursor-pointer">
+         <FaGift color="white"/>
       </div>
         </Link>
     </div>

@@ -98,10 +98,10 @@ export default function Posts() {
           <div
             onClick={() => handleOpen(item)}
             key={item.id}
-            className="w-24 hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
+            className="hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
           >
             {/* Card */}
-            <div className="bg-white p-1 shadow-md border-b border-gray-300 flex flex-col rounded-md">
+            <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col rounded-md">
               {/* Image */}
               <div className="flex justify-center mb-1">
                 <img
