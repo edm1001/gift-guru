@@ -1,37 +1,73 @@
 [
   {
     "id": 1,
-    "question": "What is your preferred product category?",
-    "options": ["Hobby", "Electronics", "Books", "Clothing", "Toys"]
+    "question": "What type of gift are you looking for?",
+    "options": [
+      { "answer": "Hobby & Leisure", "tag": "hobby" },
+      { "answer": "Tech & Gadgets", "tag": "electronics" },
+      { "answer": "Books & Learning", "tag": "books" },
+      { "answer": "Fashion & Accessories", "tag": "fashion" },
+      { "answer": "Toys & Games", "tag": "toys" },
+      { "answer": "Home & Living", "tag": "home" }
+    ]
   },
   {
     "id": 2,
     "question": "What is your budget range?",
-    "options": ["$0 - $50", "$51 - $100", "$101 - $200", "$201+"]
+    "options": [
+      { "answer": "$0 - $50", "tag": "budget" },
+      { "answer": "$51 - $100", "tag": "mid-range" },
+      { "answer": "$101 - $200", "tag": "premium" },
+      { "answer": "$201+", "tag": "luxury" }
+    ]
   },
   {
     "id": 3,
     "question": "Who is the gift for?",
-    "options": ["Friend", "Family", "Coworker", "Self"]
+    "options": [
+      { "answer": "Friend", "tag": "friend" },
+      { "answer": "Family", "tag": "family" },
+      { "answer": "Coworker", "tag": "coworker" },
+      { "answer": "Self", "tag": "self" }
+    ]
   },
   {
     "id": 4,
     "question": "What is the occasion?",
-    "options": ["Birthday", "Anniversary", "Holiday", "Just because"]
+    "options": [
+      { "answer": "Birthday", "tag": "birthday" },
+      { "answer": "Anniversary", "tag": "anniversary" },
+      { "answer": "Holiday", "tag": "holiday" },
+      { "answer": "Just because", "tag": "surprise" }
+    ]
   },
   {
     "id": 5,
     "question": "What is their age group?",
-    "options": ["Child", "Teen", "Adult", "Senior"]
+    "options": [
+      { "answer": "Kids", "tag": "kids" },
+      { "answer": "Teens", "tag": "teen" },
+      { "answer": "Adults", "tag": "adult" },
+      { "answer": "Seniors", "tag": "senior" }
+    ]
   },
   {
     "id": 6,
-    "question": "What is their style?",
-    "options": ["Casual", "Formal", "Sporty", "Trendy"]
+    "question": "What is their style or personality?",
+    "options": [
+      { "answer": "Casual & Relaxed", "tag": "casual" },
+      { "answer": "Formal & Elegant", "tag": "formal" },
+      { "answer": "Sporty & Active", "tag": "sporty" },
+      { "answer": "Trendy & Fashionable", "tag": "trendy" }
+    ]
   },
   {
     "id": 7,
-    "question": "Do they prefer practical or luxury items?",
-    "options": ["Practical", "Luxury"]
+    "question": "Choose which is more important?",
+    "options": [
+      { "answer": "Functionality", "tag": "functional" },
+      { "answer": "Aesthetic", "tag": "aesthetic" }
+    ]
   }
 ]
+
