@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import categoriesData from "../db/Shop/Categories.json";
+import productData from "../db/Shop/Products.json";
 import { FaLink } from "react-icons/fa";
 
 const ProductPage = () => {
@@ -9,7 +9,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     // Flatten the products array from all categories
-    const allProducts = categoriesData.categories.flatMap(category => 
+    const allProducts = productData.categories.flatMap(category => 
       category.subcategories.flatMap(subcategory => subcategory.products)
     );
 
