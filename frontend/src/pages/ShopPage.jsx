@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import categoriesData from "../db/Shop/Categories.json";
-// import { FaStar } from "react-icons/fa";
 
 const ShopPage = () => {
   const [categories, setCategories] = useState([]);
@@ -10,58 +8,55 @@ const ShopPage = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
 
-  const toggleDropdown = (id) => {
-    setOpenCategory(openCategory === id ? null : id);
+  // Toggle category dropdown
+  const toggleDropdown = (categoryId) => {
+    setOpenCategory(openCategory === categoryId ? null : categoryId);
   };
 
+  // // Fetch categories from backend
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const response = await axios.get("/api/categories");
+  //       if (Array.isArray(response.data)) {
+  //         setCategories(response.data);
+  //       } else {
+  //         console.error("API response is not an array:", response.data);
+  //       }
+  //     } catch (err) {
+  //       console.error("Error fetching categories:", err);
+  //     }
+  //   };
+  //   fetchCategories();
+  // }, []);
+
+  // Fetch products from backend
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchProducts = async () => {
       try {
-        const response = await axios.get('/api/categories');
+        const response = await axios.get("/api/products");
         if (Array.isArray(response.data)) {
-          setCategories(response.data);
+          setAllProducts(response.data);
         } else {
-          console.error('API response is not an array:', response.data);
+          console.error("API response is not an array:", response.data);
         }
       } catch (err) {
-        console.error('Error fetching categories:', err);
+        console.error("Error fetching products:", err);
       }
     };
-    fetchCategories();
-    // setCategories(categoriesData.categories);
+    fetchProducts();
   }, []);
 
-  useEffect(() => {
-    const products = [];
-    categories.forEach((category) => {
-      category.subcategories?.forEach((subcategory) => {
-        subcategory.products?.forEach((product) => {
-          products.push({
-            ...product,
-            categoryId: category.id,
-            subcategoryId: subcategory.id,
-          });
-        });
-      });
-    });
-    products.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    setAllProducts(products);
-  }, [categories]);
-
-
-  const filteredProducts = selectedSubcategory ? allProducts.filter(product => product.subcategoryId === selectedSubcategory) : allProducts;
-
-  
-
-  // TODO: add a filter result component: by Price Range, or newest
-  useEffect(() => {
-    console.log("Selected Subcategory:", selectedSubcategory);
-    console.log("Filtered Products:", filteredProducts); 
-  }, [selectedSubcategory, filteredProducts]);
-
+  // Filter products based on selected subcategory
+  const filteredProducts = selectedSubcategory
+    ? allProducts.filter(
+        (product) => product.subcategoryId === selectedSubcategory
+      )
+    : allProducts;
 
   return (
-    <section className="min-h-screen mt-16 bg-slate-100 bg-gray-100">
+    <section className="min-h-screen mt-16 bg-gray-100">
+      {/* Hero Banner */}
       <div
         className="relative w-full h-96 bg-cover bg-center shadow-lg"
         style={{
@@ -70,90 +65,88 @@ const ShopPage = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-30"></div>
-        <div className="relative z-10 flex items-center justify-center h-full ">
+        <div className="relative z-10 flex items-center justify-center h-full">
           <h2 className="text-white text-2xl md:text-4xl font-bold text-center">
             Find a Gift for Every Occasion!
           </h2>
         </div>
       </div>
+
+      {/* Ad Section */}
       <div className="text-center p-8 mb-2 bg-gray-200">Ad Section</div>
 
-      {/* Category menu  */}
-      <div className="category-menu space-y-4 flex justify-center ">
-        <div className="flex flex-wrap justify-center space-x-4 ">
-          {Array.isArray(categories) && categories.map((category) => (
+      {/* Category Menu */}
+      <div className="category-menu flex justify-center space-y-4">
+        <div className="flex flex-wrap justify-center space-x-4">
+          {categories.map((category) => (
             <div
-              key={category.id}
-              className=" category text-darkblue text-center mt-2 relative"
+              key={category._id}
+              className="relative text-darkblue text-center mt-2"
             >
-              {/* category menu */}
+              {/* Category Button */}
               <button
-                onClick={() => toggleDropdown(category.id)}
-                className="flex justify-between items-center font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300"
+                onClick={() => toggleDropdown(category._id)}
+                className="font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 p-1 text-xs"
               >
-                <span className="focus:text-indigo-200 p-1 text-xs">{category.name}</span>
+                {category.name}
               </button>
-              {openCategory === category.id && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-inner bg-darkblue w-56 z-10 sm:w-auto sm:max-w-xs sm:left-auto sm:right-0 sm:transform-none sm:mt-0 sm:translate-x-0 sm:static sm:ml-auto sm:mr-auto">
-                  <div className="flex flex-col space-y-1 text-black">
+
+              {/* Subcategory Dropdown */}
+              {openCategory === category._id && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
+                  <div className="flex flex-col space-y-1 text-white">
                     {category.subcategories.map((subcategory) => (
-                      // subcategory result
-                      <div
-                        key={subcategory.id}
-                        className=" rounded item-categories hover:underline hover:text-white focus:bg-blue focus:text-white cursor-pointer"
+                      <button
+                        key={subcategory._id}
+                        onClick={() => {
+                          setSelectedSubcategory(subcategory._id);
+                          toggleDropdown(null);
+                        }}
+                        className="hover:underline hover:text-gray-200 text-sm"
                       >
-                        <button
-                          onClick={() => {
-                            setSelectedSubcategory(subcategory.id)
-                            toggleDropdown(null)
-                          }}
-                          className="hover:text-lightblue text-2xxs text-white"
-                        >
-                          {subcategory.name}
-                        </button>
-                      </div>
+                        {subcategory.name}
+                      </button>
                     ))}
                   </div>
                 </div>
               )}
             </div>
           ))}
-            <div className="w-full">
-              <h4 className=" p-4 text-center text-grey">Showing {filteredProducts.length} Gifts !</h4>
-            </div>
+
+          {/* Show Number of Products */}
+          <div className="w-full">
+            <h4 className="p-4 text-center text-gray-600">
+              Showing {filteredProducts.length} Gifts!
+            </h4>
+          </div>
         </div>
       </div>
 
-      {/* Item Card */}
-      <div className="h-vh grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 hover:cursor-pointer p-2">
+      {/* Products Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {filteredProducts.map((product) => (
-          <div key={product.id}  className=" hover:scale-125 hover:bg-darkblue hover:text-white active:bg-blue">
-          <Link to={`/shop/${product.id}`}>
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-auto h-auto object-cover rounded bg-gray-300"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-4 rounded-b-lg">
-                <div className="md:col-span-3 col-span-full text-center md:text-start text-center z-0">
-                  <h4 className="text-2xxs md:text-sm font-bold">
-                    {product.name}
-                  </h4>
-                  <p className="text-xxs md:text-xs font-bold text-lightblue">
-                    By: {product.company}
-                  </p>
-                </div>
-                <div className="md:col-span-1 col-span-full flex items-center justify-end">
-                  <p className="mr-1 p-1 text-xs md:text-sm font-bold bg-blue text-lightblue rounded active:bg-blue ">
-                    ${product.price}
-                  </p>
-                </div>
-              </div>
-          </Link>
+          <Link
+            to={`/shop/${product._id}`}
+            key={product._id}
+            className="bg-white shadow-md rounded-lg overflow-hidden transform transition duration-200 hover:scale-105 hover:shadow-lg"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h4 className="text-sm font-bold">{product.name}</h4>
+              <p className="text-xs text-gray-600">By: {product.company}</p>
+              <p className="text-lg font-semibold text-blue-600">
+                ${product.price}
+              </p>
             </div>
+          </Link>
         ))}
       </div>
     </section>
   );
 };
+
 export default ShopPage;
