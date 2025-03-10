@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 const productsRoute = require('./Routes/ProductRoutes.js');
 const cors = require("cors");
 dotenv.config();
+const PORT = process.env.PORT || 4001;
+const uri = process.env.MONGO_URI;
 
 // Middleware
 const app = express();
-const uri = process.env.MONGO_URI;
-
+app.use(cors());
 app.use(express.json());
+
 app.use("/api/products", productsRoute);
 
 app.get('/', (req, res) => {
@@ -26,8 +28,6 @@ app.use((err, req, res, next) => {
 mongoose.connect(uri)
   .then(() => {
     console.log("Connected to MongoDB");
-    
-    const PORT = process.env.PORT || 4001;
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
