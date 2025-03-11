@@ -1,6 +1,5 @@
 import { useState } from "react";
 import questions from "../db/Question.json";
-// import categories from '../db/Shop/Categories.json';
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const QuizPage = () => {
@@ -8,13 +7,16 @@ const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
 
-  const handleAnswer = (answer) => {
+  const handleAnswer = (selectedOption) => {
     setAnswers((prevAnswers) => {
-      const newAnswers = { ...prevAnswers, [currentQuestion]: answer };
+      const newAnswers = {
+        ...prevAnswers,
+        [questions[currentQuestion].id]: selectedOption.tag, 
+      };
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion((prevIndex) => prevIndex + 1);
       } else {
-        setQuizStarted(false); // End the quiz
+        setQuizStarted(false);
       }
       return newAnswers;
     });
@@ -37,6 +39,12 @@ const QuizPage = () => {
             <p className="mt-1 text-xs">
               Answer the following questions to find personalized products!
             </p>
+            <button
+              onClick={() => setQuizStarted(true)}
+              className="bg-blue text-white p-2 rounded mt-4 hover:opacity-70"
+            >
+              Start Quiz
+            </button>
           </>
         )}
         {quizStarted && (
@@ -60,25 +68,16 @@ const QuizPage = () => {
                     onClick={() => handleAnswer(option)}
                     className="bg-blue text-white p-2 rounded m-2 hover:opacity-60"
                   >
-                    {option}
+                    {option.answer}
                   </button>
                 ))}
               </div>
             ) : (
               <div>
-                <h3>Quiz Completed</h3>
-                {/* Display results or a message here */}
+                <h3>Quiz Completed</h3>                
               </div>
             )}
           </>
-        )}
-        {!quizStarted && (
-          <button
-            onClick={() => setQuizStarted(true)}
-            className="bg-blue text-white p-2 rounded mt-4 hover:opacity-70"
-          >
-            Start Quiz
-          </button>
         )}
       </div>
     </section>

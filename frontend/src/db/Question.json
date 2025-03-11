@@ -27,7 +27,7 @@
     "options": [
       { "answer": "Friend", "tag": "friend" },
       { "answer": "Family", "tag": "family" },
-      { "answer": "Coworker", "tag": "coworker" },
+      { "answer": "Partner", "tag": "partner" },
       { "answer": "Self", "tag": "self" }
     ]
   },

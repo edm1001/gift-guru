@@ -2,8 +2,17 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const categoriesData = [
+  {"name": "Hobby",
+
+    "subcategories": [
+      
+    ]
+  }
+]
+
 const ShopPage = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories ] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
@@ -12,23 +21,6 @@ const ShopPage = () => {
   const toggleDropdown = (categoryId) => {
     setOpenCategory(openCategory === categoryId ? null : categoryId);
   };
-
-  // // Fetch categories from backend
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const response = await axios.get("/api/categories");
-  //       if (Array.isArray(response.data)) {
-  //         setCategories(response.data);
-  //       } else {
-  //         console.error("API response is not an array:", response.data);
-  //       }
-  //     } catch (err) {
-  //       console.error("Error fetching categories:", err);
-  //     }
-  //   };
-  //   fetchCategories();
-  // }, []);
 
   // Fetch products from backend
   useEffect(() => {
