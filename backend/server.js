@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
-const productsRoute = require('./Routes/ProductRoutes.js');
+const productsRoute = require('./Routes/productRoutes.js');
 const cors = require("cors");
 dotenv.config();
 const PORT = process.env.PORT || 4001;
@@ -34,5 +34,5 @@ mongoose.connect(uri)
   })
   .catch((err) => {
     console.error("Failed to connect to MongoDB", err);
-    process.exit(1); // Exit process with failure
+    process.exit(1); 
   });

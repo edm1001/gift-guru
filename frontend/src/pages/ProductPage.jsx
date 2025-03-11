@@ -25,7 +25,6 @@ const ProductPage = () => {
   return (
     <section className="mt-16">
     <div className="flex flex-col h-full min-h-screen p-12 bg-grey opacity-90">
-      {/* turn h1 into the affiliate link to the product */}
       <h1 className="text-3xl text-lightblue mb-4">{product.name}</h1> 
       <p className="text-sm font-semibold text-darkblue">Company: {product.company}</p>
       <p className="text-end mr-4 text-lightblue">${product.price}</p>
