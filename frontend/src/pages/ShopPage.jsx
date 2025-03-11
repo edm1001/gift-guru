@@ -2,15 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const categoriesData = [
-  {"name": "Hobby",
-
-    "subcategories": [
-      
-    ]
-  }
-]
-
+// TODO: add categories to subcategory script 
 const ShopPage = () => {
   const [categories ] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
