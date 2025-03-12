@@ -7,8 +7,8 @@ const productSchema = new mongoose.Schema({
   affiliate_link: { type: String, required: true },
   image: { type: String, required: true },
   tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Tag", required: true }],
-  category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
-  subcategory: { type: mongoose.Schema.Types.ObjectId, ref: "Subcategory" },
+  category: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
+  subcategory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Subcategory" }],
 }, {timestamps: true});
 
 const Product = mongoose.model("Product", productSchema);

@@ -17,7 +17,7 @@ const seedDatabase = async () => {
       { name: "Events" },
       { name: "Adults" },
       { name: "Kids" },
-      { name: "Elderly" },
+      { name: "Seniors" },
     ];
 
     // Insert categories and store references
@@ -64,15 +64,16 @@ const seedDatabase = async () => {
       { name: "Educational Toys", category: categoryMap["Kids"] },
       { name: "Outdoor Toys", category: categoryMap["Kids"] },
       { name: "Tech & Gadgets", category: categoryMap["Kids"] },
-      { name: "Toys for Girls", category: categoryMap["Kids"] },
       { name: "Toys for Boys", category: categoryMap["Kids"] },
+      { name: "Toys for Girls", category: categoryMap["Kids"] },
+      { name: "Toys for Toddlers", category: categoryMap["Kids"] },
 
-      { name: "Activities", category: categoryMap["Elderly"] },
-      { name: "Assistive Devices", category: categoryMap["Elderly"] },
-      { name: "Comfort & Relaxation", category: categoryMap["Elderly"] },
-      { name: "Health & Wellness", category: categoryMap["Elderly"] },
-      { name: "Personal Care", category: categoryMap["Elderly"] },
-      { name: "Supplemental Aid", category: categoryMap["Elderly"] },
+      { name: "Elderly Activities", category: categoryMap["Seniors"] },
+      { name: "Assistive Devices", category: categoryMap["Serniors"] },
+      { name: "Comfort & Relaxation", category: categoryMap["Seniors"] },
+      { name: "Health & Wellness", category: categoryMap["Seniors"] },
+      { name: "Personal Care", category: categoryMap["Seniors"] },
+      { name: "Supplemental Aid", category: categoryMap["Seniors"] },
     ];
 
     // Insert subcategories
