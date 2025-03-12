@@ -17,39 +17,73 @@ const seedDatabase = async () => {
       { name: "Events" },
       { name: "Adults" },
       { name: "Kids" },
-      { name: "Elderly" }
+      { name: "Elderly" },
     ];
 
     // Insert categories and store references
     const createdCategories = await Category.insertMany(categoriesData);
     // Map category names to their IDs for reference
     const categoryMap = {};
-    createdCategories.forEach(category => {
+    createdCategories.forEach((category) => {
       categoryMap[category.name] = category._id;
     });
 
     // TODO: Update categories
     const subcategoriesData = [
-      { name: "Fitness", category: categoryMap["Hobby"] },
       { name: "Arts & Crafts", category: categoryMap["Hobby"] },
-      { name: "Outdoors", category: categoryMap["Hobby"] },
-      { name: "Party Supplies", category: categoryMap["Events"] },
-      { name: "Wedding Gifts", category: categoryMap["Events"] },
-      { name: "Luxury", category: categoryMap["Adults"] },
+      { name: "Cooking & Baking", category: categoryMap["Hobby"] },
+      { name: "DIY & Furniture", category: categoryMap["Hobby"] },
+      { name: "Games & Collectibles", category: categoryMap["Hobby"] },
+      { name: "Health & Fitness", category: categoryMap["Hobby"] },
+      { name: "Music & Instruments", category: categoryMap["Hobby"] },
+      { name: "Outdoor Activities", category: categoryMap["Hobby"] },
+      { name: "Sports & Recreation", category: categoryMap["Hobby"] },
+      { name: "Tech & Gadgets", category: categoryMap["Hobby"] },
+
+      { name: "Anniversaries", category: categoryMap["Events"] },
+      { name: "Baby Showers", category: categoryMap["Events"] },
+      { name: "Birthdays", category: categoryMap["Events"] },
+      { name: "Graduations", category: categoryMap["Events"] },
+      { name: "Housewarming", category: categoryMap["Events"] },
+      { name: "Retirement", category: categoryMap["Events"] },
+      { name: "Holidays", category: categoryMap["Events"] },
+      { name: "Valentines Day", category: categoryMap["Events"] },
+      { name: "Weddings", category: categoryMap["Events"] },
+
+      { name: "Books & Literature", category: categoryMap["Adults"] },
+      { name: "Fashion & Accessories", category: categoryMap["Adults"] },
+      { name: "Home Decor", category: categoryMap["Adults"] },
+      { name: "Intimate Products", category: categoryMap["Adults"] },
+      { name: "Luxury Items", category: categoryMap["Adults"] },
       { name: "Personal Care", category: categoryMap["Adults"] },
-      { name: "Toys", category: categoryMap["Kids"] },
-      { name: "Educational", category: categoryMap["Kids"] },
-      { name: "Comfort", category: categoryMap["Elderly"] },
-      { name: "Health & Wellness", category: categoryMap["Elderly"] }
+      { name: "Tech & Gadgets", category: categoryMap["Adults"] },
+      { name: "Unique Experiences", category: categoryMap["Adults"] },
+      { name: "Wine & Spirits", category: categoryMap["Adults"] },
+
+      { name: "Arts & Crafts", category: categoryMap["Kids"] },
+      { name: "Educational Toys", category: categoryMap["Kids"] },
+      { name: "Outdoor Toys", category: categoryMap["Kids"] },
+      { name: "Tech & Gadgets", category: categoryMap["Kids"] },
+      { name: "Toys for Girls", category: categoryMap["Kids"] },
+      { name: "Toys for Boys", category: categoryMap["Kids"] },
+
+      { name: "Activities", category: categoryMap["Elderly"] },
+      { name: "Assistive Devices", category: categoryMap["Elderly"] },
+      { name: "Comfort & Relaxation", category: categoryMap["Elderly"] },
+      { name: "Health & Wellness", category: categoryMap["Elderly"] },
+      { name: "Personal Care", category: categoryMap["Elderly"] },
+      { name: "Supplemental Aid", category: categoryMap["Elderly"] },
     ];
 
     // Insert subcategories
-    const createdSubcategories = await Subcategory.insertMany(subcategoriesData);
+    const createdSubcategories = await Subcategory.insertMany(
+      subcategoriesData
+    );
 
     // Update categories to include references to their subcategories
     for (const subcategory of createdSubcategories) {
       await Category.findByIdAndUpdate(subcategory.category, {
-        $push: { subcategories: subcategory._id }
+        $push: { subcategories: subcategory._id },
       });
     }
 
