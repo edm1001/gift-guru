@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config(); // Load environment variables
 
-const Category = require("./models/Category");
-const Subcategory = require("./models/Subcategory");
-const connectDB = require("./config/db");
+const Category = require("../Model/Category");
+const Subcategory = require("../Model/Subcategory");
+const connectDB = require("../config/db");
 
-connectDB(); // Connect to MongoDB
+connectDB();
 
 const seedDatabase = async () => {
   try {
@@ -28,7 +28,6 @@ const seedDatabase = async () => {
       categoryMap[category.name] = category._id;
     });
 
-    // TODO: Update categories
     const subcategoriesData = [
       { name: "Arts & Crafts", category: categoryMap["Hobby"] },
       { name: "Cooking & Baking", category: categoryMap["Hobby"] },
@@ -69,7 +68,7 @@ const seedDatabase = async () => {
       { name: "Toys for Toddlers", category: categoryMap["Kids"] },
 
       { name: "Elderly Activities", category: categoryMap["Seniors"] },
-      { name: "Assistive Devices", category: categoryMap["Serniors"] },
+      { name: "Assistive Devices", category: categoryMap["Seniors"] },
       { name: "Comfort & Relaxation", category: categoryMap["Seniors"] },
       { name: "Health & Wellness", category: categoryMap["Seniors"] },
       { name: "Personal Care", category: categoryMap["Seniors"] },
