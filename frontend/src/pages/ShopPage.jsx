@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-// TODO: add categories to subcategory script 
+// TODO: Push seeds and render categories and product from backend
 const ShopPage = () => {
   const [categories ] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
