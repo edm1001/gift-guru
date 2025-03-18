@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import productData from "../db/Shop/Products.json";
 import { FaLink } from "react-icons/fa";
+import axios from "axios";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-
+// FIXME: FIX rendering product bug
   useEffect(() => {
-    // Flatten the products array from all categories
-    const allProducts = productData.categories.flatMap(category => 
-      category.subcategories.flatMap(subcategory => subcategory.products)
-    );
-
-    // Find the product with the matching id
-    const selectedProduct = allProducts.find(p => p.id === parseInt(id, 10));
-    setProduct(selectedProduct);
-  }, [id]);
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`/api/products/${id}`);
+        if (response.data) {
+          setProduct(response.data);
+        } else {
+          console.error("Product not found:", response.data);
+        }
+      } catch (err) {
+        console.error("Error fetching product:", err);
+      }
+    };
+    fetchProduct();
+  }
+  , [id]);  
 
   if (!product) {
     return <div>Loading...</div>;

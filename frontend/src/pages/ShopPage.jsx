@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-// TODO: Push seeds and render categories and product from backend
 const ShopPage = () => {
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
@@ -14,12 +13,17 @@ const ShopPage = () => {
     setOpenCategory(openCategory === categoryId ? null : categoryId);
   };
 
-  // Fetch categories from backend
+  // Fetch categories and subcategories from backend
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get("/api/categories");
         if (Array.isArray(response.data)) {
+          // Ensure that each category has subcategories
+          const categorysWithSubcategories = response.data.map((category) => ({
+            ...category,
+            subcategories: category.subcategories || [],
+          }));
           setCategories(response.data);
         } else {
           console.error("API response is not an array:", response.data);
@@ -96,22 +100,29 @@ const ShopPage = () => {
               {openCategory === category._id && (
                 <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
                   <div className="flex flex-col space-y-1 text-white">
-                    {category.subcategories.map((subcategory) => (
-                      <button
-                        key={subcategory._id}
-                        onClick={() => {
-                          setSelectedSubcategory(subcategory._id);
-                          setOpenCategory(null);
-                        }}
-                        className={`hover:underline hover:text-gray-200 text-sm ${
-                          selectedSubcategory === subcategory._id
-                            ? "font-bold"
-                            : ""
-                        }`}
-                      >
-                        {subcategory.name}
-                      </button>
-                    ))}
+                    {category.subcategories &&
+                      category.subcategories.length > 0 && (
+                        <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
+                          <div className="flex flex-col space-y-1 text-white">
+                            {category.subcategories.map((subcategory) => (
+                              <button
+                                key={subcategory._id}
+                                onClick={() => {
+                                  setSelectedSubcategory(subcategory._id);
+                                  setOpenCategory(null);
+                                }}
+                                className={`hover:underline hover:text-gray-200 text-sm ${
+                                  selectedSubcategory === subcategory._id
+                                    ? "font-bold"
+                                    : ""
+                                }`}
+                              >
+                                {subcategory.name}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                   </div>
                 </div>
               )}
