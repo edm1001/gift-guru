@@ -1,98 +1,89 @@
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config(); // Load environment variables
+const Category = require("../Model/Category.js");
+const Subcategory = require("../Model/Subcategory.js");
+require("dotenv").config();
 
-const Category = require("../Model/Category");
-const Subcategory = require("../Model/Subcategory");
-const connectDB = require("../config/db");
+const categoriesData = [
+  { name: "Tech & Gadgets" },
+  { name: "Fashion & Accessories" },
+  { name: "Home & Lifestyle" },
+  { name: "Wellness & Self-Care" },
+  { name: "Toys & Collectibles" }
+];
 
-connectDB();
+const subcategoriesData = [
+{ name: "Smart Home", category: "Tech & Gadgets"] },
+  { name: "Wearable Tech", category: "Tech & Gadgets"] },
+  { name: "Gaming Accessories", category: "Tech & Gadgets"] },
+  { name: "Phone & Tablet Accessories", category: "Tech & Gadgets"] },
+  { name: "Unique Inventions", category: "Tech & Gadgets"] },
 
-const seedDatabase = async () => {
+  { name: "Aesthetic Decor", category: "Home & Lifestyle"] },
+  { name: "Smart Home Essentials", category: "Home & Lifestyle"] },
+  { name: "Furniture & DIY", category: "Home & Lifestyle"] },
+  { name: "Pet Gadgets", category: "Home & Lifestyle"] },
+  { name: "Eco-Friendly Products", category: "Home & Lifestyle"] },
+
+  { name: "Tech-Integrated Fashion", category: "Fashion & Accessories"] },
+  { name: "Streetwear & Hype", category: "Fashion & Accessories"] },
+  { name: "Handmade Jewelry", category: "Fashion & Accessories"] },
+  { name: "Bags & Wallets", category: "Fashion & Accessories"] },
+  { name: "Novelty Wear", category: "Fashion & Accessories"] },
+
+  { name: "Camping & Survival", category: "Outdoor & Adventure"] },
+  { name: "Extreme Sports Gear", category: "Outdoor & Adventure"] },
+  { name: "Travel Essentials", category: "Outdoor & Adventure"] },
+  { name: "Water Sports & Fishing", category: "Outdoor & Adventure"] },
+  { name: "Electric Bikes & Scooters", category: "Outdoor & Adventure"] },
+
+  { name: "Action Figures", category: "Toys & Collectibles"] },
+  { name: "Rare Collectibles", category: "Toys & Collectibles"] },
+  { name: "Board Games & Puzzles", category: "Toys & Collectibles"] },
+  { name: "STEM & Educational Toys", category: "Toys & Collectibles"] },
+  { name: "Fidget & Sensory Toys", category: "Toys & Collectibles"] },
+
+  { name: "Smart Health Gadgets", category: "Wellness & Self-Care"] },
+  { name: "Sleep & Relaxation", category: "Wellness & Self-Care"] },
+  { name: "Fitness Tech", category: "Wellness & Self-Care"] },
+  { name: "Aromatherapy & Essential Oils", category: "Wellness & Self-Care"] },
+  { name: "Self-Care Kits", category: "Wellness & Self-Care] },
+
+  { name: "Unique Kitchen Gadgets", category: "Food & Kitchen" },
+  { name: "Viral Snacks & Treats", category: "Food & Kitchen" },
+  { name: "DIY Cooking Kits", category: "Food & Kitchen" },
+  { name: "Bar & Mixology", category: "Food & Kitchen" },
+  { name: "Coffee & Tea Essentials", category: "Food & Kitchen" },
+
+  { name: "Anime & Manga", category: "Pop Culture & Geek" },
+  { name: "Retro & Nostalgia", category: "Pop Culture & Geek" },
+  { name: "Sci-Fi & Fantasy", category: "Pop Culture & Geek" },
+  { name: "Horror & Spooky", category: "Pop Culture & Geek" },
+  { name: "Movie & TV Merch", category: "Pop Culture & Geek" },
+];
+
+const seedCategories = async () => {
   try {
-    console.log("Seeding database...");
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB Connected");
 
-    const categoriesData = [
-      { name: "Hobby" },
-      { name: "Events" },
-      { name: "Adults" },
-      { name: "Kids" },
-      { name: "Seniors" },
-    ];
+    await Category.deleteMany({});
+    await Subcategory.deleteMany({});
 
-    // Insert categories and store references
-    const createdCategories = await Category.insertMany(categoriesData);
-    // Map category names to their IDs for reference
-    const categoryMap = {};
-    createdCategories.forEach((category) => {
-      categoryMap[category.name] = category._id;
-    });
+    const insertedCategories = await Category.insertMany(categoriesData);
 
-    const subcategoriesData = [
-      { name: "Arts & Crafts", category: categoryMap["Hobby"] },
-      { name: "Cooking & Baking", category: categoryMap["Hobby"] },
-      { name: "DIY & Furniture", category: categoryMap["Hobby"] },
-      { name: "Games & Collectibles", category: categoryMap["Hobby"] },
-      { name: "Health & Fitness", category: categoryMap["Hobby"] },
-      { name: "Music & Instruments", category: categoryMap["Hobby"] },
-      { name: "Outdoor Activities", category: categoryMap["Hobby"] },
-      { name: "Sports & Recreation", category: categoryMap["Hobby"] },
-      { name: "Tech & Gadgets", category: categoryMap["Hobby"] },
+    const subcategories = subcategoriesData.map((sub) => ({
+      name: sub.name,
+      category: insertedCategories.find((cat) => cat.name === sub.category)._id
+    }));
 
-      { name: "Anniversaries", category: categoryMap["Events"] },
-      { name: "Baby Showers", category: categoryMap["Events"] },
-      { name: "Birthdays", category: categoryMap["Events"] },
-      { name: "Graduations", category: categoryMap["Events"] },
-      { name: "Housewarming", category: categoryMap["Events"] },
-      { name: "Retirement", category: categoryMap["Events"] },
-      { name: "Holidays", category: categoryMap["Events"] },
-      { name: "Valentines Day", category: categoryMap["Events"] },
-      { name: "Weddings", category: categoryMap["Events"] },
+    await Subcategory.insertMany(subcategories);
 
-      { name: "Books & Literature", category: categoryMap["Adults"] },
-      { name: "Fashion & Accessories", category: categoryMap["Adults"] },
-      { name: "Home Decor", category: categoryMap["Adults"] },
-      { name: "Intimate Products", category: categoryMap["Adults"] },
-      { name: "Luxury Items", category: categoryMap["Adults"] },
-      { name: "Personal Care", category: categoryMap["Adults"] },
-      { name: "Tech & Gadgets", category: categoryMap["Adults"] },
-      { name: "Unique Experiences", category: categoryMap["Adults"] },
-      { name: "Wine & Spirits", category: categoryMap["Adults"] },
-
-      { name: "Arts & Crafts", category: categoryMap["Kids"] },
-      { name: "Educational Toys", category: categoryMap["Kids"] },
-      { name: "Outdoor Toys", category: categoryMap["Kids"] },
-      { name: "Tech & Gadgets", category: categoryMap["Kids"] },
-      { name: "Toys for Boys", category: categoryMap["Kids"] },
-      { name: "Toys for Girls", category: categoryMap["Kids"] },
-      { name: "Toys for Toddlers", category: categoryMap["Kids"] },
-
-      { name: "Elderly Activities", category: categoryMap["Seniors"] },
-      { name: "Assistive Devices", category: categoryMap["Seniors"] },
-      { name: "Comfort & Relaxation", category: categoryMap["Seniors"] },
-      { name: "Health & Wellness", category: categoryMap["Seniors"] },
-      { name: "Personal Care", category: categoryMap["Seniors"] },
-      { name: "Supplemental Aid", category: categoryMap["Seniors"] },
-    ];
-
-    // Insert subcategories
-    const createdSubcategories = await Subcategory.insertMany(
-      subcategoriesData
-    );
-
-    // Update categories to include references to their subcategories
-    for (const subcategory of createdSubcategories) {
-      await Category.findByIdAndUpdate(subcategory.category, {
-        $push: { subcategories: subcategory._id },
-      });
-    }
-
-    console.log("Database seeded successfully!");
-    process.exit();
-  } catch (error) {
-    console.error("Error seeding database:", error);
-    process.exit(1);
+    console.log("Categories and Subcategories inserted!");
+    mongoose.connection.close();
+  } catch (err) {
+    console.error("Error inserting categories:", err);
+    mongoose.connection.close();
   }
 };
 
-seedDatabase();
+seedCategories();

@@ -5,7 +5,7 @@ const tagSchema = new mongoose.Schema({
   type: { 
     type: String, 
     required: true, 
-    enum: ["category", "subcategory", "budget", "age", "recipient", "occasion", "style", "priority"] 
+    enum: ["category", "subcategory", "budget", "recipient", "occasion", "style", "priority"] 
   } 
 });
 

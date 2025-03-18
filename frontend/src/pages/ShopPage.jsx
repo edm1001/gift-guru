@@ -4,7 +4,7 @@ import axios from "axios";
 
 // TODO: Push seeds and render categories and product from backend
 const ShopPage = () => {
-  const [categories ] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
@@ -13,6 +13,23 @@ const ShopPage = () => {
   const toggleDropdown = (categoryId) => {
     setOpenCategory(openCategory === categoryId ? null : categoryId);
   };
+
+  // Fetch categories from backend
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("/api/categories");
+        if (Array.isArray(response.data)) {
+          setCategories(response.data);
+        } else {
+          console.error("API response is not an array:", response.data);
+        }
+      } catch (err) {
+        console.error("Error fetching categories:", err);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   // Fetch products from backend
   useEffect(() => {
@@ -84,9 +101,13 @@ const ShopPage = () => {
                         key={subcategory._id}
                         onClick={() => {
                           setSelectedSubcategory(subcategory._id);
-                          toggleDropdown(null);
+                          setOpenCategory(null);
                         }}
-                        className="hover:underline hover:text-gray-200 text-sm"
+                        className={`hover:underline hover:text-gray-200 text-sm ${
+                          selectedSubcategory === subcategory._id
+                            ? "font-bold"
+                            : ""
+                        }`}
                       >
                         {subcategory.name}
                       </button>
