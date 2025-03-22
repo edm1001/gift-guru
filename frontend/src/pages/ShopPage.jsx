@@ -18,13 +18,13 @@ const ShopPage = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get("/api/categories");
+        console.log("Fetched categories:", response.data); 
         if (Array.isArray(response.data)) {
-          // Ensure that each category has subcategories
-          const categorysWithSubcategories = response.data.map((category) => ({
+          const catWithSubcats = response.data.map((category) => ({
             ...category,
             subcategories: category.subcategories || [],
           }));
-          setCategories(response.data);
+          setCategories(catWithSubcats);
         } else {
           console.error("API response is not an array:", response.data);
         }
