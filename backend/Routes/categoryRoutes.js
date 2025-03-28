@@ -7,10 +7,7 @@ router.get("/", async (req, res) => {
   try {
     const categories = await Category.find().populate("subcategories").lean();
     const subcategories = await Subcategory.find().lean();
-    console.log("Fetched categories:", categories);
-    console.log("Fetched subcategories:", subcategories);
     res.json(categories);
-    res.json(subcategories);
   } catch (err) {
     console.error("Error fetching categories:", err.message);
     res.status(500).json({ error: "Internal Server Error" });

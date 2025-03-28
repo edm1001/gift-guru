@@ -59,6 +59,7 @@ const subcategoriesData = [
   { name: "Horror & Spooky", category: "Pop Culture & Geek" },
   { name: "Movie & TV Merch", category: "Pop Culture & Geek" },
 ];
+
 const seedCategories = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);

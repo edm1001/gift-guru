@@ -14,18 +14,18 @@ router.get('/', async (req, res) => {
 });
 
 // Get a single product
-router.get('/:id', async (req, res) => {
+app.get("/api/products/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).lean();
+    const product = await Product.findById(req.params.id);
     if (!product) {
-      return res.status(404).send('Product not found');
+      return res.status(404).json({ message: "Product not found" });
     }
     res.json(product);
-  } catch (err) {
-    console.error('Error fetching product:', err.message);
-    res.status(500).send('Server Error');
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
   }
 });
+
 
 
 
