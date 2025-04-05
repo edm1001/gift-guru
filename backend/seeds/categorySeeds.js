@@ -4,11 +4,14 @@ const Subcategory = require("../Model/Subcategory.js");
 require("dotenv").config();
 
 const categoriesData = [
-  { name: "Tech & Gadgets" },
   { name: "Fashion & Accessories" },
+  { name: "Food & Kitchen" },
   { name: "Home & Lifestyle" },
-  { name: "Wellness & Self-Care" },
+  { name: "Outdoor & Adventure" },
+  { name: "Pop Culture & Geek" },
+  { name: "Tech & Gadgets" },
   { name: "Toys & Collectibles" },
+  { name: "Wellness & Self-Care" },
 ];
 
 const subcategoriesData = [
@@ -70,19 +73,49 @@ const seedCategories = async () => {
 
     const insertedCategories = await Category.insertMany(categoriesData);
 
-    const subcategories = subcategoriesData.map((sub) => {
-      const category = insertedCategories.find((cat) => cat.name === sub.category);
-      if (!category) {
-        console.error(`Category not found for subcategory: ${sub.name}`);
-        return null;
-      }
-      return {
-        name: sub.name,
-        category: category._id,
-      };
-    }).filter(sub => sub !== null);
+    const subcategories = subcategoriesData
+      .map((sub) => {
+        const category = insertedCategories.find(
+          (cat) => cat.name === sub.category
+        );
+        if (!category) {
+          console.error(`Category not found for subcategory: ${sub.name}`);
+          return null;
+        }
+        return {
+          name: sub.name,
+          category: category._id,
+        };
+      })
+      .filter((sub) => sub !== null);
 
     await Subcategory.insertMany(subcategories);
+
+    const allSubcategories = await Subcategory.find();
+
+    const categoryMap = {};
+
+    insertedCategories.forEach((category) => {
+      categoryMap[category.name] = [];
+    });
+
+    allSubcategories.forEach((sub) => {
+      const matchedCategory = insertedCategories.find(
+        (cat) => String(cat._id) === String(sub.category)
+      );
+      if (matchedCategory) {
+        categoryMap[matchedCategory.name].push(sub._id);
+      }
+    });
+
+    // Update each category with its subcategory ObjectIds
+    await Promise.all(
+      insertedCategories.map((category) => {
+        return Category.findByIdAndUpdate(category._id, {
+          subcategories: categoryMap[category.name],
+        });
+      })
+    );
 
     console.log("Categories and Subcategories inserted!", insertedCategories);
     mongoose.connection.close();

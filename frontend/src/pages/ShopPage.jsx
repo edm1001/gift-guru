@@ -18,7 +18,7 @@ const ShopPage = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get("/api/categories");
-        console.log("Fetched categories:", response.data); 
+        console.log("Fetched categories:", response.data);
         if (Array.isArray(response.data)) {
           const catWithSubcats = response.data.map((category) => ({
             ...category,
@@ -97,32 +97,30 @@ const ShopPage = () => {
               </button>
 
               {/* Subcategory Dropdown */}
+              {/* Subcategory Dropdown */}
               {openCategory === category._id && (
                 <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
                   <div className="flex flex-col space-y-1 text-white">
-                    {category.subcategories &&
-                      category.subcategories.length > 0 && (
-                        <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
-                          <div className="flex flex-col space-y-1 text-white">
-                            {category.subcategories.map((subcategory) => (
-                              <button
-                                key={subcategory._id}
-                                onClick={() => {
-                                  setSelectedSubcategory(subcategory._id);
-                                  setOpenCategory(null);
-                                }}
-                                className={`hover:underline hover:text-gray-200 text-sm ${
-                                  selectedSubcategory === subcategory._id
-                                    ? "font-bold"
-                                    : ""
-                                }`}
-                              >
-                                {subcategory.name}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                    {category.subcategories.length > 0 ? (
+                      category.subcategories.map((subcategory) => (
+                        <button
+                          key={subcategory._id}
+                          onClick={() => {
+                            setSelectedSubcategory(subcategory._id);
+                            setOpenCategory(null);
+                          }}
+                          className={`hover:underline hover:text-gray-200 text-sm ${
+                            selectedSubcategory === subcategory._id
+                              ? "font-bold"
+                              : ""
+                          }`}
+                        >
+                          {subcategory.name}
+                        </button>
+                      ))
+                    ) : (
+                      <p className="text-gray-400 text-sm">No subcategories</p>
+                    )}
                   </div>
                 </div>
               )}

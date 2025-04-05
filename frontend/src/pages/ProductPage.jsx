@@ -10,7 +10,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`/api/products/${id}`);
+        const response = await axios.get(`/api/products`);
         console.log("Fetched product:", response.data); // Debugging log
         setProduct(response.data);
       } catch (err) {

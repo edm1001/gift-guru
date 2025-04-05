@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const categories = await Category.find().populate("subcategories").lean();
-    const subcategories = await Subcategory.find().lean();
+    console.log("Fetched Categories with Subcategories:", JSON.stringify(categories, null, 2));
     res.json(categories);
   } catch (err) {
     console.error("Error fetching categories:", err.message);
