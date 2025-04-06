@@ -10,8 +10,8 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`/api/products`);
-        console.log("Fetched product:", response.data); // Debugging log
+        const response = await axios.get(`/api/products/${id}`);
+        console.log("Fetched product:", response.data);
         setProduct(response.data);
       } catch (err) {
         console.error("Error fetching product:", err);
@@ -19,6 +19,7 @@ const ProductPage = () => {
     };
     fetchProduct();
   }, [id]);
+  
 
   if (!product) {
     return <div>Loading...</div>;
