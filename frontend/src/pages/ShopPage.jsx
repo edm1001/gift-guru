@@ -5,6 +5,7 @@ import axios from "axios";
 const ShopPage = () => {
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
 
@@ -18,7 +19,6 @@ const ShopPage = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get("/api/categories");
-        console.log("Fetched categories:", response.data);
         if (Array.isArray(response.data)) {
           const catWithSubcats = response.data.map((category) => ({
             ...category,
@@ -55,9 +55,14 @@ const ShopPage = () => {
   // Filter products based on selected subcategory
   const filteredProducts = selectedSubcategory
     ? allProducts.filter(
-        (product) => product.subcategoryId === selectedSubcategory
+        (product) =>
+          product.subcategories.includes(selectedSubcategory)
       )
-    : allProducts;
+    : selectedCategory
+    ? allProducts.filter((product) =>
+        product.categories.includes(selectedCategory)
+      )
+      : allProducts;
 
   return (
     <section className="min-h-screen mt-16 bg-gray-100">
@@ -97,7 +102,6 @@ const ShopPage = () => {
               </button>
 
               {/* Subcategory Dropdown */}
-              {/* Subcategory Dropdown */}
               {openCategory === category._id && (
                 <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
                   <div className="flex flex-col space-y-1 text-white">
@@ -121,6 +125,16 @@ const ShopPage = () => {
                     ) : (
                       <p className="text-gray-400 text-sm">No subcategories</p>
                     )}
+                    <button
+                      onClick={() => {
+                        setSelectedCategory(category._id);
+                        setSelectedSubcategory(null);
+                        setOpenCategory(null);
+                      }}
+                      className="hover:underline hover:text-gray-200 text-sm font-bold"
+                    >
+                      Show All
+                    </button>
                   </div>
                 </div>
               )}
@@ -137,6 +151,7 @@ const ShopPage = () => {
       </div>
 
       {/* Products Grid */}
+      <div className="min-h-screen">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {filteredProducts.map((product) => (
           <Link
@@ -159,6 +174,9 @@ const ShopPage = () => {
           </Link>
         ))}
       </div>
+        
+      </div>
+      
     </section>
   );
 };

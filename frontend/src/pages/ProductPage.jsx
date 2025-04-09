@@ -6,12 +6,11 @@ import axios from "axios";
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  // FIXME: FIX rendering product bug
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(`/api/products/${id}`);
-        console.log("Fetched product:", response.data);
         setProduct(response.data);
       } catch (err) {
         console.error("Error fetching product:", err);
@@ -27,8 +26,8 @@ const ProductPage = () => {
 
   return (
     <section className="mt-16">
-      <div className="flex flex-col h-full min-h-screen p-12 bg-grey opacity-90">
-        <h1 className="text-3xl text-lightblue mb-4">{product.name}</h1>
+      <div className="flex flex-col h-full min-h-screen p-12  bg-white ">
+        <h1 className="text-3xl text-blue mb-4">{product.name}</h1>
         <p className="text-sm font-semibold text-darkblue">
           Company: {product.company}
         </p>
