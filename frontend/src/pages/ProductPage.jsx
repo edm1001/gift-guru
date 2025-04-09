@@ -37,25 +37,13 @@ const ProductPage = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
           {/* Gallery feature for images can go here */}
           <img
-            src={product.images[0].url}
+            src={product.image[0].url}
             alt={product.name}
             className="w-full md:w-1/2 h-auto rounded-lg shadow-sm mb-8 md:mb-0"
           />
           <div className="md:flex-1 opacity-50">
             <p className=" p-4 text-sm bg-black text-white rounded-lg">
-              {product.description} Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Distinctio, maiores? Omnis rerum, esse beatae
-              deleniti aspernatur accusamus repudiandae illum fugit incidunt a
-              mollitia reprehenderit quam nihil ea dicta nemo obcaecati deserunt
-              optio, sed aliquam cum sint eius assumenda. Reiciendis praesentium
-              voluptatibus laboriosam, nisi quis vitae facere. Quis eos totam
-              saepe architecto enim quasi molestias, modi recusandae molestiae
-              reiciendis animi at similique. Perferendis earum repellat, optio
-              pariatur vitae ipsum non, cupiditate quasi doloremque nesciunt in
-              tempore assumenda, maxime placeat odio voluptatibus? Minima,
-              officia quasi libero, omnis voluptatum voluptatem illo aliquam
-              optio ea facilis quidem vitae rerum odit pariatur harum. At,
-              quasi.
+              {product.description}  
             </p>
             <div className="mt-8 flex justify-end">
               <button className="p-2 rounded-lg hover:opacity-50 text-lightblue focus:ring-1 focus:ring-lightblue">
