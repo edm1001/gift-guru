@@ -13,16 +13,16 @@ const quickLinksData = [
   { id: "diy", name: "For DIY Enthusiasts" },
   { id: "art", name: "For Art Aficionados" },
   { id: "games", name: "For the Gamers" },
-  { id: "fashion", name: "For the Fashionistas" },
+  { id: "fashion", name: "For the Fashionistas " },
   { id: "travel", name: "For Travel Addicts" },
 ];
 // TODO: Fix cards because its not grabbing data correctly
 
 // QuickLinks Component
-const QuickLinks = () => {
+const QuickLinks = ({ onLinkClick }) => {
   return (
     <div className="quick-links-container p-2 mb-12">
-      <h1 className="mb-8 text-center text-grey text-2xl">Quick Links</h1>
+      <h1 className="mb-8 text-center text-blue text-5xl">Quick Links</h1>
       <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
           <div
@@ -46,7 +46,7 @@ const QuickLinks = () => {
 const ProductList = ({ products }) => {
   return (
     <div className="product-list p-4 mb-8">
-      <h1 className="mb-4 text-center text-xl text-grey">Products</h1>
+      <h1 className="mb-4 text-center text-3xl text-blue">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
           <div
@@ -55,7 +55,7 @@ const ProductList = ({ products }) => {
           >
             <img
               src={product.images[0].url}
-              alt={product.images[0].alt}
+              alt={product.images[0].alt || product.name}
               className="w-full h-auto rounded-lg mb-4"
             />
             <h3 className="text-xl font-bold">{product.name}</h3>
@@ -87,14 +87,14 @@ const QuizBanner = () => {
           Take our quiz to get personalized gift recommendations.
         </p>
       </div>
-        <Link
-          to="/quiz"
-          className="text-base md:text-lg font-semibold text-white hover:text-blue-900"
-        >
-      <div className="w-full bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0 cursor-pointer">
-         <FaGift color="white"/>
-      </div>
-        </Link>
+      <Link
+        to="/quiz"
+        className="text-base md:text-lg font-semibold text-white hover:text-blue-900"
+      >
+        <div className="w-full bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0 cursor-pointer">
+          <FaGift color="white" />
+        </div>
+      </Link>
     </div>
   );
 };
@@ -109,38 +109,23 @@ const LinksPage = () => {
   };
 
   useEffect(() => {
-    // Fetch product data
     const fetchProducts = async () => {
-      try {
-        const response = await fetch("/api/links");
-        if (!response.ok) {
-          throw new Error(`Failed to fetch products: ${response.status}`);
-        }
-        const data = await response.json();
+      if (!selectedLinkId) return;
 
-        // Filter products based on selectedLinkId
-        if (selectedLinkId) {
-          const filtered = data.categories.flatMap((category) =>
-            category.subcategories.flatMap((subcategory) =>
-              subcategory.products.filter((product) =>
-                product.linkIds.includes(selectedLinkId)
-              )
-            )
-          );
-          setFilteredProducts(filtered);
-        } else {
-          setFilteredProducts(
-            data.categories.flatMap((category) =>
-              category.subcategories.flatMap(
-                (subcategory) => subcategory.products
-              )
-            )
-          );
-        }
+      try {
+        const response = await fetch("/api/products/quick-links", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ linkId: selectedLinkId }),
+        });
+
+        const data = await response.json();
+        setFilteredProducts(data);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching quick link products:", error);
       }
     };
+
     fetchProducts();
   }, [selectedLinkId]);
 

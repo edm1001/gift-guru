@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../Model/Product');
+const Product = require('../Model/Product.js');
+const Tag = require('../Model/Tags.js');
 
 // Get all products
 router.get('/', async (req, res) => {
@@ -26,7 +27,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// use products for quiz
+// use products for quiz feature
 router.post('/quiz', async (req, res) => {
   try {
     const { tags } = req.body;
@@ -48,7 +49,24 @@ router.post('/quiz', async (req, res) => {
   }
 });
 
+// QuickLinks route
+router.post('/quick-links', async (req, res) => {
+  try {
+    const { linkId } = req.body;
+    if (!linkId) {
+      return res.status(400).json({ error: 'linkId is required' });
+    }
 
+    const products = await Product.find({
+      tagNames: { $in: [linkId] }, 
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json(products);
+  } catch (err) {
+    console.error('Error in quick-links route:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 
