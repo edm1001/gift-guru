@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import questions from "../db/Question.json";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
@@ -6,12 +6,28 @@ const QuizPage = () => {
   const [quizStarted, setQuizStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [matchedProducts, setMatchedProducts] = useState([]);
 
+  useEffect(() => {
+    if (!quizStarted && Object.keys(answers).length === questions.length) {
+      const selectedTags = Object.values(answers);
+
+      fetch("/api/products/quiz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tags: selectedTags }),
+      })
+        .then((res) => res.json())
+        .then((data) => setMatchedProducts(data))
+        .catch((err) => console.error("Error fetching curated products:", err));
+    }
+  }, [quizStarted, answers]);
+          
   const handleAnswer = (selectedOption) => {
     setAnswers((prevAnswers) => {
       const newAnswers = {
         ...prevAnswers,
-        [questions[currentQuestion].id]: selectedOption.tag, 
+        [questions[currentQuestion].id]: selectedOption.tag,
       };
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion((prevIndex) => prevIndex + 1);
@@ -74,7 +90,26 @@ const QuizPage = () => {
               </div>
             ) : (
               <div>
-                <h3>Quiz Completed</h3>                
+                <h3 className="text-2xl font-semibold mb-4">Quiz Completed</h3>
+                <p className="mb-4">Here are some products you might like:</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {matchedProducts.map((product) => (
+                    <div
+                      key={product._id}
+                      className="bg-white p-4 rounded shadow"
+                    >
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-48 object-cover rounded mb-2"
+                      />
+                      <h4 className="font-bold">{product.name}</h4>
+                      <p className="text-sm text-gray-600">
+                        {product.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </>
