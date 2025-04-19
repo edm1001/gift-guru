@@ -15,7 +15,7 @@ const productData = [
     image: ["https://example.com/images/diy-crafting-kit.jpg"],
     categoryNames: ["Tech & Gadgets", "Fashion & Accessories"],
     subcategoryNames: ["Smart Home", "Wearable Tech"],
-    tagNames: ["creative", "DIY lover", "budget-friendly"],
+    tagNames: ["creative", "DIY lover", "budget-friendly", "diy"],
   },
   {
     name: "Eco-Friendly Reusable Water Bottle",

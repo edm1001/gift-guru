@@ -56,12 +56,15 @@ router.post('/quick-links', async (req, res) => {
     if (!linkId) {
       return res.status(400).json({ error: 'linkId is required' });
     }
+    const tag = await Tag.findOne({ name: linkId.toLowerCase() });
 
-    const products = await Product.find({
-      tagNames: { $in: [linkId] }, 
-    }).sort({ createdAt: -1 });
+    if (!tag) {
+      return res.status(404).json({ error: 'Tag not found' });
+    }
 
-    res.status(200).json(products);
+    const products = await Product.find({ tags: tag._id })
+
+    res.json(products);
   } catch (err) {
     console.error('Error in quick-links route:', err);
     res.status(500).json({ error: 'Internal Server Error' });
