@@ -15,7 +15,7 @@ const productData = [
     image: ["https://example.com/images/diy-crafting-kit.jpg"],
     categoryNames: ["Tech & Gadgets", "Fashion & Accessories"],
     subcategoryNames: ["Smart Home", "Wearable Tech"],
-    tagNames: ["creative", "DIY lover", "budget-friendly", "diy"],
+    tagNames: ["diy", "creative", "budget-friendly", "craft"],
   },
   {
     name: "Eco-Friendly Reusable Water Bottle",
@@ -34,13 +34,7 @@ const productData = [
       "Eco-Friendly Products",
       "Fitness Tech",
     ],
-    tagNames: [
-      "eco-friendly",
-      "hydration",
-      "travel",
-      "budget-friendly",
-      "functional",
-    ],
+    tagNames: ["eco-friendly", "travel", "budget-friendly", "functional"],
   },
   {
     name: "Personalized Name Necklace",
@@ -50,13 +44,7 @@ const productData = [
     image: ["https://example.com/images/personalized-name-necklace.jpg"],
     categoryNames: ["Fashion & Accessories", "Home & Lifestyle"],
     subcategoryNames: ["Streetwear & Hype", "Aesthetic Decor"],
-    tagNames: [
-      "jewelry",
-      "sentimental",
-      "customizable",
-      "premium",
-      "aesthetic",
-    ],
+    tagNames: ["fashion", "accessories", "gift", "customizable", "aesthetic"],
   },
   {
     name: "STEM Robotics Kit for Kids",
@@ -67,7 +55,7 @@ const productData = [
     image: ["https://example.com/images/stem-robotics-kit.jpg"],
     categoryNames: ["Tech & Gadgets", "Toys & Collectibles"],
     subcategoryNames: ["Educational", "STEM & Educational Toys"],
-    tagNames: ["STEM", "learning", "fun", "functional", "gift"],
+    tagNames: ["stem", "learning", "fun", "tech", "gift"],
   },
   {
     name: "Massage Gun for Muscle Recovery",
@@ -78,7 +66,7 @@ const productData = [
     image: ["https://example.com/images/massage-gun.jpg"],
     categoryNames: ["Wellness & Self-Care", "Home & Lifestyle"],
     subcategoryNames: ["Self-Care Kits", "Personal Care"],
-    tagNames: ["relaxation", "self-care", "premium", "functional", "gift"],
+    tagNames: ["self-care", "wellness", "relaxation", "premium", "functional"],
   },
 ];
 

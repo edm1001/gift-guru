@@ -117,7 +117,7 @@ const seedCategories = async () => {
       })
     );
 
-    console.log("Categories and Subcategories inserted!", insertedCategories);
+    console.log("Categories and Subcategories inserted!");
     mongoose.connection.close();
   } catch (err) {
     console.error("Error inserting categories:", err);

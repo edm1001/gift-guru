@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+// FIXME: Fix cards because its not grabbing data correctly
 const quickLinksData = [
   { id: "tech", name: "For Tech Geeks", tagMap: ["tech", "smart", "gadgets"] },
   { id: "nature", name: "For Nature Lovers", tagMap: ["eco-friendly", "outdoor", "travel"] },
@@ -16,7 +17,6 @@ const quickLinksData = [
   { id: "fashion", name: "For the Fashionistas", tagMap: ["fashion", "style", "accessories"] },
   { id: "travel", name: "For Travel Addicts", tagMap: ["travel", "adventure", "explore"] },
 ];
-// TODO: Fix cards because its not grabbing data correctly
 
 // QuickLinks Component
 const QuickLinks = ({ onLinkClick }) => {
@@ -30,7 +30,7 @@ const QuickLinks = ({ onLinkClick }) => {
             className="bg-gray-200 rounded-lg hover:scale-105 hover:ring-4 hover:ring-grey flex justify-center"
           >
             <button
-              onClick={() => onLinkClick(link.id)}
+              onClick={() => onLinkClick(link)}
               className="quick-link-card px-4 py-4 sm:py-12 rounded-lg hover:opacity-70 transition-shadow"
             >
               <h3 className="text-2xxs md:text-lg">{link.name}</h3>
@@ -101,45 +101,39 @@ const QuizBanner = () => {
 
 // LinksPage Component
 const LinksPage = () => {
-  const [selectedLinkId, setSelectedLinkId] = useState(null);
+  const [selectedLink, setSelectedLink] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const handleLinkClick = (linkId) => {
-    setSelectedLinkId(linkId);
+  const handleLinkClick = (link) => {
+    setSelectedLink(link);
   };
 
   useEffect(() => {
     const fetchProducts = async () => {
-      if (!selectedLinkId) return;
+      if (!selectedLink) return;
       try {
         const res = await fetch("/api/products/quick-links", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ linkId: selectedLinkId }),
+          body: JSON.stringify({ tagMap: selectedLink.tagMap }),
         });
-
+  
         const data = await res.json();
-
-        if (Array.isArray(data)) {
-          setFilteredProducts(data);
-        } else {
-          console.error("Expected array but got:", data);
-          setFilteredProducts([]);
-        }
+        setFilteredProducts(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Failed to fetch products:", err);
         setFilteredProducts([]);
       }
     };
-
+  
     fetchProducts();
-  }, [selectedLinkId]);
-
+  }, [selectedLink]);
+  
   return (
     <div className="mt-16 bg-white p-8 min-h-screen flex flex-col gap-y-8">
       {/* Quick Links Section */}
       <QuickLinks onLinkClick={handleLinkClick} />
-      {selectedLinkId && <ProductList products={filteredProducts} />}
+      {selectedLink && <ProductList products={filteredProducts} />}
       <QuizBanner />
     </div>
   );
