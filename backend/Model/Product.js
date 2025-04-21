@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   affiliate_link: { type: String, required: true },
   image: [{ type: String, required: true }],
-  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Tag", required: true }],
+  tags: {  type: [String],  required: false },
   categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true }],
   subcategories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Subcategory", required: true }],
 }, {timestamps: true});

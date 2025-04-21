@@ -111,6 +111,8 @@ const LinksPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       if (!selectedLink) return;
+
+      console.log("Selected TagMap FE:", selectedLink.tagMap);
       try {
         const res = await fetch("/api/products/quick-links", {
           method: "POST",
@@ -119,6 +121,7 @@ const LinksPage = () => {
         });
   
         const data = await res.json();
+        console.log("Filtered Products:", data);
         setFilteredProducts(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Failed to fetch products:", err);

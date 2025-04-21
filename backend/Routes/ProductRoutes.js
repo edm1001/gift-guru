@@ -50,23 +50,25 @@ router.post('/quiz', async (req, res) => {
 });
 
 // QuickLinks route
-router.post("/quick-links", async (req, res) => {
+router.post('/quick-links', async (req, res) => {
   const { tagMap } = req.body;
 
-  try {
-    const tags = await Tag.find({ name: { $in: tagMap } });
-    const tagIds = tags.map(tag => tag._id);
+  console.log("Incoming tagMap:", tagMap);
 
-    const products = await Product.find({ tags: { $in: tagIds } })
-      .populate("categories subcategories tags")
-      .exec();
+  try {
+    const products = await Product.find({
+      tags: { $in: tagMap }   
+    }).sort({ createdAt: -1 });
+
+    console.log("Matched products:", products.length);
 
     res.json(products);
   } catch (error) {
-    console.error("Error in quick links route:", error);
-    res.status(500).json({ error: "Server error" });
+    console.error("Error fetching quick link products:", error);
+    res.status(500).json({ message: "Server Error" });
   }
 });
+
 
 
 module.exports = router;
