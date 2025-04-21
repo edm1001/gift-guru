@@ -3,18 +3,18 @@ import { FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const quickLinksData = [
-  { id: "tech", name: "For Tech Geeks" },
-  { id: "nature", name: "For Nature Lovers" },
-  { id: "food", name: "For Home Chefs" },
-  { id: "fitness", name: "For Gym Goers" },
-  { id: "books", name: "For Bookworms" },
-  { id: "pets", name: "For Pet Owners" },
-  { id: "music", name: "For Music Lovers" },
-  { id: "diy", name: "For DIY Enthusiasts" },
-  { id: "art", name: "For Art Aficionados" },
-  { id: "games", name: "For the Gamers" },
-  { id: "fashion", name: "For the Fashionistas " },
-  { id: "travel", name: "For Travel Addicts" },
+  { id: "tech", name: "For Tech Geeks", tagMap: ["tech", "smart", "gadgets"] },
+  { id: "nature", name: "For Nature Lovers", tagMap: ["eco-friendly", "outdoor", "travel"] },
+  { id: "food", name: "For Home Chefs", tagMap: ["cooking", "kitchen", "chef"] },
+  { id: "fitness", name: "For Gym Goers", tagMap: ["fitness", "muscle", "self-care", "functional"] },
+  { id: "books", name: "For Bookworms", tagMap: ["books", "reading", "education"] },
+  { id: "pets", name: "For Pet Owners", tagMap: ["pets", "animals", "furry friends"] },
+  { id: "music", name: "For Music Lovers", tagMap: ["music", "audio", "instruments"] },
+  { id: "diy", name: "For DIY Enthusiasts", tagMap: ["diy", "creative", "craft", "maker"] },
+  { id: "art", name: "For Art Aficionados", tagMap: ["art", "aesthetic", "creative"] },
+  { id: "games", name: "For the Gamers", tagMap: ["gaming", "fun", "console", "pc"] },
+  { id: "fashion", name: "For the Fashionistas", tagMap: ["fashion", "style", "accessories"] },
+  { id: "travel", name: "For Travel Addicts", tagMap: ["travel", "adventure", "explore"] },
 ];
 // TODO: Fix cards because its not grabbing data correctly
 
@@ -111,18 +111,24 @@ const LinksPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       if (!selectedLinkId) return;
-
       try {
-        const response = await fetch("/api/products/quick-links", {
+        const res = await fetch("/api/products/quick-links", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ linkId: selectedLinkId }),
         });
 
-        const data = await response.json();
-        setFilteredProducts(data);
-      } catch (error) {
-        console.error("Error fetching quick link products:", error);
+        const data = await res.json();
+
+        if (Array.isArray(data)) {
+          setFilteredProducts(data);
+        } else {
+          console.error("Expected array but got:", data);
+          setFilteredProducts([]);
+        }
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+        setFilteredProducts([]);
       }
     };
 

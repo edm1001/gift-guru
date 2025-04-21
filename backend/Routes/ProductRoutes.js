@@ -71,6 +71,4 @@ router.post('/quick-links', async (req, res) => {
   }
 });
 
-
-
 module.exports = router;
