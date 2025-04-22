@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../Model/Product.js');
-const Tag = require('../Model/Tags.js');
+
 
 // Get all products
 router.get('/', async (req, res) => {

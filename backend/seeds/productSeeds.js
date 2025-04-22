@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Product = require("../Model/Product.js");
 const CategoryNames = require("../Model/Category.js");
 const SubcategoryNames = require("../Model/Subcategory.js");
-const Tag = require("../Model/Tags.js");
 require("dotenv").config();
 
 const productData = [
@@ -79,7 +78,6 @@ const seedProducts = async () => {
 
     const categories = await CategoryNames.find({});
     const subcategories = await SubcategoryNames.find({});
-    const tags = await Tag.find({});
 
     const products = productData.map((product) => {
       const matchedCategories = categories
@@ -90,9 +88,7 @@ const seedProducts = async () => {
         .filter((sub) => product.subcategoryNames.includes(sub.name))
         .map((sub) => sub._id);
 
-      const matchedTags = tags
-        .filter((tag) => product.tagNames.includes(tag.name))
-        .map((tag) => tag._id);
+      const matchedTags = product.tagNames
 
       return {
         name: product.name,
