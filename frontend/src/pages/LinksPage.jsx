@@ -3,6 +3,9 @@ import { FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 // FIXME: Fix cards because its not grabbing data correctly
+// TODO: update UI of quicklink card
+// TODO: add loading state
+ 
 const quickLinksData = [
   { id: "tech", name: "For Tech Geeks", tagMap: ["tech", "smart", "gadgets"] },
   { id: "nature", name: "For Nature Lovers", tagMap: ["eco-friendly", "outdoor", "travel"] },
@@ -49,27 +52,27 @@ const ProductList = ({ products }) => {
       <h1 className="mb-4 text-center text-3xl text-blue">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
-          <div
-            key={product.id}
-            className="product-card p-4 rounded-lg shadow-md"
-          >
-            <img
-              src={product.image?.[0].url || '/placeholder.jpg'} 
-              alt={product.image[0].alt || product.name}
-              className="w-full h-auto rounded-lg mb-4"
-            />
-            <h3 className="text-xl font-bold">{product.name}</h3>
-            <p className="text-gray-600">{product.description}</p>
-            <p className="text-gray-800 font-semibold">
-              ${product.price.toFixed(2)}
-            </p>
-            <a
-              href={product.affiliateLink}
-              className="text-blue-500 hover:underline"
-            >
-              Buy Now
-            </a>
-          </div>
+          // quicklink product card 
+          <Link to={`/shop/${product._id}`} key={product._id}>
+            <div className="product-card p-4 rounded-lg shadow-md">
+              <img
+                src={product.image?.[0].url || "/placeholder.jpg"}
+                alt={product.image[0].alt || product.name}
+                className="w-full h-auto rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold">{product.name}</h3>
+              <p className="text-gray-600">{product.description}</p>
+              <p className="text-gray-800 font-semibold">
+                ${product.price.toFixed(2)}
+              </p>
+              <a
+                href={product.affiliateLink}
+                className="text-blue-500 hover:underline"
+              >
+                Buy Now
+              </a>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
@@ -119,7 +122,7 @@ const LinksPage = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ tagMap: selectedLink.tagMap }),
         });
-  
+
         const data = await res.json();
         console.log("Filtered Products:", data);
         setFilteredProducts(Array.isArray(data) ? data : []);
@@ -128,10 +131,10 @@ const LinksPage = () => {
         setFilteredProducts([]);
       }
     };
-  
+
     fetchProducts();
   }, [selectedLink]);
-  
+
   return (
     <div className="mt-16 bg-white p-8 min-h-screen flex flex-col gap-y-8">
       {/* Quick Links Section */}
