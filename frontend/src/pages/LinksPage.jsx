@@ -54,8 +54,8 @@ const ProductList = ({ products }) => {
             className="product-card p-4 rounded-lg shadow-md"
           >
             <img
-              src={product.images[0].url}
-              alt={product.images[0].alt || product.name}
+              src={product.image?.[0].url || '/placeholder.jpg'} 
+              alt={product.image[0].alt || product.name}
               className="w-full h-auto rounded-lg mb-4"
             />
             <h3 className="text-xl font-bold">{product.name}</h3>
