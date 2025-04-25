@@ -91,12 +91,12 @@ const QuizPage = () => {
             ) : (
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Quiz Completed</h3>
-                <p className="mb-4">Here are some products you might like:</p>
+                <p className="mb-4">Here are {matchedProducts.length} products you might like:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {matchedProducts.map((product) => (
                     <div
                       key={product._id}
-                      className="bg-white p-4 rounded shadow"
+                      className="bg-white p-4 rounded shadow" 
                     >
                       <img
                         src={product.image}

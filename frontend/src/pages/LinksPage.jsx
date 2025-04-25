@@ -48,20 +48,19 @@ const QuickLinks = ({ onLinkClick }) => {
 // ProductList Component
 const ProductList = ({ products }) => {
   return (
-    <div className="product-list p-4 mb-8">
-      <h1 className="mb-4 text-center text-3xl text-blue">Products</h1>
+    <div className="product-list p- mb-8">
+      <h1 className="my-12 text-center text-3xl text-blue">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
           // quicklink product card 
-          <Link to={`/shop/${product._id}`} key={product._id}>
-            <div className="product-card p-4 rounded-lg shadow-md">
+          <Link to={`/shop/${product._id}`} key={product._id} className="">
+            <div className="product-card p-4 hover:scale-105 hover:ring-4 hover:ring-grey-300 transform transition-all duration-200 bg-lightblue rounded-md" >
               <img
                 src={product.image?.[0].url || "/placeholder.jpg"}
                 alt={product.image[0].alt || product.name}
                 className="w-full h-auto rounded-lg mb-4"
               />
               <h3 className="text-xl font-bold">{product.name}</h3>
-              <p className="text-gray-600">{product.description}</p>
               <p className="text-gray-800 font-semibold">
                 ${product.price.toFixed(2)}
               </p>

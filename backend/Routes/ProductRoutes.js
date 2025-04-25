@@ -35,11 +35,9 @@ router.post('/quiz', async (req, res) => {
     if (!tags || !Array.isArray(tags)) {
       return res.status(400).json({ error: 'Tags must be an array' });
     }
-    const matchedTags = await Tag.find({ name: { $in: tags } });
-    const tagIds = matchedTags.map(tag => tag._id);
 
     const products = await Product.find({
-      tags: { $in: tagIds },
+      tags: { $in: tags },
     }).sort({ createdAt: -1 });
 
     res.status(200).json(products);
@@ -48,6 +46,7 @@ router.post('/quiz', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 // QuickLinks route
 router.post('/quick-links', async (req, res) => {
