@@ -10,7 +10,7 @@ const QuizPage = () => {
 
   useEffect(() => {
     if (!quizStarted && Object.keys(answers).length === questions.length) {
-      const selectedTags = Object.values(answers);
+      const selectedTags = Object.values(answers).flat();
 
       fetch("/api/products/quiz", {
         method: "POST",
@@ -22,20 +22,33 @@ const QuizPage = () => {
         .catch((err) => console.error("Error fetching curated products:", err));
     }
   }, [quizStarted, answers]);
-          
-  const handleAnswer = (selectedOption) => {
+
+  const handleCheckboxChange = (optionTag) => {
     setAnswers((prevAnswers) => {
-      const newAnswers = {
-        ...prevAnswers,
-        [questions[currentQuestion].id]: selectedOption.tag,
-      };
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion((prevIndex) => prevIndex + 1);
+      const currentSelections =
+        prevAnswers[questions[currentQuestion].id] || [];
+      if (currentSelections.includes(optionTag)) {
+        return {
+          ...prevAnswers,
+          [questions[currentQuestion].id]: currentSelections.filter(
+            (tag) => tag !== optionTag
+          ),
+        };
       } else {
-        setQuizStarted(false);
+        return {
+          ...prevAnswers,
+          [questions[currentQuestion].id]: [...currentSelections, optionTag],
+        };
       }
-      return newAnswers;
     });
+  };
+
+  const handleNextQuestion = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion((prevIndex) => prevIndex + 1);
+    } else {
+      setQuizStarted(false); // End the quiz
+    }
   };
 
   const handleBack = () => {
@@ -74,29 +87,47 @@ const QuizPage = () => {
               </button>
             )}
             {currentQuestion < questions.length ? (
-              <div>
-                <p className="text-xl font-semibold">
+              <div className="flex flex-col items-center">
+                <p className="text-xl font-semibold mb-4">
                   {questions[currentQuestion].question}
                 </p>
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswer(option)}
-                    className="bg-blue text-white p-2 rounded m-2 hover:opacity-60"
-                  >
-                    {option.answer}
-                  </button>
-                ))}
+
+                <div className="flex flex-col items-start space-y-2">
+                  {questions[currentQuestion].options.map((option, index) => (
+                    <label key={index} className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        checked={
+                          answers[questions[currentQuestion].id]?.includes(
+                            option.tag
+                          ) || false
+                        }
+                        onChange={() => handleCheckboxChange(option.tag)}
+                        className="w-5 h-5 text-blue-600"
+                      />
+                      <span className="text-black">{option.answer}</span>
+                    </label>
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleNextQuestion}
+                  className="mt-6 bg-blue text-white px-4 py-2 rounded hover:opacity-70"
+                >
+                  Next
+                </button>
               </div>
             ) : (
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Quiz Completed</h3>
-                <p className="mb-4">Here are {matchedProducts.length} products you might like:</p>
+                <p className="mb-4">
+                  Here are {matchedProducts.length} products you might like:
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {matchedProducts.map((product) => (
                     <div
                       key={product._id}
-                      className="bg-white p-4 rounded shadow" 
+                      className="bg-white p-4 rounded shadow"
                     >
                       <img
                         src={product.image}

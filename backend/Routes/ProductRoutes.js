@@ -31,13 +31,13 @@ router.get("/:id", async (req, res) => {
 router.post('/quiz', async (req, res) => {
   try {
     const { tags } = req.body;
-
+    console.log("Incoming tags:", tags);
     if (!tags || !Array.isArray(tags)) {
       return res.status(400).json({ error: 'Tags must be an array' });
     }
 
     const products = await Product.find({
-      tags: { $in: tags },
+      tagNames: { $in: tags },
     }).sort({ createdAt: -1 });
 
     res.status(200).json(products);

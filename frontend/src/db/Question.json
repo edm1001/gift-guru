@@ -1,73 +1,65 @@
 [
   {
     "id": 1,
-    "question": "What type of gift are you looking for?",
+    "question": "What are you most interested in discovering?",
     "options": [
-      { "answer": "Hobby & Leisure", "tag": "hobby" },
-      { "answer": "Tech & Gadgets", "tag": "electronics" },
-      { "answer": "Books & Learning", "tag": "books" },
+      { "answer": "Tech & Gadgets", "tag": "tech" },
+      { "answer": "Creative & DIY", "tag": "creative" },
       { "answer": "Fashion & Accessories", "tag": "fashion" },
-      { "answer": "Toys & Games", "tag": "toys" },
-      { "answer": "Home & Living", "tag": "home" }
+      { "answer": "Home Upgrades", "tag": "home" },
+      { "answer": "Fun & Games", "tag": "fun" },
+      { "answer": "Outdoors & Adventure", "tag": "outdoors" }
     ]
   },
   {
     "id": 2,
-    "question": "What is your budget range?",
+    "question": "Pick your vibe:",
     "options": [
-      { "answer": "$0 - $50", "tag": "budget" },
-      { "answer": "$51 - $100", "tag": "mid-range" },
-      { "answer": "$101 - $200", "tag": "premium" },
-      { "answer": "$201+", "tag": "luxury" }
+      { "answer": "Minimalist & Clean", "tag": "minimalist" },
+      { "answer": "Bold & Trendy", "tag": "trendy" },
+      { "answer": "Vintage & Retro", "tag": "retro" },
+      { "answer": "Futuristic & High-Tech", "tag": "futuristic" }
     ]
   },
   {
     "id": 3,
-    "question": "Who is the gift for?",
+    "question": "What's your style when it comes to products?",
     "options": [
-      { "answer": "Friend", "tag": "friend" },
-      { "answer": "Family", "tag": "family" },
-      { "answer": "Partner", "tag": "partner" },
-      { "answer": "Self", "tag": "self" }
+      { "answer": "Practical & Useful", "tag": "functional" },
+      { "answer": "Unique & Conversation Starters", "tag": "unique" },
+      { "answer": "Aesthetic & Stylish", "tag": "aesthetic" },
+      { "answer": "Eco-Friendly & Sustainable", "tag": "eco-friendly" }
     ]
   },
   {
     "id": 4,
-    "question": "What is the occasion?",
+    "question": "What's your ideal price range for finding cool stuff?",
     "options": [
-      { "answer": "Birthday", "tag": "birthday" },
-      { "answer": "Anniversary", "tag": "anniversary" },
-      { "answer": "Holiday", "tag": "holiday" },
-      { "answer": "Just because", "tag": "surprise" }
+      { "answer": "$0 - $50 (Budget-Friendly Finds)", "tag": "budget-friendly" },
+      { "answer": "$51 - $150 (Mid-Tier Cool)", "tag": "mid-range" },
+      { "answer": "$151+ (Premium & Luxury)", "tag": "luxury" }
     ]
   },
   {
     "id": 5,
-    "question": "What is their age group?",
+    "question": "Which of these would you be *most* excited about?",
     "options": [
-      { "answer": "Kids", "tag": "kids" },
-      { "answer": "Teens", "tag": "teen" },
-      { "answer": "Adults", "tag": "adult" },
-      { "answer": "Seniors", "tag": "senior" }
+      { "answer": "Smart Home Gadgets", "tag": "smart-home" },
+      { "answer": "Gaming Gear", "tag": "gaming" },
+      { "answer": "Wearable Tech", "tag": "wearables" },
+      { "answer": "DIY Kits & Creative Projects", "tag": "creative" },
+      { "answer": "Outdoor Essentials", "tag": "outdoors" }
     ]
   },
   {
     "id": 6,
-    "question": "What is their style or personality?",
+    "question": "What do you value more?",
     "options": [
-      { "answer": "Casual & Relaxed", "tag": "casual" },
-      { "answer": "Formal & Elegant", "tag": "formal" },
-      { "answer": "Sporty & Active", "tag": "sporty" },
-      { "answer": "Trendy & Fashionable", "tag": "trendy" }
-    ]
-  },
-  {
-    "id": 7,
-    "question": "Choose which is more important?",
-    "options": [
-      { "answer": "Functionality", "tag": "functional" },
-      { "answer": "Aesthetic", "tag": "aesthetic" }
+      { "answer": "Functionality & Innovation", "tag": "functional" },
+      { "answer": "Looks & Aesthetics", "tag": "aesthetic" },
+      { "answer": "Eco Impact & Sustainability", "tag": "eco-friendly" }
     ]
   }
 ]
+
 
