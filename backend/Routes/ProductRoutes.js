@@ -37,7 +37,7 @@ router.post('/quiz', async (req, res) => {
     }
 
     const products = await Product.find({
-      tagNames: { $in: tags },
+      quiztags: { $in: selectedTags },
     }).sort({ createdAt: -1 });
 
     res.status(200).json(products);

@@ -5,68 +5,86 @@ const SubcategoryNames = require("../Model/Subcategory.js");
 require("dotenv").config();
 
 const productData = [
+  // {
+  //   name: "DIY Crafting Kit",
+  //   description:
+  //     "A perfect kit for craft lovers to create their own handmade projects.",
+  //   price: 39.99,
+  //   affiliate_link: "https://example.com/product/diy-crafting-kit",
+  //   image: ["https://example.com/images/diy-crafting-kit.jpg"],
+  //   categoryNames: ["Tech & Gadgets", "Fashion & Accessories"],
+  //   subcategoryNames: ["Smart Home", "Wearable Tech"],
+  //   tagNames: ["diy", "creative", "budget-friendly", "craft"],
+  // },
+  // {
+  //   name: "Eco-Friendly Reusable Water Bottle",
+  //   description:
+  //     "A stylish, insulated water bottle to keep drinks cold or hot.",
+  //   price: 29.99,
+  //   affiliate_link: "https://example.com/product/reusable-water-bottle",
+  //   image: ["https://example.com/images/reusable-water-bottle.jpg"],
+  //   categoryNames: [
+  //     "Tech & Gadgets",
+  //     "Home & Lifestyle",
+  //     "Wellness & Self-Care",
+  //   ],
+  //   subcategoryNames: [
+  //     "Smart Home Essentials",
+  //     "Eco-Friendly Products",
+  //     "Fitness Tech",
+  //   ],
+  //   tagNames: ["eco-friendly", "travel", "budget-friendly", "functional"],
+  // },
+  // {
+  //   name: "Personalized Name Necklace",
+  //   description: "A beautiful custom-made name necklace, perfect as a gift.",
+  //   price: 59.99,
+  //   affiliate_link: "https://example.com/product/personalized-name-necklace",
+  //   image: ["https://example.com/images/personalized-name-necklace.jpg"],
+  //   categoryNames: ["Fashion & Accessories", "Home & Lifestyle"],
+  //   subcategoryNames: ["Streetwear & Hype", "Aesthetic Decor"],
+  //   tagNames: ["fashion", "accessories", "gift", "customizable", "aesthetic"],
+  // },
+  // {
+  //   name: "STEM Robotics Kit for Kids",
+  //   description:
+  //     "A fun and educational robotics kit to introduce kids to programming and engineering.",
+  //   price: 129.99,
+  //   affiliate_link: "https://example.com/product/stem-robotics-kit",
+  //   image: ["https://example.com/images/stem-robotics-kit.jpg"],
+  //   categoryNames: ["Tech & Gadgets", "Toys & Collectibles"],
+  //   subcategoryNames: ["Educational", "STEM & Educational Toys"],
+  //   tagNames: ["stem", "learning", "fun", "tech", "gift"],
+  // },
+  // {
+  //   name: "Massage Gun for Muscle Recovery",
+  //   description:
+  //     "A high-performance massage gun for deep tissue relaxation and recovery.",
+  //   price: 199.99,
+  //   affiliate_link: "https://example.com/product/massage-gun",
+  //   image: ["https://example.com/images/massage-gun.jpg"],
+  //   categoryNames: ["Wellness & Self-Care", "Home & Lifestyle"],
+  //   subcategoryNames: ["Self-Care Kits", "Personal Care"],
+  //   tagNames: ["self-care", "wellness", "relaxation", "premium", "functional"],
+  // },
   {
-    name: "DIY Crafting Kit",
-    description:
-      "A perfect kit for craft lovers to create their own handmade projects.",
+    name: "Placeholder Quiz Product",
+    description: "This product is designed to match all the first answers in the quiz.",
     price: 39.99,
-    affiliate_link: "https://example.com/product/diy-crafting-kit",
-    image: ["https://example.com/images/diy-crafting-kit.jpg"],
-    categoryNames: ["Tech & Gadgets", "Fashion & Accessories"],
-    subcategoryNames: ["Smart Home", "Wearable Tech"],
-    tagNames: ["diy", "creative", "budget-friendly", "craft"],
-  },
-  {
-    name: "Eco-Friendly Reusable Water Bottle",
-    description:
-      "A stylish, insulated water bottle to keep drinks cold or hot.",
-    price: 29.99,
-    affiliate_link: "https://example.com/product/reusable-water-bottle",
-    image: ["https://example.com/images/reusable-water-bottle.jpg"],
-    categoryNames: [
-      "Tech & Gadgets",
-      "Home & Lifestyle",
-      "Wellness & Self-Care",
-    ],
-    subcategoryNames: [
-      "Smart Home Essentials",
-      "Eco-Friendly Products",
-      "Fitness Tech",
-    ],
-    tagNames: ["eco-friendly", "travel", "budget-friendly", "functional"],
-  },
-  {
-    name: "Personalized Name Necklace",
-    description: "A beautiful custom-made name necklace, perfect as a gift.",
-    price: 59.99,
-    affiliate_link: "https://example.com/product/personalized-name-necklace",
-    image: ["https://example.com/images/personalized-name-necklace.jpg"],
-    categoryNames: ["Fashion & Accessories", "Home & Lifestyle"],
-    subcategoryNames: ["Streetwear & Hype", "Aesthetic Decor"],
-    tagNames: ["fashion", "accessories", "gift", "customizable", "aesthetic"],
-  },
-  {
-    name: "STEM Robotics Kit for Kids",
-    description:
-      "A fun and educational robotics kit to introduce kids to programming and engineering.",
-    price: 129.99,
-    affiliate_link: "https://example.com/product/stem-robotics-kit",
-    image: ["https://example.com/images/stem-robotics-kit.jpg"],
-    categoryNames: ["Tech & Gadgets", "Toys & Collectibles"],
-    subcategoryNames: ["Educational", "STEM & Educational Toys"],
-    tagNames: ["stem", "learning", "fun", "tech", "gift"],
-  },
-  {
-    name: "Massage Gun for Muscle Recovery",
-    description:
-      "A high-performance massage gun for deep tissue relaxation and recovery.",
-    price: 199.99,
-    affiliate_link: "https://example.com/product/massage-gun",
-    image: ["https://example.com/images/massage-gun.jpg"],
-    categoryNames: ["Wellness & Self-Care", "Home & Lifestyle"],
-    subcategoryNames: ["Self-Care Kits", "Personal Care"],
-    tagNames: ["self-care", "wellness", "relaxation", "premium", "functional"],
-  },
+    image: "https://example.com/placeholder.jpg",
+    affiliateLink: "https://amzn.to/placeholder-product",
+    categoryNames: "gadgets", // use a valid one from your seeded subcategories
+    subcategoryNames: "tech",
+    tags: ["placeholder", "sample", "quiz"],
+    quizTagNames: [
+      "tech",          
+      "minimalist",     
+      "functional",       
+      "budget-friendly",  
+      "smart-home",       
+      "functional"        
+    ]
+  }
 ];
 
 const seedProducts = async () => {
@@ -88,22 +106,20 @@ const seedProducts = async () => {
         .filter((sub) => product.subcategoryNames.includes(sub.name))
         .map((sub) => sub._id);
 
-      const matchedTags = product.tagNames
-
       return {
         name: product.name,
         description: product.description,
         price: product.price,
-        affiliate_link: product.affiliate_link,
+        affiliateLink: product.affiliateLink,
         image: product.image,
         categories: matchedCategories,
         subcategories: matchedSubcategories,
-        tags: matchedTags,
+        tags: product.tags || [],
+        quizTags: product.quizTagNames || [], 
       };
     });
 
     await Product.insertMany(products);
-
     console.log("Products inserted successfully!");
     mongoose.connection.close();
   } catch (err) {
