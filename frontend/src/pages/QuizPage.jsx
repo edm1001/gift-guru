@@ -7,9 +7,10 @@ const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [matchedProducts, setMatchedProducts] = useState([]);
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
   useEffect(() => {
-    if (!quizStarted && Object.keys(answers).length === questions.length) {
+    if (quizCompleted) {
       const selectedTags = Object.values(answers).flat();
 
       fetch("/api/products/quiz", {
@@ -21,7 +22,7 @@ const QuizPage = () => {
         .then((data) => setMatchedProducts(data))
         .catch((err) => console.error("Error fetching curated products:", err));
     }
-  }, [quizStarted, answers]);
+  }, [quizCompleted]);
 
   const handleCheckboxChange = (optionTag) => {
     setAnswers((prevAnswers) => {
@@ -47,7 +48,7 @@ const QuizPage = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prevIndex) => prevIndex + 1);
     } else {
-      setQuizStarted(false); // End the quiz
+      setQuizCompleted(true); // End the quiz
     }
   };
 
@@ -60,7 +61,7 @@ const QuizPage = () => {
   return (
     <section className="bg-gray-200 min-h-screen pt-16 pb-8 text-center relative">
       <div className="bg-gradient-to-r from-gray-100 to-lightblue h-screen flex flex-col justify-center items-center">
-        {!quizStarted && (
+        {!quizStarted && !quizCompleted && (
           <>
             <h2 className="text-center text-black text-4xl font-semibold">
               Quiz Page
@@ -76,7 +77,7 @@ const QuizPage = () => {
             </button>
           </>
         )}
-        {quizStarted && (
+        {quizStarted && !quizCompleted && (
           <>
             {currentQuestion > 0 && (
               <button
