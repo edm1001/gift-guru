@@ -93,7 +93,7 @@ export default function Posts() {
     <div className="m-4">
       {" "}
       {/* Grab state and render the newest posts created on the website */}
-      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-lg cursor-pointer">
+      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 rounded-lg cursor-pointer">
         {postsData.map((item) => (
           <div
             onClick={() => handleOpen(item)}
@@ -101,7 +101,7 @@ export default function Posts() {
             className="hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
           >
             {/* Card */}
-            <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col rounded-md">
+            <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col justify-between h-full rounded-md">
               {/* Image */}
               <div className="flex justify-center mb-1">
                 <img
@@ -153,32 +153,31 @@ function Modal({ item, closeModal }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-85">
       <div
         ref={modalRef}
-        className="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 p-6 shadow-lg"
+        className="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh] overflow-y-auto p-6 shadow-lg relative"
       >
         <button
           onClick={closeModal}
-          className="absolute top-2 right-2 text-lg p-1 text-white hover:text-gray-500"
+          className="absolute top-3 right-3 bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-full p-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
+              fillRule="evenodd"
+              d="M10 8.586l4.95-4.95a1 1 0 111.414 1.414L11.414 10l4.95 4.95a1 1 0 01-1.414 1.414L10 11.414l-4.95 4.95a1 1 0 01-1.414-1.414L8.586 10 3.636 5.05A1 1 0 015.05 3.636L10 8.586z"
+              clipRule="evenodd"
             />
           </svg>
         </button>
+
         <div className="flex flex-col items-center">
           <img
             src={item.image}
-            alt={item.title}
-            className="w-full h-auto rounded-lg mb-4"
+            alt={`post image ${item.id}`}
+            className="w-full h-40 object-cover rounded-md mb-2"
           />
           <h3 className="text-2xl font-semibold text-darkblue mb-2">
             {item.title}
