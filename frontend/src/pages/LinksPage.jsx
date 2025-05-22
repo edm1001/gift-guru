@@ -94,7 +94,8 @@ const QuizBanner = () => {
         className="text-base md:text-lg font-semibold text-white hover:text-blue-900"
       >
         <div className="w-full bg-darkblue p-2 md:p-4 text-center rounded-lg hover:bg-lightblue transition duration-200 mt-2 md:mt-0 cursor-pointer">
-          <FaGift color="white" />
+          {/* <FaGift color="white" /> */}
+          <h2>Coming Soon!</h2>
         </div>
       </Link>
     </div>
