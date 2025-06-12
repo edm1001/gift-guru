@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
+// import { FaGift } from "react-icons/fa";
 
 // FIXME: Fix cards because its not grabbing data correctly
-// TODO: update UI of quicklink card
 // TODO: add loading state
  
 const quickLinksData = [
@@ -48,19 +47,21 @@ const QuickLinks = ({ onLinkClick }) => {
 // ProductList Component
 const ProductList = ({ products }) => {
   return (
-    <div className="product-list p- mb-8">
-      <h1 className="my-12 text-center text-3xl text-blue">Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="product-list p-2 mb-8">
+      <h1 className="my-12 text-center text-4xl text-blue">Products</h1>
+
+      <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
           // quicklink product card 
           <Link to={`/shop/${product._id}`} key={product._id} className="">
-            <div className="product-card p-4 hover:scale-105 hover:ring-4 hover:ring-grey-300 transform transition-all duration-200 bg-lightblue rounded-md" >
+            <div className="product-card p-4 hover:scale-105 hover:ring-4 hover:ring-grey-300 transform transition-all duration-200 bg-lightblue rounded-md size-32 overflow-y-scroll" >
               <img
                 src={product.image?.[0].url || "/placeholder.jpg"}
-                alt={product.image[0].alt || product.name}
-                className="w-full h-auto rounded-lg mb-4"
+                // alt={product.image[0].alt || product.name}
+                // className="w-auto h-auto rounded-lg mb-4"
+                 className="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left justify-center "
               />
-              <h3 className="text-xl font-bold">{product.name}</h3>
+              <h3 className="text-md font-bold">{product.name}</h3>
               <p className="text-gray-800 font-semibold">
                 ${product.price.toFixed(2)}
               </p>
