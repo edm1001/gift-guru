@@ -1,10 +1,9 @@
-import Hero from "./Hero";
 
 export const About = () => {
   return (
     <section className="">
       <div className="bg-blue grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="col-span-2 p-12">
+        <div className="col-span-2 p-16">
           <h2 className="text-3xl font-bold pb-4 text-white">About Us</h2>
           <hr className="border border-grey" />
           <p className="text-base text-lightblue leading-relaxed">
@@ -30,9 +29,9 @@ export const About = () => {
             className=""
           />
         </div>
-        <div className="col-span-2 text-white p-12">
+        <div className="col-span-2 text-white p-16">
           <h2 className="text-3xl font-bold pb-2">
-            Find the Coolest Products Online
+            Find the Coolest Products
           </h2>
           <hr className="border border-grey" />
           <p className="text-base text-lightblue loading-relaxed">
