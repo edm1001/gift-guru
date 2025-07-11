@@ -82,6 +82,14 @@ const postsData = [
 
 export default function Posts() {
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const sortedPosts = postsData.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+  const featuredPost = sortedPosts[0];
+  const otherPosts = sortedPosts.slice(1);
+
   const handleOpen = (item) => {
     setSelectedItem(item);
   }; //open modal
@@ -90,44 +98,52 @@ export default function Posts() {
   }; //close modal
 
   return (
-    <div className="m-4">
-      {" "}
-      {/* Grab state and render the newest posts created on the website */}
-      <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 rounded-lg cursor-pointer">
-        {postsData.map((item) => (
+    <div className="m-4 space-y-8">
+      {/* Featured Post Section */}
+      <div
+        onClick={() => handleOpen(featuredPost)}
+        className="cursor-pointer hover:ring-4 hover:ring-blue-300 transition-transform transform hover:scale-105"
+      >
+        <div className="bg-white p-6 shadow-lg rounded-lg flex flex-col md:flex-row items-center">
+          <img
+            src={featuredPost.image}
+            alt={`Featured ${featuredPost.title}`}
+            className="w-full md:w-1/2 h-64 object-cover rounded-md"
+          />
+          <div className="mt-4 text-start  md:mt-0 md:ml-6 flex flex-col justify-center">
+            <h2 className="text-3xl font-bold text-darkblue">
+              {featuredPost.title}
+            </h2>
+            <p className="text-gray-700 my-2">{featuredPost.description}</p>
+            <p className="text-sm text-gray-500">
+              {featuredPost.company} • {featuredPost.date}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Grid of Other Posts */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2">
+        {otherPosts.map((item) => (
           <div
-            onClick={() => handleOpen(item)}
             key={item.id}
-            className="hover:scale-105 hover:ring-4 hover:ring-blue-300 transform transition-all duration-200"
+            onClick={() => handleOpen(item)}
+            className="bg-white p-4 shadow-md border border-gray-200 rounded-md hover:scale-105 transition-transform cursor-pointer"
           >
-            {/* Card */}
-            <div className="bg-white p-4 shadow-md border-b border-gray-300 flex flex-col justify-between h-full rounded-md">
-              {/* Image */}
-              <div className="flex justify-center mb-1">
-                <img
-                  src={item.image}
-                  alt={`post image ${item.id}`}
-                  className="w-20 h-20 object-cover rounded-md"
-                />
-              </div>
-              {/* Title and content */}
-              <div className="flex-grow">
-                <h3 className="text-md text-start text-darkblue font-semibold">
-                  {item.title}
-                </h3>
-                <div className="grid grid-cols-2">
-                  <p className="mr-1 text-start text-gray-500 underline col-span-1 text-xs md:text-base">
-                    {item.company}
-                  </p>
-                  <p className="ml-1 text-end text-gray-500 col-span-1 text-xxs md:text-sm">
-                    {item.date}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <img
+              src={item.image}
+              alt={`post image ${item.id}`}
+              className="w-full h-32 object-cover rounded-md mb-2"
+            />
+            <h3 className="text-lg font-semibold text-darkblue">
+              {item.title}
+            </h3>
+            <p className="text-sm text-gray-500">{item.company}</p>
+            <p className="text-xs text-gray-400">{item.date}</p>
           </div>
         ))}
       </div>
+
       {selectedItem && <Modal item={selectedItem} closeModal={handleClose} />}
     </div>
   );
