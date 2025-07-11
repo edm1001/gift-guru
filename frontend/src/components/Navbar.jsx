@@ -50,6 +50,12 @@ function Navbar() {
           </Link>
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            to="/quiz"
+          >
+            Discover
+          </Link>
+          <Link
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
             to="/contact"
           >
             Contact Us
