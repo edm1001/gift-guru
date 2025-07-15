@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const productsRoute = require('./Routes/productRoutes.js');
 const categoriesRoute = require('./Routes/categoryRoutes.js'); 
+const postsRoute = require('./Routes/postRoute.js');
 const cors = require("cors");
 dotenv.config();
 const PORT = process.env.PORT || 4001;
@@ -15,6 +16,8 @@ app.use(express.json());
 
 app.use("/api/products", productsRoute);
 app.use("/api/categories", categoriesRoute);
+app.use("/api/posts", postsRoute);
+
 app.get('/', (req, res) => {
   res.send('Server is up and running');
 });
