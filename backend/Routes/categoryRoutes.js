@@ -1,6 +1,7 @@
-const express = require("express");
-const Category = require("../Model/Category");
-const Subcategory = require("../Model/Subcategory");
+import express from "express";
+import Category from "../Model/Category.js";
+import Subcategory from "../Model/Subcategory.js";
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -26,4 +27,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router;

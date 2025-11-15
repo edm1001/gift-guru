@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const Product = require('../Model/Product.js');
+import express from 'express';
+import Product from '../Model/Product.js';
 
+const router = express.Router();
 
 // Get all products
 router.get('/', async (req, res) => {
@@ -69,5 +69,4 @@ router.post('/quick-links', async (req, res) => {
 });
 
 
-
-module.exports = router;
+export default router;

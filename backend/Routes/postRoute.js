@@ -1,5 +1,5 @@
 import express from "express";
-import Post from "../models/Post.js";
+import Post from "../Model/Post.js";
 
 const router = express.Router();
 // TODO:  (later add pagination here)
