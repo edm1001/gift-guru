@@ -17,7 +17,7 @@ const Footer = () => {
           <Link to="/links" onClick={scrollToTop}>Personalized Gifts</Link>
         </div>
         <div className="p-2 sm:p-4 hover:text-blue hover:underline cursor-pointer">
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/contact" onClick={scrollToTop}>Contact Us</Link>
         </div>
       </div>
       <div className="flex-grow p-4 flex items-center space-x-2 justify-center">

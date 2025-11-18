@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 bg-gray-100 opacity-90 z-50 shadow-md">
       <div className="flex justify-between items-center p-4">
-        <div className="text-blue font-bold text-2xl">
+        <div className="text-primary font-bold text-2xl">
           <Link to="/">WTFinds</Link>
         </div>
         <div className="sm:hidden">

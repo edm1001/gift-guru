@@ -102,16 +102,16 @@ export default function Posts() {
       {/* Featured Post Section */}
       <div
         onClick={() => handleOpen(featuredPost)}
-        className="cursor-pointer hover:ring-4 hover:ring-blue-300 transition-transform transform hover:scale-105"
+        className="cursor-pointer rounded-sm transition-transform transform hover:ring-4 hover:ring-secondary-300 hover:scale-105"
       >
-        <div className="bg-white p-6 shadow-lg rounded-lg flex flex-col md:flex-row items-center">
+        <div className="bg-white p-6 shadow-lg flex flex-col md:flex-row items-center rounded-sm">
           <img
             src={featuredPost.image}
             alt={`Featured ${featuredPost.title}`}
             className="w-full md:w-1/2 h-64 object-cover rounded-md"
           />
           <div className="mt-4 text-start  md:mt-0 md:ml-6 flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-darkblue">
+            <h2 className="text-3xl font-bold text-secondary">
               {featuredPost.title}
             </h2>
             <p className="text-gray-700 my-2">{featuredPost.description}</p>
@@ -128,14 +128,14 @@ export default function Posts() {
           <div
             key={item.id}
             onClick={() => handleOpen(item)}
-            className="bg-white p-4 shadow-md border border-gray-200 rounded-md hover:scale-105 transition-transform cursor-pointer"
+            className="bg-white p-4 shadow-md border border-gray-200 rounded-sm hover:scale-105 hover:ring-4 hover:ring-secondary transition-transform cursor-pointer"
           >
             <img
               src={item.image}
               alt={`post image ${item.id}`}
               className="w-full h-32 object-cover rounded-md mb-2"
             />
-            <h3 className="text-lg font-semibold text-darkblue">
+            <h3 className="text-lg font-semibold text-secondary">
               {item.title}
             </h3>
             <p className="text-sm text-gray-500">{item.company}</p>
@@ -169,7 +169,7 @@ function Modal({ item, closeModal }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-85">
       <div
         ref={modalRef}
-        className="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh] overflow-y-auto p-6 shadow-lg relative"
+        className="bg-white rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh] overflow-y-auto p-6 shadow-lg relative ring-4 ring-secondary"
       >
         <button
           onClick={closeModal}
@@ -199,7 +199,7 @@ function Modal({ item, closeModal }) {
             {item.title}
           </h3>
           <p className="text-accent mb-4 text-center">{item.description}</p>
-          <div className="text-sm text-gray-500 text-end">
+          <div className="text-sm text-gray-500 text-center">
             <p>{`Company: ${item.company}`}</p>
             <p>{`Date: ${item.date}`}</p>
           </div>
