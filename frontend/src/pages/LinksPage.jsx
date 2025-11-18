@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import About from "../components/About.jsx";
+import { About } from "../components/About";
 // import { FaGift } from "react-icons/fa";
 
 const quickLinksData = [
@@ -94,7 +95,7 @@ const QuickLinks = ({ onLinkClick }) => {
 const ProductList = ({ products }) => {
   return (
     <div className="product-list p-2 mb-8">
-      <h1 className="my-12 text-center text-4xl text-blue">Products</h1>
+      <h1 className="my-12 text-center text-4xl text-primary">Products</h1>
 
       <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
@@ -107,16 +108,17 @@ const ProductList = ({ products }) => {
                 // className="w-auto h-auto rounded-lg mb-4"
                 className="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left justify-center "
               />
-              <h3 className="text-md font-bold">{product.name}</h3>
-              <p className="text-gray-800 font-semibold">
+              <h5 className="text-md font-bold">{product.name}</h5>
+              <h6 className="text-gray-900">
                 ${product.price.toFixed(2)}
-              </p>
+              </h6>
               <a
                 href={product.affiliateLink}
                 className="text-blue-500 hover:underline"
               >
                 Buy Now
               </a>
+
             </div>
           </Link>
         ))}
@@ -197,14 +199,14 @@ const LinksPage = () => {
         <QuickLinks onLinkClick={handleLinkClick} />
       </div>
       {selectedLink && (
-        <div ref={productListRef}>
+        <div ref={productListRef} className="p-8 m-8 h-screen">
           {" "}
           <ProductList products={filteredProducts} />
         </div>
       )}
-      <QuizBanner />
       <div>
         <About />
+      <QuizBanner />
       </div>
     </div>
   );

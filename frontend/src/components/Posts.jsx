@@ -195,11 +195,11 @@ function Modal({ item, closeModal }) {
             alt={`post image ${item.id}`}
             className="w-full h-40 object-cover rounded-md mb-2"
           />
-          <h3 className="text-2xl font-semibold text-darkblue mb-2">
+          <h3 className="text-2xl font-semibold text-secondary mb-2">
             {item.title}
           </h3>
-          <p className="text-gray-600 mb-4 text-center">{item.description}</p>
-          <div className="text-sm text-gray-500">
+          <p className="text-accent mb-4 text-center">{item.description}</p>
+          <div className="text-sm text-gray-500 text-end">
             <p>{`Company: ${item.company}`}</p>
             <p>{`Date: ${item.date}`}</p>
           </div>

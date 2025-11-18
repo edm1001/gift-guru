@@ -6,19 +6,18 @@ import { FaYoutube, FaTiktok } from "react-icons/fa";
 const ContactPage = () => {
   return (
     <section className="mt-16">
-            <About />
-      <div className="flex justify-center bg-gray-100 p-8">
+      <div className="flex justify-center bg-gray-100 p-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col justify-center md:col-span-1">
-            <h3 className="text-2xl text-blue font-bold ">Have a Gift Idea?</h3>
-            <hr className="border border-blue mb-2" />
+            <h3 className="text-2xl text-primary font-bold ">Have a Gift Idea?</h3>
+            <hr className="border border-accent mb-1" />
             <p className="text-lg mb-4">
               We would love to hear from you! Fill out the form below to send us
               your suggestions.
             </p>
             <a
               href="mailto:gift-guide@gmail.com"
-              className="text-grey underline mb-4"
+              className="text-accent underline mb-4"
             >
               gift-guide@gmail.com
             </a>
@@ -88,9 +87,8 @@ const ContactPage = () => {
               <div className="flex justify-end">
                 <button type="submit">
                   <IoIosSend
-                    color="darkblue"
                     size={30}
-                    className="hover:scale-125 hover:opacity-70"
+                    className="text-primary hover:scale-125 hover:opacity-70"
                   />
                 </button>
               </div>
@@ -98,6 +96,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      <About />
 
     </section>
   );

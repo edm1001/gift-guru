@@ -28,34 +28,34 @@ function Navbar() {
           />
         </div>
         {/* desktop nav */}
-        <nav className="hidden sm:flex space-x-4 text-sm text-darkblue">
+        <nav className="hidden sm:flex space-x-4 text-sm text-primary">
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/shop"
           >
             Gifts
           </Link>
           {/* TODO: Set Up When Blog is ready with content */}
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/posts"
           >
             Trending
           </Link>
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/links"
           >
             Quicklinks
           </Link>
           {/* <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/quiz"
           >
             Discover
           </Link> */}
           <Link
-            className="font-bold py-2 px-4 hover:opacity-50 focus:text-grey focus:underline"
+            className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/contact"
           >
             Contact Us

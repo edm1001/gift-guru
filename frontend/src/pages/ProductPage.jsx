@@ -25,8 +25,8 @@ const ProductPage = () => {
   }
 
   return (
-    <section className="px-4 pb-4 mt-20 ">
-      <div className="flex flex-col h-full min-h-screen p-12  bg-white rounded-lg shadow-md">
+    <section className="">
+      <div className="flex flex-col h-full h-full p-8 my-24 mx-8 bg-white rounded-lg shadow-md">
         <h1 className="text-3xl text-blue mb-4">{product.name} </h1>
         <p className="text-sm font-semibold text-grey">
           Company: {product.company}

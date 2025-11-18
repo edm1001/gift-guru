@@ -7,15 +7,10 @@ const tailwindConfig = {
   theme: {
     extend: {
       colors: {
-        blue: "#007bff",
-        lightblue: "#e0f7fa",
-        darkblue: "#0056b3",
-        grey: "#7c9299",
-        primary: "#4F46E5",
-        secondary: "#F59E0B",
-        accent: "#10B981",
-        background: "#F9FAFB",
-        text: "#111827",
+        primary: "#0063cc",
+        secondary: "#70b5ff",
+        accent: "#7b7263",
+        background: "#555358"
       },
       fontSize: {
         "2xxs": "0.625rem",

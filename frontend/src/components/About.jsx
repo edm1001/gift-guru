@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 export const About = () => {
   return (
     <section className="">
-      <div className="bg-blue grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="bg-primary grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-2 p-16">
           <h2 className="text-3xl font-bold text-white">About Us</h2>
-          <hr className="border border-lightblue mb-2" />
+          <hr className="border border-secondary mb-2" />
           <p className="text-base text-white leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, ipsum
             fugit! Omnis sit debitis ullam exercitationem maxime corrupti iure
@@ -31,12 +31,12 @@ export const About = () => {
             className=""
           />
         </div>
-        <div className="col-span-2 text-blue p-16">
-          <h2 className="text-3xl font-bold">
+        <div className="col-span-2 text-accent p-16">
+          <h2 className="text-3xl font-bold text-primary">
             Find the Coolest Products
           </h2>
-          <hr className="border border-blue mb-2" />
-          <p className="text-base text-darkblue loading-relaxed">
+          <hr className="border  mb-1" />
+          <p className="text-base text-background loading-relaxed">
             Discover unique, trending, and innovative finds curated just for
             you.
           </p>
