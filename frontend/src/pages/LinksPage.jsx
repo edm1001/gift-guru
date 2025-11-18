@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
+import About from "../components/About.jsx";
 // import { FaGift } from "react-icons/fa";
 
-
 const quickLinksData = [
-  { id: "tech", name: "For Tech Geeks", tagMap: ["tech", "smart", "gadgets"] },
+  {
+    id: "tech",
+    name: "For Tech Geeks",
+    tagMap: ["tech", "smart", "gadgets"],
+  },
   {
     id: "nature",
     name: "For Nature Lovers",
@@ -151,9 +154,16 @@ const QuizBanner = () => {
 const LinksPage = () => {
   const [selectedLink, setSelectedLink] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const productListRef = useRef(null);
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
+    // Scroll to product list after selecting a link
+    setTimeout(() => {
+      if (productListRef.current) {
+        productListRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   useEffect(() => {
@@ -186,9 +196,16 @@ const LinksPage = () => {
       <div className="p-8">
         <QuickLinks onLinkClick={handleLinkClick} />
       </div>
-      {selectedLink && <ProductList products={filteredProducts} />}
+      {selectedLink && (
+        <div ref={productListRef}>
+          {" "}
+          <ProductList products={filteredProducts} />
+        </div>
+      )}
       <QuizBanner />
-      <Hero />
+      <div>
+        <About />
+      </div>
     </div>
   );
 };
