@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
 
+// TODO: replace to connect with mongoDB instead of local
+
 const postsData = [
   {
     id: 1,

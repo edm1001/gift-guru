@@ -30,7 +30,7 @@ const Footer = () => {
         <FaTiktok size={14} className="hover:scale-125 cursor-pointer" />
       </div>
       <p className="text-xs sm:text-sm text-gray-700 mt-4">
-        &copy; 2024 GiftGuide. All rights reserved.
+        &copy; 2025 GiftGuide. All rights reserved.
       </p>
     </div>
   );

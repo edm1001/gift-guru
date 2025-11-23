@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -8,6 +8,7 @@ const ShopPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
+  const dropdownRef = useRef(null);
 
   // Toggle category dropdown
   const toggleDropdown = (categoryId) => {
@@ -52,6 +53,22 @@ const ShopPage = () => {
     fetchProducts();
   }, []);
 
+  // close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
+        setOpenCategory(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   // Filter products based on selected subcategory
   const filteredProducts = selectedSubcategory
     ? allProducts.filter(
@@ -91,20 +108,20 @@ const ShopPage = () => {
           {categories.map((category) => (
             <div
               key={category._id}
-              className="relative text-darkblue text-center mt-2"
+              className="relative text-primary text-center mt-2"
             >
               {/* Category Button */}
               <button
                 onClick={() => toggleDropdown(category._id)}
-                className="font-bold rounded hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 p-1 text-xs"
+                className="font-bold rounded hover:bg-gray-300 focus:ring-2 focus:ring-blue-300 p-1 text-xs"
               >
                 {category.name}
               </button>
 
               {/* Subcategory Dropdown */}
               {openCategory === category._id && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-lg bg-darkblue w-56 z-10">
-                  <div className="flex flex-col space-y-1 text-white">
+                <div ref={dropdownRef} className="absolute left-1/2 transform -translate-x-1/2 mt-2 p-4 rounded shadow-md bg-gray-300 w-56 z-10">
+                  <div className="flex flex-col space-y-1 text-background">
                     {category.subcategories.length > 0 ? (
                       category.subcategories.map((subcategory) => (
                         <button
@@ -113,7 +130,7 @@ const ShopPage = () => {
                             setSelectedSubcategory(subcategory._id);
                             setOpenCategory(null);
                           }}
-                          className={`hover:underline hover:text-gray-200 text-sm ${
+                          className={`hover:underline hover:text-primary text-sm ${
                             selectedSubcategory === subcategory._id
                               ? "font-bold"
                               : ""
@@ -166,8 +183,8 @@ const ShopPage = () => {
             />
             <div className="p-4">
               <h4 className="text-sm font-bold">{product.name}</h4>
-              <p className="text-xs text-gray-600">By: {product.company}</p>
-              <p className="text-lg font-semibold text-blue-600">
+              <p className="text-xs text-secondary">By: {product.company}</p>
+              <p className="text-lg font-semibold text-secondary">
                 ${product.price}
               </p>
             </div>
