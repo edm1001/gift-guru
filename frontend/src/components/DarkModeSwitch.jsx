@@ -15,7 +15,7 @@ const DarkModeSwitch = () => {
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="p-2 rounded-full transition hover:bg-gray-200 dark:hover:bg-gray-700"
+      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
     >
       {theme === "light" ? (
         <FaSun className="w-5 h-5 text-yellow-500" />

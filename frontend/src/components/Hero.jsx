@@ -34,8 +34,8 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full">
-      <Slider {...settings} className="h-full">
+    <div className="w-full h-96 mb-8">
+      <Slider {...settings} className="">
         {slides.map((slide, index) => (
           <div key={index} className="relative h-full">
             <div className="flex justify-center items-center h-full">

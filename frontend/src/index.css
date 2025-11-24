@@ -9,9 +9,6 @@
     --background-color: #555358;
 }
 
-body {
-    background-color: var(--primary-color);
-}
 h1 {
     color: var(--primary-color)
 }

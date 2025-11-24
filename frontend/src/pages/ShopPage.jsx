@@ -82,7 +82,7 @@ const ShopPage = () => {
       : allProducts;
 
   return (
-    <section className="min-h-screen mt-16 bg-gray-100">
+    <section className="min-h-screen mt-16 bg-gray-100 dark:bg-background">
       {/* Hero Banner */}
       <div
         className="relative w-full h-96 bg-cover bg-center shadow-lg"
@@ -108,7 +108,7 @@ const ShopPage = () => {
           {categories.map((category) => (
             <div
               key={category._id}
-              className="relative text-primary text-center mt-2"
+              className="relative text-primary dark:text-white text-center mt-2"
             >
               {/* Category Button */}
               <button
@@ -158,17 +158,10 @@ const ShopPage = () => {
             </div>
           ))}
 
-          {/* Show Number of Products */}
-          <div className="w-full">
-            <h4 className="p-4 text-center text-gray-600">
-              Showing {filteredProducts.length} Gifts!
-            </h4>
-          </div>
-        </div>
-      </div>
+
 
       {/* Products Grid */}
-      <div className="min-h-screen">
+      <div className="min-h-screen pt-12">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {filteredProducts.map((product) => (
           <Link
@@ -192,6 +185,14 @@ const ShopPage = () => {
         ))}
       </div>
         
+      </div>
+                {/* Show Number of Products */}
+          <div className="w-full">
+            <h4 className="p-4 pb-12 text-center text-gray-600 dark:text-secondary">
+              Showing {filteredProducts.length} Gifts!
+            </h4>
+          </div>
+        </div>
       </div>
       
     </section>

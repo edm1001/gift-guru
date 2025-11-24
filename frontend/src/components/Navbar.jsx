@@ -23,13 +23,13 @@ function Navbar() {
             height={14}
             strokeWidth={2}
             rotate={0}
-            color="blue"
             borderRadius={0}
             animationDuration={0.5}
+            color="gray"
           />
         </div>
         {/* desktop nav */}
-        <nav className="hidden sm:flex space-x-4 text-sm text-primary dark:text-secondary">
+        <nav className="hidden sm:flex space-x-4 text-sm text-primary dark:text-white">
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/shop"
@@ -67,7 +67,7 @@ function Navbar() {
 
       {isOpen && (
         // mobile nav
-        <nav className="sm:hidden pb-4 shadow-sm text-center text-darkblue bg-gray-100 opacity-90 rounded-b-md text-sm">
+        <nav className="sm:hidden pb-4 shadow-sm text-center text-primary dark:text-white focus:text-underline focus:text-secondary bg-gray-300 dark:bg-background opacity-90 rounded-b-md text-sm">
           <Link
             className="block font-bold py-2 px-4 hover:opacity-50 hover:underline"
             to="/shop"
@@ -103,6 +103,7 @@ function Navbar() {
           >
             Contact Us
           </Link>
+          <DarkModeSwitch/>
         </nav>
       )}
     </div>

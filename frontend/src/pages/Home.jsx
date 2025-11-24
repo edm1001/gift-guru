@@ -6,7 +6,7 @@ import Posts from "../components/Posts";
 function Home() {
   return (
     <>
-      <section className="bg-gray-100 min-h-screen pb-8 mt-16 overflow-x-hidden">
+      <section className="bg-gray-100 dark:bg-background dark:text-white min-h-screen pb-8 mt-16 overflow-x-hidden">
         <Hero />
         <div className="w-full grid grid-cols-1 text-center">
           <div className="col-span-1 bg-gray-200 p-12">Ad Section</div>
@@ -14,8 +14,12 @@ function Home() {
           <div className="bg-gray-200 p-12">Ad Section</div>
         </div>
       </section>
-      <About />
-      <Newsletter />
+      <div className="dark:bg-background  p-8 ">
+        <About />
+      </div>
+      <div className="dark:bg-background p-4 pb-16">
+        <Newsletter />
+      </div>
     </>
   );
 }
