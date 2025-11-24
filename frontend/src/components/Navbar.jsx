@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Hamburger from "react-hamburger-menu";
+import DarkModeSwitch from "./DarkModeSwitch";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="fixed top-0 left-0 right-0 bg-gray-100 opacity-90 z-50 shadow-md">
+    <div className="fixed top-0 left-0 right-0 bg-gray-100 opacity-90 z-50 dark:bg-background  shadow-md">
       <div className="flex justify-between items-center p-4">
         <div className="text-primary font-bold text-2xl">
           <Link to="/">WTFinds</Link>
@@ -28,7 +29,7 @@ function Navbar() {
           />
         </div>
         {/* desktop nav */}
-        <nav className="hidden sm:flex space-x-4 text-sm text-primary">
+        <nav className="hidden sm:flex space-x-4 text-sm text-primary dark:text-secondary">
           <Link
             className="font-bold py-2 px-4 hover:opacity-50 focus:text-secondary focus:underline"
             to="/shop"
@@ -60,6 +61,7 @@ function Navbar() {
           >
             Contact Us
           </Link>
+          <DarkModeSwitch/>
         </nav>
       </div>
 
