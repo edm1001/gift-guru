@@ -22,7 +22,7 @@ function Newsletter() {
   }
 }
 return (
-  <div className="bg-white text-center p-8 dark:bg-background">
+  <div className="bg-gray-100 text-center p-8 dark:bg-gray-900">
     <h3 className="font-semibold text-primary dark:text-secondary text-3xl">Want Updates?</h3>
     <p className="p-2 text-accent dark:text-white">Sign up for our Newsletter to get updates and special discounts!</p>
     <form

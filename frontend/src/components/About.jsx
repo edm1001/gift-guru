@@ -22,7 +22,7 @@ export const About = () => {
         </div>
       </div>
 
-      <div className="bg-white grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="bg-gray-100 dark:bg-secondary grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* add a place holder img col besides*/}
         <div className="col-span-1 flex justify-center items-center m-2 ml-6">
           <img
@@ -31,17 +31,17 @@ export const About = () => {
             className=""
           />
         </div>
-        <div className="col-span-2 text-accent p-16">
+        <div className=" col-span-2 text-accent p-16">
           <h2 className="text-3xl font-bold text-primary">
             Find the Coolest Products
           </h2>
           <hr className="border  mb-1" />
-          <p className="text-base text-background loading-relaxed">
+          <p className="text-gray-500 loading-relaxed">
             Discover unique, trending, and innovative finds curated just for
             you.
           </p>
           <Link  to="/shop" >
-          <button className="bg-blue hover:bg-lightblue text-white font-semibold p-4 mt-4 rounded transition">Browse Now</button>
+          <button className="bg-primary hover:opacity-70 text-white font-semibold p-4 mt-4 rounded transition">Browse Now</button>
           </Link>
         </div>
       </div>

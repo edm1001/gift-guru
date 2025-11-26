@@ -71,8 +71,8 @@ const quickLinksData = [
 // QuickLinks Component
 const QuickLinks = ({ onLinkClick }) => {
   return (
-    <div className="quick-links-container p-2 mb-12">
-      <h1 className="mb-8 text-center text-blue text-5xl">Quick Links</h1>
+    <div className="quick-links-container p-2 mb-12 ">
+      <h1 className="mb-8 text-center text-primary dark:text-secondary text-5xl">Quick Links</h1>
       <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
           <div
@@ -170,7 +170,7 @@ const LinksPage = () => {
   }, [selectedLink]);
 
   return (
-    <div className="mt-16 bg-white min-h-screen flex flex-col gap-y-8">
+    <div className="mt-16 dark:bg-background min-h-screen flex flex-col gap-y-8">
       {/* Quick Links Section */}
       <div className="p-8">
         <QuickLinks onLinkClick={handleLinkClick} />

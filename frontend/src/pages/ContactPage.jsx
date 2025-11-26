@@ -5,19 +5,19 @@ import { FaYoutube, FaTiktok } from "react-icons/fa";
 // TODO: Work on sending email in backend, add image background for first col in con
 const ContactPage = () => {
   return (
-    <section className="mt-16">
-      <div className="flex justify-center bg-gray-100 p-16">
+    <section className="mt-16 dark:bg-background">
+      <div className="flex justify-center p-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col justify-center md:col-span-1">
-            <h3 className="text-2xl text-primary font-bold ">Have a Gift Idea?</h3>
+            <h3 className="text-2xl text-primary dark:text-secondary font-bold ">Have a Gift Idea?</h3>
             <hr className="border border-accent mb-1" />
-            <p className="text-lg mb-4">
+            <p className="text-lg mb-4 text-white">
               We would love to hear from you! Fill out the form below to send us
               your suggestions.
             </p>
             <a
               href="mailto:gift-guide@gmail.com"
-              className="text-accent underline mb-4"
+              className="text-accent dark:text-gray-400 underline mb-4"
             >
               gift-guide@gmail.com
             </a>
@@ -28,7 +28,7 @@ const ContactPage = () => {
           </div>
           {/* Contact FORM */}
           <div className="flex items-center justify-center md:col-span-2">
-            <form className="w-full max-w-lg bg-gray-400 opacity-70 p-8 rounded-lg shadow-md">
+            <form className="w-full max-w-lg bg-gray-400 dark:bg-gray-300 opacity-70 p-8 rounded-lg shadow-md">
               <div className="mb-4 flex flex-col md:flex-row md:space-x-4">
                 <div className="flex-1 mb-4 md:mb-0">
                   <label
@@ -88,7 +88,7 @@ const ContactPage = () => {
                 <button type="submit">
                   <IoIosSend
                     size={30}
-                    className="text-primary hover:scale-125 hover:opacity-70"
+                    className="text-primary dark:text-accent hover:scale-125 hover:opacity-70"
                   />
                 </button>
               </div>

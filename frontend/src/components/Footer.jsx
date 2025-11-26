@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToTop = () => window.scrollTo(0, 0);
+
   return (
-    <div className="bg-gray-200 p-4 text-center dark:bg-background dark:text-white">
+    <div className="bg-gray-200 p-4 text-center dark:bg-gray-700 dark:text-white">
       {/* Create a row for all footer items */}
       <div className="flex flex-wrap justify-around items-center text-xs sm:text-sm">
         <div className="p-2 sm:p-4 hover:text-secondary hover:underline cursor-pointer">
