@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import productsRoute from "./Routes/productRoutes.js";
 import categoriesRoute from "./Routes/categoryRoutes.js";
 import postsRoute from "./Routes/postRoute.js";
+import contactRoute from "./Routes/contact.js";
 import cors from "cors";
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/api/products", productsRoute);
 app.use("/api/categories", categoriesRoute);
 app.use("/api/posts", postsRoute);
+app.use("/api/contact", contactRoute);
 
 app.get("/", (req, res) => {
   res.send("Server is up and running");

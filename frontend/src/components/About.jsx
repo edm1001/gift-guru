@@ -6,7 +6,7 @@ export const About = () => {
       <div className="bg-primary grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-2 p-16">
           <h2 className="text-3xl font-bold text-white">About Us</h2>
-          <hr className="border border-secondary mb-2" />
+          <hr className="border border-accent mb-2" />
           <p className="text-base text-white leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, ipsum
             fugit! Omnis sit debitis ullam exercitationem maxime corrupti iure

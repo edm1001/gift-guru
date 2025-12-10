@@ -3,7 +3,24 @@ import { About } from "../components/About";
 import { FaYoutube, FaTiktok } from "react-icons/fa";
 
 // TODO: Work on sending email in backend, add image background for first col in con
+
 const ContactPage = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    e.target.reset();
+  };
+
   return (
     <section className="mt-16 dark:bg-background">
       <div className="flex justify-center p-16">
@@ -28,7 +45,7 @@ const ContactPage = () => {
           </div>
           {/* Contact FORM */}
           <div className="flex items-center justify-center md:col-span-2">
-            <form className="w-full max-w-lg bg-gray-400 dark:bg-gray-300 opacity-70 p-8 rounded-lg shadow-md">
+            <form className="w-full max-w-lg bg-gray-400 dark:bg-gray-300 opacity-70 p-8 rounded-lg shadow-md" onSubmit={handleSubmit}>
               <div className="mb-4 flex flex-col md:flex-row md:space-x-4">
                 <div className="flex-1 mb-4 md:mb-0">
                   <label
