@@ -1,4 +1,4 @@
-import Newsletter from "../components/Newsletter";
+// import Newsletter from "../components/Newsletter";
 import { About } from "../components/About";
 import Hero from "../components/Hero";
 import Posts from "../components/Posts";
@@ -18,7 +18,7 @@ function Home() {
         <About />
       </div>
       <div className="dark:bg-background p-4 pb-16">
-        <Newsletter />
+        {/* <Newsletter /> */}
       </div>
     </>
   );

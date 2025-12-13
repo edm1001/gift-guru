@@ -72,7 +72,9 @@ const quickLinksData = [
 const QuickLinks = ({ onLinkClick }) => {
   return (
     <div className="quick-links-container p-2 mb-12 ">
-      <h1 className="mb-8 text-center text-primary dark:text-secondary text-5xl">Quick Links</h1>
+      <h1 className="mb-8 text-center text-primary dark:text-secondary text-5xl">
+        Quick Links
+      </h1>
       <div className="grid grid-cols-3 md:grid-cols-4 h-full gap-4">
         {quickLinksData.map((link) => (
           <div
@@ -98,11 +100,16 @@ const ProductList = ({ products }) => {
     <div className="product-list p-2 mb-8">
       <h1 className="my-12 text-center text-4xl text-primary">Products</h1>
 
-      <div className="p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product) => (
           // quicklink product card
-          <Link to={`/shop/${product._id}`} key={product._id} className="">
-            <div className="product-card p-4 hover:scale-105 hover:ring-4 hover:ring-grey-300 transform transition-all duration-200 bg-lightblue rounded-md size-32 overflow-y-scroll">
+          <Link to={`/shop/${product._id}`} key={product._id} className="p-4">
+            <div
+              className="product-card bg-lightblue rounded-md p-8
+                flex flex-col items-center justify-center text-center gap-2
+                hover:scale-105 hover:ring-4 hover:ring-gray-300
+                transition-all duration-200"
+            >
               <img
                 src={product.image?.[0].url || "/placeholder.jpg"}
                 // alt={product.image[0].alt || product.name}
@@ -110,16 +117,13 @@ const ProductList = ({ products }) => {
                 className="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left justify-center "
               />
               <h5 className="text-md font-bold">{product.name}</h5>
-              <h6 className="text-gray-900">
-                ${product.price.toFixed(2)}
-              </h6>
+              <h6 className="text-gray-900">${product.price.toFixed(2)}</h6>
               <a
                 href={product.affiliateLink}
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 font-bold hover:underline"
               >
                 Buy Now
               </a>
-
             </div>
           </Link>
         ))}
@@ -127,7 +131,6 @@ const ProductList = ({ products }) => {
     </div>
   );
 };
-
 
 // LinksPage Component
 const LinksPage = () => {
@@ -183,7 +186,7 @@ const LinksPage = () => {
       )}
       <div>
         <About />
-      <QuizBanner />
+        <QuizBanner />
       </div>
     </div>
   );
